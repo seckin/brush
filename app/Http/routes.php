@@ -11,6 +11,20 @@
 |
 */
 
+use App\Email;
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/email', function () {
+    return view('email');
+});
+
+Route::post('/email', function (Request $request) {
+	$email = new Email;
+	$email->email = $request->email;
+	$email->save();
+    return view('email_result');
 });
