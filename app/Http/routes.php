@@ -66,3 +66,7 @@ Route::post('/create-artist', function (Request $request) {
 
 	return $artist;
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
