@@ -16,6 +16,7 @@ use App\Artist;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+require_once(app_path().'/../vendor/autoload.php');
 
 Route::get('/', function () {
     return view('welcome');
@@ -70,3 +71,32 @@ Route::post('/create-artist', function (Request $request) {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/payment', function () {
+    return view('payment');
+});
+
+Route::post('/charge', function (Request $request) {
+	// Set your secret key: remember to change this to your live secret key in production
+	// See your keys here: https://dashboard.stripe.com/account/apikeys
+	\Stripe\Stripe::setApiKey("sk_live_5mwPn4FvBtOByFUn3tS76ETY");
+
+	// echo "request->stripeToken: " . $request->stripeToken . "\n";
+	// echo json_encode($request->all()) . "\n";
+
+	// Token is created using Stripe.js or Checkout!
+	// Get the payment token submitted by the form:
+	$token = $_POST['stripeToken'];
+	// echo "token:" . $token;
+
+	// Charge the user's card:
+	$charge = \Stripe\Charge::create(array(
+	  "amount" => 200,
+	  "currency" => "try",
+	  "description" => "Example charge",
+	  "metadata" => array("order_id" => 6735),
+	  "source" => $token,
+	));
+
+    return view('charge');
+});

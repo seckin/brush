@@ -73,10 +73,17 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
+
                 </div>
+
             </div>
+            
         </div>
     </div>
+</div>
+<div class="row" style="position: fixed;bottom: 10px;width: 100%;">
+    <p style="font-style: italic;text-align: center;">All Your Base Are Belong To Us</p>
 </div>
 @endsection
