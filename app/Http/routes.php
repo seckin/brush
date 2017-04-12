@@ -108,9 +108,15 @@ Route::post('/charge', function (Request $request) {
     return view('charge');
 });
 
+Route::get('/api/v1/artists', function () {
+	$results = Artist::orderBy('created_at', 'asc')->get();
+	return $results;
+});
+
 Route::get('/api/v1/artists/{artist_id}', function ($artist_id) {
 	$artist = Artist::find($artist_id);
-	$designs = Artist::with('designs')->find($artist_id)->designs;
+	//$designs = Artist::with('designs')->find($artist_id)->designs;
+	$designs = $artist->designs;
 	$artist->designs = $designs;
 	return array($artist);
 });
@@ -120,7 +126,9 @@ Route::get('/api/v1/designs', function () {
 	return $results;
 });
 
-Route::get('/api/v1/artists', function () {
-	$results = Artist::orderBy('created_at', 'asc')->get();
-	return $results;
+Route::get('/api/v1/designs/{design_id}', function ($design_id) {
+	$design = Design::find($design_id);
+	$artist = $design->artist;
+	$design->artist = $artist;
+	return $design;
 });
