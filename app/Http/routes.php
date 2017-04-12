@@ -13,6 +13,7 @@
 
 use App\Email;
 use App\Artist;
+use App\Design;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -38,24 +39,8 @@ Route::get('/create-artist', function () {
 });
 
 Route::post('/create-artist', function (Request $request) {
-	$s3Prefix = 'https://s3-eu-west-1.amazonaws.com/trybrush';
-	$highlightedImage = $request->file('highlighted_image');
-	// echo "highlightedImage: " . $highlightedImage;
-	$highlightedImageFileName = time() . "-" . $highlightedImage->getClientOriginalName();
-	// echo "highlightedImageFileName: " . $highlightedImageFileName;
-	$s3 = \Storage::disk('s3');
-	$highlightedFilePath = '/images/' . $highlightedImageFileName;
-	$result = $s3->put($highlightedFilePath, file_get_contents($highlightedImage), 'public');
-	$highlightedImageUrl = $s3Prefix . $highlightedFilePath;
-
-	$profileImage = $request->file('profile_image');
-	$profileImageFileName = time() . "-" . $profileImage->getClientOriginalName();
-	// echo "profileImageFileName: " . $profileImageFileName;
-	$profileFilePath = '/images/' . $profileImageFileName;
-	$result = $s3->put($profileFilePath, file_get_contents($profileImage), 'public');
-	$profileImageUrl = $s3Prefix . $profileFilePath;
-	// echo "filePath:" . $profileFilePath;
-	// https://s3-eu-west-1.amazonaws.com/trybrush/images/15123073_1357558120922581_4395957158623499304_o.jpg-1491856369.jpg
+	$highlightedImageUrl = upload_to_s3($request->file('highlighted_image'));
+	$profileImageUrl = upload_to_s3($request->file('profile_image'));
 
 	$artist = new Artist;
 	$artist->name = $request->name;
@@ -66,6 +51,28 @@ Route::post('/create-artist', function (Request $request) {
 	$artist->save();
 
 	return $artist;
+});
+
+Route::get('/create-design', function () {
+    return view('create_design');
+});
+
+Route::post('/create-design', function (Request $request) {
+	$imageUrl = upload_to_s3($request->file('image'));
+	$tshirtImageUrl = upload_to_s3($request->file('tshirt_image'));
+	$canvasImageUrl = upload_to_s3($request->file('canvas_image'));
+
+	$design = new Design;
+	$design->name = $request->name;
+	$design->artist_id = $request->artist_id;
+	$design->tshirt_price = $request->tshirt_price;
+	$design->canvas_price = $request->canvas_price;
+	$design->image = $imageUrl;
+	$design->tshirt_image = $tshirtImageUrl;
+	$design->canvas_image = $canvasImageUrl;
+	$design->save();
+
+	return $design;
 });
 
 Route::auth();
@@ -99,4 +106,21 @@ Route::post('/charge', function (Request $request) {
 	));
 
     return view('charge');
+});
+
+Route::get('/api/v1/artists/{artist_id}', function ($artist_id) {
+	$artist = Artist::find($artist_id);
+	$designs = Artist::with('designs')->find($artist_id)->designs;
+	$artist->designs = $designs;
+	return array($artist);
+});
+
+Route::get('/api/v1/designs', function () {
+	$results = Design::orderBy('created_at', 'asc')->get();
+	return $results;
+});
+
+Route::get('/api/v1/artists', function () {
+	$results = Artist::orderBy('created_at', 'asc')->get();
+	return $results;
 });
