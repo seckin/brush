@@ -20,7 +20,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 require_once(app_path().'/../vendor/autoload.php');
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('index');
+    // return view('welcome');
 });
 
 Route::get('/email', function () {
