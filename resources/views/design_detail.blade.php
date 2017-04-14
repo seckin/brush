@@ -27,7 +27,7 @@
     
 </head>
 
-<body id="home">
+<body id="designs" class="design subpage">
     <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -64,46 +64,61 @@
             </a>
         </div>
     </nav>
-    <header>
-    <div class="container">
-        <h1>Limited Number of Artworks by Local Artists</h1>
-        <p>Visual art is a human activity in creating visual artworks, expressing the artist's imaginative or technical skill, intended to be appreciated for their beauty or emotional power.</p>
-        <a class="button" role="button">BUY ARTWORKS</a>
-    </div>
-	</header>
-	<section class="featured">
+    <header class="blank"></header>
+	<section id="design-detail" data-tab="design">
 	    <div class="container">
-	        <h3>Featured Artists</h3>
-	        <div class="quadruple stack">
-	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Johannah-ODonnell-profile.jpg" />
-	                <p>Johannah O'Donnell</p>
-	            </div>
-	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Fab-Ciraolo-profile.jpg" />
-	                <p>Fab Ciraolo</p>
-	            </div>
-	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Ruben-Ireland-profile.jpg" />
-	                <p>Ruben Ireland</p>
-	            </div>
-	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Jenny-Liz-Rome-profile.jpg" />
-	                <p>Jenny Liz Rome</p>
-	            </div>
-	        </div>
+            <div class="information">
+                <div class="head">
+                    <h3>Frida</h3>
+                    <p>by <b><a href="#">Marie Bergeron</a></b></p>
+                    <div class="tabbing">
+                        <a class="tab active" data-id="design"></a>
+                        <a class="tab" data-id="canvas"></a>
+                        <a class="tab" data-id="tshirt"></a>
+                        <a class="tab" data-id="mug"></a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="design">
+                        <h3>Description</h3>
+                        <p>Bergeron's style is inspired by many, including flicks and games. Somehow, a more graphic approach contrasted with organic strokes. Always tries to focus the eye on one particular subject, sometimes complexed yet simple. Working with digital tools always suited her best.</p>
+                        <h3>Tags</h3>
+                        <p class="tags">
+                            <a href="#">Frida</a>
+                            <a href="#">Frida</a>
+                            <a href="#">Frida</a>
+                            <a href="#">Frida</a>
+                            <a href="#">Frida</a>
+                        </p>
+                    </div>
+                    <div class="canvas">
+                        <h3>Canvas</h3>
+                        <p>Canvas content</p>
+                    </div>
+                    <div class="tshirt">
+                        <h3>Tshirt</h3>
+                        <p>Tshirt content</p>
+                    </div>
+                    <div class="mug">
+                        <h3>Mug</h3>
+                        <p>Mug content</p>
+                    </div>
+                </div>
+            </div>
+            <div class="display">
+                <img src="/assets/content/sample/artwork/02.png" />
+            </div>
 	    </div>
 	</section>
 	<section class="showcase">
 	    <div class="container">
-	        <h3>Popular Artworks</h3>
+	        <h3>Similar Designs</h3>
 	        <div class="cards">
 	            <div class="card item">
 	                <a href="/designs/design">
 	                    <img src="/assets/content/sample/artwork/01.png" />
 	                    <p>Cool Artworkname</p>
 	                </a>
-
 	            </div>
 	            <div class="card item">
 	                <a href="/designs/design">

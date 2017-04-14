@@ -109,6 +109,10 @@ Route::post('/charge', function (Request $request) {
     return view('charge');
 });
 
+Route::get('/designs/design', function () {
+    return view('design_detail');
+});
+
 Route::get('/api/v1/artists', function () {
 	$results = Artist::orderBy('created_at', 'asc')->get();
 	return $results;
