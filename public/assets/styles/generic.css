@@ -112,7 +112,7 @@ header > .container, section > .container { margin: 4% auto; }
 
 /* Header */
 
-header { display: block; width: 100%; min-height: auto; background-image: url('/assets/images/interface/bg-header.jpg'); background-position: center; background-size: cover; }
+header { display: block; width: 100%; min-height: auto; background-image: url('/assets/images/interface/bg-header.jpg'); background-position: center top; background-size: cover; }
 header a { display: inline; }
 header > .container > h1, header > .container h1 { display: block; margin: 3% 0; font-size: 48px; text-align: center; }
 header .container { position: relative; height: auto; transition: left 1s ease; }
@@ -172,8 +172,8 @@ section#design-detail > .container { position: relative; top: -200px; margin: 4%
 section#design-detail > .container > div { position: relative; }
 section#design-detail > .container > div.display { float: left; width: 42%; border-style: solid; border-width: 0px 2px; -moz-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -webkit-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -o-border-image: url(/assets/images/interface/border-image.png) 27 stretch; border-image: url(/assets/images/interface/border-image.png) 27 fill; }
 section#design-detail > .container > div.display > img { box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
-section#design-detail > .container > div.information { float: right; width: 55%; height: 150px; margin-left: 3%; }
-section#design-detail > .container > div.information .head { height: 150px; }
+section#design-detail > .container > div.information { float: right; width: 55%; margin-left: 3%; }
+section#design-detail > .container > div.information .head { display: inline-block; position: relative; width: 100%; height: 150px; }
 section#design-detail > .container > div.information .head > h3 { margin-top: 1%; font-size: 2.4em; line-height: 75%; text-transform: uppercase; }
 section#design-detail > .container > div.information .head > h3 + p { margin: 0; margin-top: 2%; line-height: 75%; }
 section#design-detail > .container > div.information .head > .tabbing { float: right; position: absolute; left: 0; bottom: 0; width: 100%; height: 50px; }
