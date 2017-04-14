@@ -20,7 +20,12 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 require_once(app_path().'/../vendor/autoload.php');
 
 Route::get('/', function () {
-	return view('index');
+	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
+	$designs = Design::orderBy('created_at', 'asc')->limit(8)->get();
+	return view('index', [
+		"artists" => $artists,
+		"designs" => $designs
+	]);
     // return view('welcome');
 });
 
@@ -132,4 +137,11 @@ Route::get('/api/v1/designs/{design_id}', function ($design_id) {
 	$artist = $design->artist;
 	$design->artist = $artist;
 	return $design;
+});
+
+Route::post('/api/v1/emails', function (Request $request) {
+	$email = new Email;
+	$email->email = $request->email;
+	$email->save();
+	return array("saved" => "true");
 });

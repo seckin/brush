@@ -13,6 +13,7 @@
     <meta property="og:description" content="" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:site_name" content="" />
+    <meta name="_token" content="{{ csrf_token() }}">
     <title></title>
     <link rel="icon" type="image/png" href="/assets/images/identity/icon.png">
     
@@ -22,7 +23,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/generic.js"></script>
     
 </head>
@@ -42,11 +43,11 @@
                 <img src="/assets/images/identity/logo.png">
             </a>
             <div class="menu">
-                <a class="home link" href="/home">HOME</a>
+                <a class="home link active" href="/">HOME</a>
                 <a class="projeler link" href="/artists">ARTISTS</a>
                 <a class="nedir link" href="/artworks">ARTWORKS</a>
                 <a class="haberler link" href="/about">ABOUT</a>
-                <a class="iletisim link" href="/contact">CONTACT</a>
+                <a class="iletisim link" href="mailto:team@trybrush.com">CONTACT</a>
                 <!--
                 <div class="submenu">
                     <div class="arrow"> </div>
@@ -66,7 +67,7 @@
     </nav>
     <header class="extended">
     <div class="container">
-        <h1>Limited Number of Artworks by Local Artists</h1>
+        <h1>Limited Number of Designs by Local Artists</h1>
         <p>Visual art is a human activity in creating visual artworks, expressing the artist's imaginative or technical skill, intended to be appreciated for their beauty or emotional power.</p>
         <a class="button" role="button">BUY ARTWORKS</a>
     </div>
@@ -75,22 +76,12 @@
 	    <div class="container">
 	        <h3>Featured Artists</h3>
 	        <div class="quadruple stack">
+	        	@foreach($artists as $artist)
 	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Johannah-ODonnell-profile.jpg" />
-	                <p>Johannah O'Donnell</p>
+	                <img src="{{$artist->profile_image}}" />
+	                <p>{{$artist->name}}</p>
 	            </div>
-	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Fab-Ciraolo-profile.jpg" />
-	                <p>Fab Ciraolo</p>
-	            </div>
-	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Ruben-Ireland-profile.jpg" />
-	                <p>Ruben Ireland</p>
-	            </div>
-	            <div class="item">
-	                <img src="https://www.gauntletgallery.com/pub/media/catalog/category/new_images/artist/Jenny-Liz-Rome-profile.jpg" />
-	                <p>Jenny Liz Rome</p>
-	            </div>
+	            @endforeach
 	        </div>
 	    </div>
 	</section>
@@ -98,58 +89,14 @@
 	    <div class="container">
 	        <h3>Popular Artworks</h3>
 	        <div class="cards">
+	        	@foreach($designs as $design)
 	            <div class="card item">
 	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/01.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-
-	            </div>
-	            <div class="card item">
-	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/02.png" />
-	                    <p>Cool Artworkname</p>
+	                    <img src="{{$design->image}}" />
+	                    <p>{{$design->name}}</p>
 	                </a>
 	            </div>
-	            <div class="card item">
-	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/03.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-
-	            </div>
-	            <div class="card item">
-	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/04.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
-	            <div class="card item">
-	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/05.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-
-	            </div>
-	            <div class="card item">
-	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/06.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
-	            <div class="card item">
-	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/07.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-
-	            </div>
-	            <div class="card item">
-	                <a href="/artworks/artwork">
-	                    <img src="assets/content/sample/artwork/08.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
+	            @endforeach
 	        </div>
 	    </div>
 	</section>
@@ -161,9 +108,35 @@
 	        </div>
 	        <div class="subscribe">
 	            <input id="email" type="email" name="email" size="30" placeholder="Enter your email address">
-	            <a href="" class="button" role="button">JOIN</a>
+	            <a href="javascript:void(0)" class="button" role="button">JOIN</a>
+	            <div class="email-saved" style="display:none;color: white;text-align: center;margin-top: 5px;">Email saved!</div>
 	        </div>
 	    </div>
+	    <script>
+	    $(document).ready(function () {
+	    	$.ajaxSetup({
+		        headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		    });
+	    	$(".subscribe .button").click(function() {
+	    		var email = $(".subscribe #email").val();
+	    		$.ajax({
+					url: '/api/v1/emails',
+					type: 'POST',
+					data: {
+					  email: email
+					},
+					error: function() {
+					  $('#info').html('<p>An error has occurred</p>');
+					},
+					// dataType: 'jsonp',
+					success: function(data) {
+						$(".subscribe #email").val('');
+						$(".subscribe .email-saved").css({"display": "block"});
+					}
+				});
+	    	});
+	    });
+	    </script>
 	</section>
     <!--
     <footer>
