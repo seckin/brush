@@ -56,3 +56,27 @@ $(window).scroll(function() {
         $('nav').css('box-shadow', '0 1px 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .2)');
     }
 });
+
+$(document).ready(function () {
+    $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+    });
+    $(".subscribe .button").click(function() {
+        var email = $(".subscribe #email").val();
+        $.ajax({
+            url: '/api/v1/emails',
+            type: 'POST',
+            data: {
+              email: email
+            },
+            error: function() {
+              $('#info').html('<p>An error has occurred</p>');
+            },
+            // dataType: 'jsonp',
+            success: function(data) {
+                $(".subscribe #email").val('');
+                $(".subscribe .email-saved").css({"display": "block"});
+            }
+        });
+    });
+});

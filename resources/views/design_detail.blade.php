@@ -1,31 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta property="og:title" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:locale" content="tr_TR" />
-    <meta property="og:site_name" content="" />
-    <title></title>
-    <link rel="icon" type="image/png" href="/assets/images/identity/icon.png">
-    
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/reset.css') }}">
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/generic.css') }}">
+@extends('layouts.main')
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/scripts/generic.js"></script>
-    
-</head>
+@section('content')
 
 <body id="designs" class="design subpage">
     <section class="status">
@@ -69,27 +44,27 @@
 	    <div class="container">
             <div class="information">
                 <div class="head">
-                    <h3>Frida</h3>
-                    <p>by <b><a href="#">Marie Bergeron</a></b></p>
+                    <h3>{{$design->name}}</h3>
+                    <p>by <b><a href="#">{{$design->artist->name}}</a></b></p>
                     <div class="tabbing">
                         <a class="tab active" data-id="design"></a>
                         <a class="tab" data-id="canvas"></a>
                         <a class="tab" data-id="tshirt"></a>
-                        <a class="tab" data-id="mug"></a>
+                        <!-- <a class="tab" data-id="mug"></a> -->
                     </div>
                 </div>
                 <div class="body">
                     <div class="design">
                         <h3>Description</h3>
-                        <p>Bergeron's style is inspired by many, including flicks and games. Somehow, a more graphic approach contrasted with organic strokes. Always tries to focus the eye on one particular subject, sometimes complexed yet simple. Working with digital tools always suited her best.</p>
-                        <h3>Tags</h3>
+                        <p>{{$design->description}}</p>
+                        <!-- <h3>Tags</h3>
                         <p class="tags">
                             <a href="#">Frida</a>
                             <a href="#">Frida</a>
                             <a href="#">Frida</a>
                             <a href="#">Frida</a>
                             <a href="#">Frida</a>
-                        </p>
+                        </p> -->
                     </div>
                     <div class="canvas">
                         <h3>Canvas</h3>
@@ -106,7 +81,10 @@
                 </div>
             </div>
             <div class="display">
-                <img src="/assets/content/sample/artwork/02.png" />
+                <img class="design" src="{{$design->image}}" />
+                <img class="canvas" src="{{$design->canvas_image}}" />
+                <img class="tshirt" src="{{$design->tshirt_image}}" />
+                <!-- <img class="mug" src="/assets/content/sample/artwork/04.png" /> -->
             </div>
 	    </div>
 	</section>
@@ -114,57 +92,14 @@
 	    <div class="container">
 	        <h3>Similar Designs</h3>
 	        <div class="cards">
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/01.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/02.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/03.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-
-	            </div>
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/04.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/05.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-
-	            </div>
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/06.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/07.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-
-	            </div>
-	            <div class="card item">
-	                <a href="/designs/design">
-	                    <img src="/assets/content/sample/artwork/08.png" />
-	                    <p>Cool Artworkname</p>
-	                </a>
-	            </div>
+	            @foreach($similar_designs as $design)
+                <div class="card item">
+                    <a href="/designs/{{$design->id}}">
+                        <img src="{{$design->image}}" />
+                        <p>{{$design->name}}</p>
+                    </a>
+                </div>
+                @endforeach
 	        </div>
 	    </div>
 	</section>
@@ -204,4 +139,4 @@
     </section>
     -->
 </body>
-</html>
+@endsection

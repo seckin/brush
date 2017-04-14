@@ -171,7 +171,7 @@ section#design-detail { margin-bottom: -200px; }
 section#design-detail > .container { position: relative; top: -200px; margin: 4% auto; margin-top: 50px; }
 section#design-detail > .container > div { position: relative; }
 section#design-detail > .container > div.display { float: left; width: 42%; border-style: solid; border-width: 0px 2px; -moz-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -webkit-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -o-border-image: url(/assets/images/interface/border-image.png) 27 stretch; border-image: url(/assets/images/interface/border-image.png) 27 fill; }
-section#design-detail > .container > div.display > img { box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
+section#design-detail > .container > div.display > img { display:none; box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
 section#design-detail > .container > div.information { float: right; width: 55%; height: 150px; margin-left: 3%; }
 section#design-detail > .container > div.information .head { height: 150px; }
 section#design-detail > .container > div.information .head > h3 { margin-top: 1%; font-size: 2.4em; line-height: 75%; text-transform: uppercase; }

@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta property="og:title" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:locale" content="tr_TR" />
-    <meta property="og:site_name" content="" />
-    <meta name="_token" content="{{ csrf_token() }}">
-    <title></title>
-    <link rel="icon" type="image/png" href="/assets/images/identity/icon.png">
-    
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/reset.css') }}">
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/generic.css') }}">
+@extends('layouts.main')
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="/assets/scripts/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/assets/scripts/generic.js"></script>
-    
-</head>
-
+@section('content')
 <body id="home">
     <section class="status">
         <div class="container">
@@ -113,31 +86,6 @@
 	            <div class="email-saved" style="display:none;color: white;text-align: center;margin-top: 5px;">Email saved!</div>
 	        </div>
 	    </div>
-	    <script>
-	    $(document).ready(function () {
-	    	$.ajaxSetup({
-		        headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
-		    });
-	    	$(".subscribe .button").click(function() {
-	    		var email = $(".subscribe #email").val();
-	    		$.ajax({
-					url: '/api/v1/emails',
-					type: 'POST',
-					data: {
-					  email: email
-					},
-					error: function() {
-					  $('#info').html('<p>An error has occurred</p>');
-					},
-					// dataType: 'jsonp',
-					success: function(data) {
-						$(".subscribe #email").val('');
-						$(".subscribe .email-saved").css({"display": "block"});
-					}
-				});
-	    	});
-	    });
-	    </script>
 	</section>
     <!--
     <footer>
@@ -163,4 +111,4 @@
     </section>
     -->
 </body>
-</html>
+@endsection

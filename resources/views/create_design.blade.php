@@ -23,6 +23,9 @@
                     Name: <input type="text" name="name" value="">
                     <span class="error">* Invalid Name</span>
                     <br><br>
+                    Description: <input type="text" name="description" value="">
+                    <span class="error">* Invalid Description</span>
+                    <br><br>
                     Artist Id: <input type="text" name="artist_id" value="">
                     <span class="error">* Invalid Artist Id</span>
                     <br><br>
