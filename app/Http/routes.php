@@ -127,6 +127,13 @@ Route::get('/designs/{design_id}', function ($design_id) {
     ]);
 });
 
+Route::get('/designs', function () {
+	$designs = Design::orderBy('created_at', 'asc')->get();
+	return view('designs', [
+		"designs" => $designs
+	]);
+});
+
 Route::get('/api/v1/artists', function () {
 	$results = Artist::orderBy('created_at', 'asc')->get();
 	return $results;
