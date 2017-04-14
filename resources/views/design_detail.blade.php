@@ -3,42 +3,17 @@
 @section('content')
 
 <body id="designs" class="design subpage">
-    <section class="status">
+    <!-- <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
         </div>
         <a href="#">
             <img src="/assets/images/interface/icon-close.png" />
         </a>
-    </section>
-    <nav>
-        <div class="navigation container">
-            <a class="identity" href="#">
-                <img src="/assets/images/identity/logo.png">
-            </a>
-            <div class="menu">
-                <a class="home link" href="/">HOME</a>
-                <a class="artists link" href="/artists">ARTISTS</a>
-                <a class="designs link" href="/designs">DESIGNS</a>
-                <a class="about link" href="/about">ABOUT</a>
-                <a class="contact link" href="/contact">CONTACT</a>
-                <!--
-                <div class="submenu">
-                    <div class="arrow"> </div>
-                    <a href="'.$root.'/'.$user.'/profil">Firma Profili</a>
-                    <a href="'.$root.'/'.$user.'/projeler">Yayınlanan Projeler</a>
-                    <a href="'.$root.'/'.$user.'/oneriler">Çözüm Önerileri</a>
-                    <a href="'.$root.'/'.$user.'/yeni">Yeni Proje</a>
-                    <a href="'.$root.'">Çıkış Yap</a>
-                </div>
-                -->
-            </div>
-            <a class="switch" href="#">
-                <img class="menu-icon" src="/assets/images/interface/icon-menu.png">
-                <img class="close-icon" src="/assets/images/interface/icon-close.png">
-            </a>
-        </div>
-    </nav>
+    </section> -->
+
+    @include('partials.navbar')
+
     <header class="blank"></header>
 	<section id="design-detail" data-tab="design">
 	    <div class="container">
@@ -103,18 +78,9 @@
 	        </div>
 	    </div>
 	</section>
-	<section class="action">
-	    <div class="container">
-	        <div class="circular">
-	            <h3>Stay in the loop</h3>
-	            <p>Subscribe to our email newsletter</p>
-	        </div>
-	        <div class="subscribe">
-	            <input id="email" type="email" name="email" size="30" placeholder="Enter your email address">
-	            <a href="" class="button" role="button">JOIN</a>
-	        </div>
-	    </div>
-	</section>
+
+    @include('partials.subscribe-to-list')
+
     <!--
     <footer>
         <div class="container">
