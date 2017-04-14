@@ -112,12 +112,13 @@ header > .container, section > .container { margin: 4% auto; }
 
 /* Header */
 
-header { display: inline-block; width: 100%; min-height: auto; background-image: url('/assets/images/interface/bg-header.jpg'); background-position: center; background-size: cover; }
+header { display: block; width: 100%; min-height: auto; background-image: url('/assets/images/interface/bg-header.jpg'); background-position: center; background-size: cover; }
 header a { display: inline; }
 header > .container > h1, header > .container h1 { display: block; margin: 3% 0; font-size: 48px; text-align: center; }
 header .container { position: relative; height: auto; transition: left 1s ease; }
 header p { display: block; font-size: 1.2em; line-height: 150%; }
 header button, header .button { font-size: 20px; }
+header.blank { height: 200px; background-image: url('/assets/images/interface/bg-grid.png'); background-size: auto; }
 
 /* Sections */
 
@@ -160,9 +161,38 @@ section.modal .box button.reject:hover, section.modal .box .button.reject:hover 
 
 /* Section: Showcase */
 
-section.showcase { background-image: url(/assets/images/interface/bg-showcase.png); background-position: top center; background-repeat: repeat; background-color: transparent; }
+section.showcase { background-image: url(/assets/images/interface/bg-grid.png); background-position: top center; background-repeat: repeat; background-color: transparent; }
 section.showcase > .container { margin: 4% auto; }
 section.showcase button.bottom, section.showcase .button.bottom { margin-bottom: -5px; }
+
+/* Section: Design Detail */
+
+section#design-detail { margin-bottom: -200px; }
+section#design-detail > .container { position: relative; top: -200px; margin: 4% auto; margin-top: 50px; }
+section#design-detail > .container > div { position: relative; }
+section#design-detail > .container > div.display { float: left; width: 42%; border-style: solid; border-width: 0px 2px; -moz-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -webkit-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -o-border-image: url(/assets/images/interface/border-image.png) 27 stretch; border-image: url(/assets/images/interface/border-image.png) 27 fill; }
+section#design-detail > .container > div.display > img { box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
+section#design-detail > .container > div.information { float: right; width: 55%; height: 150px; margin-left: 3%; }
+section#design-detail > .container > div.information .head { height: 150px; }
+section#design-detail > .container > div.information .head > h3 { margin-top: 1%; font-size: 2.4em; line-height: 75%; text-transform: uppercase; }
+section#design-detail > .container > div.information .head > h3 + p { margin: 0; margin-top: 2%; line-height: 75%; }
+section#design-detail > .container > div.information .head > .tabbing { float: right; position: absolute; left: 0; bottom: 0; width: 100%; height: 50px; }
+section#design-detail > .container > div.information .head > .tabbing a { display: block; float: left; margin-left: 5px; width: 50px; height: 50px; background-color: rgba(0, 0, 0, .1); transition: background-color .35s ease; }
+section#design-detail > .container > div.information .head > .tabbing a:first-of-type { margin-left: 0; }
+section#design-detail > .container > div.information .head > .tabbing a.active { background-color: rgba(255, 255, 255, 1); }
+section#design-detail > .container > div.information .head > .tabbing a[data-id="design"] { background-image: url(/assets/images/interface/icon-product_design.png); }
+section#design-detail > .container > div.information .head > .tabbing a[data-id="canvas"] { background-image: url(/assets/images/interface/icon-product_canvas.png); }
+section#design-detail > .container > div.information .head > .tabbing a[data-id="tshirt"] { background-image: url(/assets/images/interface/icon-product_tshirt.png); }
+section#design-detail > .container > div.information .head > .tabbing a[data-id="mug"] { background-image: url(/assets/images/interface/icon-product_mug.png); }
+section#design-detail > .container > div.information .body > div { display: none; }
+section#design-detail > .container > div.information .body { margin-top: 2.5%; }
+section#design-detail > .container > div.information .body .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
+section#design-detail > .container > div.information .body .tags > a:hover { top: -2px; }
+
+section#design-detail[data-tab="design"] .design { display: block !important; }
+section#design-detail[data-tab="canvas"] .canvas { display: block !important; }
+section#design-detail[data-tab="tshirt"] .tshirt { display: block !important; }
+section#design-detail[data-tab="mug"] .mug { display: block !important; }
 
 /* Section: Announcement */
 

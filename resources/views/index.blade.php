@@ -17,8 +17,8 @@
     <title></title>
     <link rel="icon" type="image/png" href="/assets/images/identity/icon.png">
     
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/reset.css') }}">
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/generic.css') }}">
+    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/reset.css') }}">
+    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/generic.css') }}">
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,7 +28,7 @@
     
 </head>
 
-<body id="" class="">
+<body id="home">
     <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -43,11 +43,12 @@
                 <img src="/assets/images/identity/logo.png">
             </a>
             <div class="menu">
-                <a class="home link active" href="/">HOME</a>
-                <a class="projeler link" href="/artists">ARTISTS</a>
-                <a class="nedir link" href="/artworks">ARTWORKS</a>
-                <a class="haberler link" href="/about">ABOUT</a>
-                <a class="iletisim link" href="mailto:team@trybrush.com">CONTACT</a>
+                <a class="home link" href="/">HOME</a>
+                <a class="artists link" href="/artists">ARTISTS</a>
+                <a class="designs link" href="/designs">DESIGNS</a>
+                <a class="about link" href="/about">ABOUT</a>
+                <a class="contact link" href="mailto:team@trybrush.com">CONTACT</a>
+
                 <!--
                 <div class="submenu">
                     <div class="arrow"> </div>
@@ -65,7 +66,7 @@
             </a>
         </div>
     </nav>
-    <header class="extended">
+    <header>
     <div class="container">
         <h1>Limited Number of Designs by Local Artists</h1>
         <p>Visual art is a human activity in creating visual artworks, expressing the artist's imaginative or technical skill, intended to be appreciated for their beauty or emotional power.</p>
@@ -91,7 +92,7 @@
 	        <div class="cards">
 	        	@foreach($designs as $design)
 	            <div class="card item">
-	                <a href="/artworks/artwork">
+	                <a href="/designs/{{$design->id}}">
 	                    <img src="{{$design->image}}" />
 	                    <p>{{$design->name}}</p>
 	                </a>
