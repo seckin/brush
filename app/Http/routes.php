@@ -20,7 +20,12 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 require_once(app_path().'/../vendor/autoload.php');
 
 Route::get('/', function () {
-	return view('index');
+	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
+	$designs = Design::orderBy('created_at', 'asc')->limit(8)->get();
+	return view('index', [
+		"artists" => $artists,
+		"designs" => $designs
+	]);
     // return view('welcome');
 });
 
@@ -65,12 +70,14 @@ Route::post('/create-design', function (Request $request) {
 
 	$design = new Design;
 	$design->name = $request->name;
+	$design->description = $request->description;
 	$design->artist_id = $request->artist_id;
 	$design->tshirt_price = $request->tshirt_price;
 	$design->canvas_price = $request->canvas_price;
 	$design->image = $imageUrl;
 	$design->tshirt_image = $tshirtImageUrl;
 	$design->canvas_image = $canvasImageUrl;
+	$design->view_count = 0;
 	$design->save();
 
 	return $design;
@@ -109,8 +116,15 @@ Route::post('/charge', function (Request $request) {
     return view('charge');
 });
 
-Route::get('/designs/design', function () {
-    return view('design_detail');
+Route::get('/designs/{design_id}', function ($design_id) {
+	DB::table('designs')->whereId($design_id)->increment('view_count');
+
+	$design = Design::find($design_id);
+	$similar_designs = Design::orderBy('created_at', 'asc')->whereNotIn("id", [$design_id])->limit(8)->get();
+    return view('design_detail', [
+    	"design" => $design,
+    	"similar_designs" => $similar_designs
+    ]);
 });
 
 Route::get('/api/v1/artists', function () {
@@ -136,4 +150,11 @@ Route::get('/api/v1/designs/{design_id}', function ($design_id) {
 	$artist = $design->artist;
 	$design->artist = $artist;
 	return $design;
+});
+
+Route::post('/api/v1/emails', function (Request $request) {
+	$email = new Email;
+	$email->email = $request->email;
+	$email->save();
+	return array("saved" => "true");
 });
