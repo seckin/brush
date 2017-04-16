@@ -10,4 +10,9 @@ class Design extends Model
     {
         return $this->belongsTo('App\Artist');
     }
+
+    public function cartItems()
+    {
+        return $this->hasMany('App\CartItem');
+    }
 }

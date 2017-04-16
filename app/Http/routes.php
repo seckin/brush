@@ -14,6 +14,10 @@
 use App\Email;
 use App\Artist;
 use App\Design;
+use App\CartItem;
+use App\ProductSpec;
+use App\Order;
+use App\ShippingInfo;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -134,6 +138,23 @@ Route::get('/designs', function () {
 	]);
 });
 
+Route::get('/checkout/cart', function () {
+	$user = Auth::user();
+	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$cartItems = $order->cartItems;
+	return view('shopping-cart', ["cartItems" => $cartItems]);
+})->middleware('auth');
+
+Route::get('/checkout', function () {
+	$user = Auth::user();
+	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	return view('checkout-shipping-info', ["order" => $order]);
+})->middleware('auth');
+
+Route::get('/checkout/payment', function () {
+	return view('checkout-payment');
+})->middleware('auth');
+
 Route::get('/api/v1/artists', function () {
 	$results = Artist::orderBy('created_at', 'asc')->get();
 	return $results;
@@ -164,4 +185,88 @@ Route::post('/api/v1/emails', function (Request $request) {
 	$email->email = $request->email;
 	$email->save();
 	return array("saved" => "true");
+});
+
+Route::post('/api/v1/addToCart', function (Request $request) {
+	$user = Auth::user();
+	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	// if the item is the same as the item that was added before, only adjust the quantity.
+	if($order) {
+		$cartItems = $order->cartItems;
+		foreach($cartItems as $cartItem) {
+			if($cartItem->design->id == $request->designId) {
+				$productSpec = ProductSpec::find($cartItem->product_spec_id);
+				if($productSpec->type == $request->type &&
+					$productSpec->size == $request->size && (
+						($request->type == "tshirt" && $productSpec->gender == $request->gender) ||
+						 $request->type == "canvas")
+					) {
+					$cartItem->quantity = $cartItem->quantity + 1;
+					$cartItem->save();
+					return $cartItem;
+				}
+			}
+		}
+	}
+
+	$cartItem = new CartItem;
+	$design = Design::find($request->designId);
+	$cartItem->design_id = $design->id;
+
+	if(!$order) {
+		$order = new Order;
+		$order->user_id = $user->id;
+		$order->save();
+	}
+	$cartItem->order_id = $order->id;
+	$cartItem->quantity = 1;
+
+	$productSpec = new ProductSpec;
+	$productSpec->type = $request->type;
+	$productSpec->size = $request->size;
+	if($request->type == "tshirt") {
+		$productSpec->gender = $request->gender;
+	}
+	$productSpec->save();
+
+	$cartItem->product_spec_id = $productSpec->id;
+	if($request->type == "tshirt") {
+		$cartItem->price_per_item = $design->tshirt_price;
+	} else if ($request->type == "canvas") {
+		$cartItem->price_per_item = $design->canvas_price;
+	}
+	$cartItem->shipping_cost = 1000;
+	$cartItem->save();
+
+	$productSpec->cart_item_id = $cartItem->id;
+	$productSpec->save();
+	return $cartItem;
+});
+
+Route::get('/api/v1/cartInfo', function () {
+	$user = Auth::user();
+	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$cartItems = $order->cartItems;
+	$count = 0;
+	foreach($cartItems as $cartItem) {
+		$count += $cartItem->quantity;
+	}
+	return array("count" => $count);
+});
+
+Route::post('/api/v1/shippingInfo', function (Request $request) {
+	$shippingInfo = new ShippingInfo;
+	$shippingInfo->name = $request->firstname;
+	$shippingInfo->last_name = $request->lastname;
+	$shippingInfo->address = $request->address;
+	$shippingInfo->city = $request->city;
+	$shippingInfo->country = $request->country;
+	$shippingInfo->phone_number = $request->phone_number;
+	$shippingInfo->save();
+
+	$order = Order::find($request->order_id);
+	$order->shipping_info_id = $shippingInfo->id;
+	$order->save();
+
+	return $shippingInfo;
 });

@@ -80,3 +80,19 @@ $(document).ready(function () {
         });
     });
 });
+
+function updateCart() {
+    $.ajax({
+        url: '/api/v1/cartInfo',
+        type: 'GET',
+        data: {
+        },
+        error: function() {
+        },
+        success: function(data) {
+            $(".header__amount").removeClass("is-hidden");
+            window.asd = data;
+            $(".header__amount").text("(" + data.count + ")");
+        }
+    });
+}

@@ -10,4 +10,9 @@
             <div class="email-saved" style="display:none;color: white;text-align: center;margin-top: 5px;">Email saved!</div>
         </div>
     </div>
+    <div style="
+        color: white;
+        text-align: center;
+        margin-top: 10px;
+    ">Copyright © 2017 Brush. All rights reserved.</div>
 </section>

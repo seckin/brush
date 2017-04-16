@@ -9,6 +9,16 @@
             <a class="designs link" href="/designs">DESIGNS</a>
             <a class="about link" href="/about">ABOUT</a>
             <a class="contact link" href="mailto:team@trybrush.com">CONTACT</a>
+            @if (Auth::check())
+            <a href="/checkout/cart" class="js-ajax-cart-link header-button header-button--cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="">
+                  <span class="hide-tablet">Cart</span>
+                  <span class="header__amount js-header__amount is-hidden">(0)</span>
+                </span>
+            </a>
+            <script>updateCart();</script>
+            @endif
             <!--
             <div class="submenu">
                 <div class="arrow"> </div>
