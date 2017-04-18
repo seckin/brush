@@ -17,6 +17,7 @@
     <title></title>
     <link rel="icon" type="image/png" href="/assets/images/identity/icon.png">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/reset.css') }}">
     <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/generic.css') }}">
     <link type="text/css" rel="stylesheet" charset="utf-8" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,6 +27,7 @@
     <![endif]-->
     <script type="text/javascript" src="/assets/scripts/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/generic.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     
 </head>
 

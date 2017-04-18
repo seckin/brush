@@ -96,6 +96,17 @@ Route::get('/payment', function () {
 });
 
 Route::post('/charge', function (Request $request) {
+	$user = Auth::user();
+	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$cartItems = $order->cartItems;
+	$total_price = 0;
+	$shipping_cost = 0;
+	foreach($cartItems as $cartItem) {
+        $total_price += $cartItem->quantity * $cartItem->price_per_item;
+        $shipping_cost += $cartItem->shipping_cost;
+    }
+    $total_amount = $total_price + $shipping_cost;
+
 	// Set your secret key: remember to change this to your live secret key in production
 	// See your keys here: https://dashboard.stripe.com/account/apikeys
 	\Stripe\Stripe::setApiKey("sk_live_5mwPn4FvBtOByFUn3tS76ETY");
@@ -110,12 +121,20 @@ Route::post('/charge', function (Request $request) {
 
 	// Charge the user's card:
 	$charge = \Stripe\Charge::create(array(
-	  "amount" => 200,
+	  "amount" => $total_amount,
 	  "currency" => "try",
 	  "description" => "Example charge",
-	  "metadata" => array("order_id" => 6735),
+	  "metadata" => array("order_id" => $order->id),
 	  "source" => $token,
 	));
+
+	$payment = new Payment;
+	$payment->amount = $total_amount;
+	$payment->user_id = $user->id;
+	$payment->save();
+
+	$order->payment_id = $payment->id;
+	$order->save();
 
     return view('charge');
 });
@@ -152,7 +171,13 @@ Route::get('/checkout', function () {
 })->middleware('auth');
 
 Route::get('/checkout/payment', function () {
-	return view('checkout-payment');
+	$user = Auth::user();
+	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$cartItems = $order->cartItems;
+	return view('checkout-payment', [
+		"order" => $order,
+		"cartItems" => $cartItems
+	]);
 })->middleware('auth');
 
 Route::get('/api/v1/artists', function () {

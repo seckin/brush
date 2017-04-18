@@ -709,12 +709,16 @@ input[type="text"], input[type="password"], input[type="url"], input[type="tel"]
 
 .shipping-wrapper .step-title {
 	margin-bottom: 30px;
-	margin-top: 100px;
+	// margin-top: 100px;
     font-weight: bold;
 }
 
 .shipping-wrapper .form-login, .shipping-wrapper .form-shipping-address {
     max-width: 500px;
+}
+
+#checkout-shipping-info {
+	margin-top: 100px;
 }
 
 #checkout-shipping-info .action {
@@ -1148,4 +1152,52 @@ tr {
 
 .footer__shop-securely {
 	border: none;
+}
+
+@media (min-width: 768px) {
+	.opc-wrapper {
+	    width: 66.66666667%;
+	    float: left;
+	    -ms-flex-order: 1;
+	    -webkit-order: 1;
+	    order: 1;
+	    padding-right: 30px;
+	}
+}
+
+#checkout-payment {
+	margin-top: 100px;
+}
+
+#checkout-payment .opc-wrapper {
+	margin-top: 50px;
+}
+
+#payment-form button {
+    width: 100%;
+    line-height: 2.2rem;
+    padding: 14px 17px;
+    font-size: 1.8rem;
+    background-image: none;
+    background: #1979c3;
+    border: 1px solid #1979c3;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    padding: 7px 15px;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.label {
+	color: black;
+}
+
+.opc-block-summary .items-in-cart.active > .title:after {
+    content: '\e621';
 }
