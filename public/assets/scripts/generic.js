@@ -28,6 +28,20 @@ $(document).ready(function() {
     } else {
         $('nav').css('box-shadow', '0 1px 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .2)');
     }
+    /* MODULES */
+    //Dropdown Selector
+    $('.dropdown a').click(function() {
+        var dropdown = $(this).parent('.dropdown');
+        if(dropdown.hasClass('open')) {
+            $('a[data-number="0"]').remove();
+            $(this).prependTo(dropdown);
+            var number = $(this).data('number');
+            $(this).parent().children('input').attr('value', number);
+            dropdown.removeClass('open');
+        } else {
+            dropdown.addClass('open');
+        }
+    });
     /* OTHER FUNCTIONS */
     //Navigate Design Detail Module with Tabs
     $('#design-detail .tabbing a').click(function(){

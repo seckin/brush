@@ -188,6 +188,12 @@ section#design-detail > .container > div.information .body > div { display: none
 section#design-detail > .container > div.information .body { margin-top: 2.5%; }
 section#design-detail > .container > div.information .body .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
 section#design-detail > .container > div.information .body .tags > a:hover { top: -2px; }
+section#design-detail > .container > div.information .body p { margin-bottom: 1%; }
+section#design-detail > .container > div.information .body button.dropdown { margin-top: 2%; }
+
+section#design-detail button.dropdown#canvasSize > a:first-child::before { content: 'Canvas Size: '; }
+section#design-detail button.dropdown#tshirtSize > a:first-child::before { content: 'Tshirt Size: '; }
+section#design-detail button.dropdown#tshirtGender > a:first-child::before { content: 'Gender: '; }
 
 section#design-detail[data-tab="design"] .design { display: block !important; }
 section#design-detail[data-tab="canvas"] .canvas { display: block !important; }
@@ -200,22 +206,6 @@ section.announcement { width: 100%; height: 80px; padding: 0; font-size: 24px; b
 section.announcement > .container { display: table; margin-top: 0; margin-bottom: 0; }
 section.announcement p { display: table-cell; position: relative; top: -10px; left: 10px; height: 80px; text-align: center; vertical-align: middle; }
 section.announcement p::before { content: url(/assets/images/interface/icon-announcement.png); position: relative; top: 15px; left: -10px; }
-
-/* Section: Filter */
-
-section.filter { width: 100%; height: 80px; padding: 0; font-size: 24px; background-color: rgba(255, 255, 255, 1); box-shadow: 0 1px 5px rgba(33, 33, 33, .05), 0 1px 3px rgba(33, 33, 33, .1); }
-section.filter > .container { display: block; box-sizing: content-box; height: 80px; margin-top: 0; margin-bottom: 0; border-left: 1px solid rgba(33, 33, 33, .1); border-right: 1px solid rgba(33, 33, 33, .1); }
-section.filter .dropdown { display: block; position: relative; float: left; width: 50%; height: 80px; margin: 0; padding: 0; overflow-y: hidden; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; background-color: rgba(255, 255, 255, 1); border-radius: 0; box-shadow: none; transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
-section.filter .dropdown:first-child { border-left: 1px solid rgba(33, 33, 33, .1); border-right: 1px solid rgba(33, 33, 33, .1); }
-section.filter .dropdown:last-child { border-left: 1px solid rgba(33, 33, 33, .1); border-right: 1px solid rgba(33, 33, 33, .1); }
-section.filter .dropdown.open { z-index: 2; height: auto; border-bottom: 1px solid rgba(33, 33, 33, .1); box-shadow: 0 2px 5px rgba(33, 33, 33, .05), 0 2px 5px rgba(33, 33, 33, 0.1); }
-section.filter .dropdown.category a:first-child::before { content: 'Kategori: '; }
-section.filter .dropdown.order a:first-child::before { content: 'Sıralama: '; }
-section.filter .dropdown a { display: block; width: 100%; height: 60px; margin: 0 auto; padding: 0 10%; color: rgba(33, 33, 33, 1); font-family: 'robotolight', sans-serif; text-align: left; text-transform: none; line-height: 60px; box-sizing: border-box; background-color: rgba(255, 255, 255, 1); transition: background-color .25s ease; }
-section.filter .dropdown a:hover { background-color: rgba(33, 33, 33, .035); }
-section.filter .dropdown a:first-child { height: 80px; line-height: 80px; background-image: url(/assets/images/interface/arrow-down.png); background-repeat: no-repeat; background-position: right center; background-size: contain; }
-section.filter .dropdown.open a:first-child { background-image: url(/assets/images/interface/arrow-up.png); }
-section.filter .dropdown a:first-child::before { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
 
 /* Section: Details */
 
@@ -396,6 +386,17 @@ button.bottom:hover, .button.bottom:hover { box-shadow: none; color: rgba(255, 2
 
 button img, .button img { display: inline-block; position: relative; height: 30px; vertical-align: middle; }
 button > img + p, .button > img + p { line-height: 20px; }
+
+/* Button: Dropdown */
+
+button.dropdown { display: block; box-sizing: border-box; position: relative; float: left; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; min-width: 360px; height: 60px; margin: 0; padding: 0; overflow-y: hidden; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; background-color: rgba(255, 255, 255, 1); border-width: 3px; border-radius: 0; box-shadow: none; transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
+button.dropdown.open { z-index: 2; height: auto; box-shadow: 0 2px 5px rgba(33, 33, 33, .05), 0 2px 5px rgba(33, 33, 33, 0.1); }
+button.dropdown a { display: block; width: 100%; height: 50px; margin: 0 auto; padding: 0 5%; color: rgba(33, 33, 33, 1); font-family: 'robotolight', sans-serif; text-align: left; text-transform: none; line-height: 50px; box-sizing: border-box; background-color: rgba(255, 255, 255, 1); transition: background-color .25s ease; }
+button.dropdown a:hover { background-color: rgba(0, 0, 0, .05); }
+button.dropdown a:first-child { height: 54px; line-height: 54px; background-image: url(/assets/images/interface/arrow-down.png); background-repeat: no-repeat; background-position: right center; background-size: contain; }
+button.dropdown a:first-child::before { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+button.dropdown.open a:first-child { background-image: url(/assets/images/interface/arrow-up.png); }
+button.dropdown input { display: none; }
 
 /* Color */
 

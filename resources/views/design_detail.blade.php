@@ -43,11 +43,33 @@
                     </div>
                     <div class="canvas">
                         <h3>Canvas</h3>
-                        <p>Canvas content</p>
+                        <p>Design printed on a canvas</p>
+                        <button id="canvasSize" class="item dropdown">
+                            <a data-number="0" href="#">Please select...</a>
+                            <a data-number="1" href="#">25cm x 17.5cm</a>
+                            <a data-number="2" href="#">50cm x 35cmm</a>
+                            <a data-number="3" href="#">100cm x 70cm</a>
+                            <input id="canvasSizeInput" type="number" value="0" />
+                        </button>
                     </div>
                     <div class="tshirt">
                         <h3>Tshirt</h3>
-                        <p>Tshirt content</p>
+                        <p>Design printed on a tshirt</p>
+                        <button id="tshirtGender" class="item dropdown">
+                            <a data-number="0" href="#">Please select...</a>
+                            <a data-number="1" href="#">Unisex</a>
+                            <a data-number="2" href="#">Female</a>
+                            <a data-number="3" href="#">Male</a>
+                            <input id="tshirtGenderInput" type="number" value="0" />
+                        </button>
+                        <button id="tshirtSize" class="item dropdown">
+                            <a data-number="0" href="#">Please select...</a>
+                            <a data-number="1" href="#">Small</a>
+                            <a data-number="2" href="#">Medium</a>
+                            <a data-number="3" href="#">Large</a>
+                            <a data-number="3" href="#">X-Large</a>
+                            <input id="tshirtSizeInput" type="number" value="0" />
+                        </button>
                     </div>
                     <div class="mug">
                         <h3>Mug</h3>
