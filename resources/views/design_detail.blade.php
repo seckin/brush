@@ -15,6 +15,8 @@
     @include('partials.navbar')
 
     <header class="blank"></header>
+    <div class="logindata" data-is-logged-in="<?php echo Auth::check() ? 'true' : 'false';?>"></div>
+    <div class="design_id" data-design-id="{{$design->id}}"></div>
 	<section id="design-detail" data-tab="design">
 	    <div class="container">
             <div class="information">
@@ -30,7 +32,7 @@
                 </div>
                 <div class="body">
                     <div class="design">
-                        <h3>Description</h3>
+                        <!-- <h3>Description</h3> -->
                         <p>{{$design->description}}</p>
                         <!-- <h3>Tags</h3>
                         <p class="tags">
@@ -51,6 +53,20 @@
                             <a data-number="3" href="#">100cm x 70cm</a>
                             <input id="canvasSizeInput" type="number" value="0" />
                         </button>
+                        <div class="type-s type-weak">105 users
+                            <div class="mvxxs">
+                                <div class="progress-bar progress-bar-branded">
+                                    <div class="progress-bar-bg">
+                                        <div style="width: 52.5%;" class="progress-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="txt-r">95 needed to reach 200</div>
+                        </div>
+                        <button type="submit" title="Add to Cart" class="action tocart" id="canvas-addtocart-button">
+                            <span>Add to Cart</span>
+                        </button>
+                        <p id="canvasinfo"></p>
                     </div>
                     <div class="tshirt">
                         <h3>Tshirt</h3>
@@ -70,11 +86,24 @@
                             <a data-number="3" href="#">X-Large</a>
                             <input id="tshirtSizeInput" type="number" value="0" />
                         </button>
+                        <div class="type-s type-weak">110 users
+                            <div class="mvxxs">
+                                <div class="progress-bar progress-bar-branded">
+                                    <div class="progress-bar-bg">
+                                        <div style="width: 52.5%;" class="progress-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="txt-r">90 needed to reach 200</div>
+                        </div>
+                        <button type="submit" title="Add to Cart" class="action tocart" id="tshirt-addtocart-button">
+                            <span>Add to Cart</span>
+                        </button>
                     </div>
-                    <div class="mug">
+                    <!-- <div class="mug">
                         <h3>Mug</h3>
                         <p>Mug content</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="display">
@@ -126,5 +155,63 @@
         </div>
     </section>
     -->
+    <script>
+        function addToCart(size, iscanvas, $button, gender) {
+            if($(".logindata").data("isLoggedIn") == false) {
+                window.location.href="/login";
+            }
+            var designId = $(".design_id").data("designId");
+            $.ajax({
+                url: '/api/v1/addToCart',
+                type: 'POST',
+                data: {
+                  type: iscanvas ? "canvas" : "tshirt",
+                  size: size,
+                  designId: designId,
+                  gender: gender
+                },
+                error: function() {
+                  $('#' + (iscanvas ? "canvas" : "tshirt" ) + 'info').html('<p>An error has occurred</p>');
+                },
+                // dataType: 'jsonp',
+                success: function(data) {
+                    $button.children("span").val("Added");
+                    updateCart();
+                    setTimeout(function() {
+                        $button.children("span").val("Add to Cart");
+                    }, 2000);
+                }
+            });
+        }
+        $("#canvas-addtocart-button").click(function() {
+            if($("#canvas-addtocart-button").hasClass("disabled")){
+                return;
+            }
+            $("#canvas-addtocart-button").addClass("disabled");
+            console.log("canvas clicked");
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+            });
+            var iscanvas = 1;
+            var size = "70X50";
+            var $button = $("#canvas-addtocart-button");
+            addToCart(size, iscanvas, $button);
+        });
+        $("#tshirt-addtocart-button").click(function() {
+            if($("#tshirt-addtocart-button").hasClass("disabled")){
+                return;
+            }
+            $("#tshirt-addtocart-button").addClass("disabled");
+            console.log("canvas clicked");
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+            });
+            var iscanvas = 0;
+            var size = "M";
+            var gender = "Male";
+            var $button = $("#tshirt-addtocart-button");
+            addToCart(size, iscanvas, $button, gender);
+        });
+    </script>
 </body>
 @endsection
