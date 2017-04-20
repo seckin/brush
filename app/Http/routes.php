@@ -276,7 +276,7 @@ Route::get('/api/v1/cartInfo', function () {
 	foreach($cartItems as $cartItem) {
 		$count += $cartItem->quantity;
 	}
-	return array("count" => $count);
+	return array("checkoutItems" => $cartItems);
 });
 
 Route::post('/api/v1/shippingInfo', function (Request $request) {

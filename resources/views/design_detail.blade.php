@@ -15,7 +15,6 @@
     @include('partials.navbar')
 
     <header class="blank"></header>
-    <div class="logindata" data-is-logged-in="<?php echo Auth::check() ? 'true' : 'false';?>"></div>
     <div class="design_id" data-design-id="{{$design->id}}"></div>
 	<section id="design-detail" data-tab="design">
 	    <div class="container">
@@ -157,7 +156,7 @@
     -->
     <script>
         function addToCart(size, iscanvas, $button, gender) {
-            if($(".logindata").data("isLoggedIn") == false) {
+            if(!$(".logindata").data("isLoggedIn")) {
                 window.location.href="/login";
             }
             var designId = $(".design_id").data("designId");
