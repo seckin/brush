@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body id="designs" class="design subpage">
+<body id="cart" class="design subpage">
     <!-- <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -181,6 +181,7 @@
                       </button> -->
                   </div>
                   <div class="shipping-information-content">
+                      <?php var_dump($order->id);?>
                     {{$order->shippingInfo->name}} {{$order->shippingInfo->last_name}}<br>
                     {{$order->shippingInfo->address}}<br>
                     {{$order->shippingInfo->city}}<br>

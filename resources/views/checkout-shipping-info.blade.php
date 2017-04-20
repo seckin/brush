@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body id="designs" class="design subpage">
+<body id="cart" class="design subpage">
     <!-- <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -32,7 +32,7 @@
                    <div id="shipping-new-address-form" class="fieldset address">
                       <div class="field required" >
                          <label class="label" >
-                         <span >First Name</span>
+                         <span>First Name</span>
                          </label>
                          <div class="control" >
                             <input class="input-text" type="text" name="firstname" placeholder="" id="ICKHF97">
@@ -40,7 +40,7 @@
                       </div>
                       <div class="field required" >
                          <label class="label" >
-                         <span >Last Name</span>
+                         <span>Last Name</span>
                          </label>
                          <div class="control" >
                             <input class="input-text" type="text" name="lastname" placeholder="" id="MIPKJLI">
@@ -56,7 +56,7 @@
                       </div> -->
                       <fieldset class="field street required" >
                          <legend class="label">
-                            <span >Street Address</span>
+                            <span>Street Address</span>
                          </legend>
                          <div class="control">
                             <div class="field true" >
@@ -78,7 +78,7 @@
                       </fieldset>
                       <div class="field required" >
                          <label class="label" >
-                         <span >City</span>
+                         <span>City</span>
                          </label>
                          <div class="control" >
                             <input class="input-text" type="text" name="city" placeholder="" id="HYDY07H">
@@ -87,7 +87,7 @@
                       
                       <!-- <div class="field" >
                          <label class="label" >
-                         <span >State/Province</span>
+                         <span>State/Province</span>
                          </label>
                          <div class="control" >
                             <input class="input-text" type="text" name="region" placeholder="" id="YA7570H">
@@ -103,7 +103,7 @@
                       </div> -->
                       <div class="field required" >
                          <label class="label" >
-                         <span >Country</span>
+                         <span>Country</span>
                          </label>
                          <div class="control" >
                             <select class="select" name="country_id" id="EXS9SFX" placeholder="">
@@ -114,7 +114,7 @@
                       </div>
                       <div class="field required" >
                          <label class="label" >
-                         <span >Phone Number</span>
+                         <span>Phone Number</span>
                          </label>
                          <div class="control _with-tooltip" >
                             <input class="input-text" type="text" name="telephone" placeholder="" id="PU2NNXE">

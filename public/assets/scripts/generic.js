@@ -12,6 +12,10 @@ $(document).ready(function() {
     $('a[href="#"]').click(function(e){
         e.preventDefault();
     });
+    //Open Cart Preview
+    $('.menu > a.cart').on('click', function() {
+        $('.cartdetails').toggleClass('open');
+    });
     //Close Status Bar on Request
     $('section.status > a').click(function(){
         $('section.status').remove();
@@ -30,14 +34,18 @@ $(document).ready(function() {
     }
     /* MODULES */
     //Dropdown Selector
-    $('.dropdown a').click(function() {
+    $('.dropdown a').on('click', function() {
         var dropdown = $(this).parent('.dropdown');
         if(dropdown.hasClass('open')) {
-            $('a[data-number="0"]').remove();
-            $(this).prependTo(dropdown);
-            var number = $(this).data('number');
-            $(this).parent().children('input').attr('value', number);
-            dropdown.removeClass('open');
+            if($(this).data('number') != 0) {
+                $('a[data-number="0"]').remove();
+                $(this).prependTo(dropdown);
+                var number = $(this).data('number');
+                $(this).parent().children('input').attr('value', number);
+                dropdown.removeClass('open');
+            } else {
+                dropdown.removeClass('open');
+            }
         } else {
             dropdown.addClass('open');
         }

@@ -10,25 +10,25 @@
             <a class="about link" href="/about">ABOUT</a>
             <a class="contact link" href="mailto:team@trybrush.com">CONTACT</a>
             @if (Auth::check())
-            <a href="/checkout/cart" class="js-ajax-cart-link header-button header-button--cart">
+            <a class="cart link" href="#" class="js-ajax-cart-link header-button header-button--cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span class="">
-                  <span class="hide-tablet">Cart</span>
+                  <span class="hide-tablet">CART</span>
                   <span class="header__amount js-header__amount is-hidden">(0)</span>
                 </span>
             </a>
             <script>updateCart();</script>
             @endif
-            <!--
-            <div class="submenu">
-                <div class="arrow"> </div>
-                <a href="'.$root.'/'.$user.'/profil">Firma Profili</a>
-                <a href="'.$root.'/'.$user.'/projeler">Yayınlanan Projeler</a>
-                <a href="'.$root.'/'.$user.'/oneriler">Çözüm Önerileri</a>
-                <a href="'.$root.'/'.$user.'/yeni">Yeni Proje</a>
-                <a href="'.$root.'">Çıkış Yap</a>
+            <div class="cartdetails">
+                <div>
+                    <img class="product-image-photo" src="/assets/content/sample/tshirt/01.png" alt="design name">
+                    <span>
+                    <b>{{"design name"}}</b>
+                        <p>{{"tshirt"}}</p>
+                    </span>
+                </div>
+                <a href="/checkout/cart">Go to Checkout</a>
             </div>
-            -->
             <div class="logindata" data-is-logged-in="<?php echo Auth::check() ? 1 : 0;?>"></div>
         </div>
         <a class="switch" href="#">

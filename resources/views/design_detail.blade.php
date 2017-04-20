@@ -45,59 +45,47 @@
                     <div class="canvas">
                         <h3>Canvas</h3>
                         <p>Design printed on a canvas</p>
-                        <button id="canvasSize" class="item dropdown">
-                            <a data-number="0" href="#">Please select...</a>
-                            <a data-number="1" href="#">25cm x 17.5cm</a>
-                            <a data-number="2" href="#">50cm x 35cmm</a>
-                            <a data-number="3" href="#">100cm x 70cm</a>
-                            <input id="canvasSizeInput" type="number" value="0" />
-                        </button>
-                        <div class="type-s type-weak">105 users
-                            <div class="mvxxs">
-                                <div class="progress-bar progress-bar-branded">
-                                    <div class="progress-bar-bg">
-                                        <div style="width: 52.5%;" class="progress-bar-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="txt-r">95 needed to reach 200</div>
+                        <div class="progress" style="background-size: 50% 100%;">
+                            <h4>95 needed to reach 200</h4>
                         </div>
-                        <button type="submit" title="Add to Cart" class="action tocart" id="canvas-addtocart-button">
-                            <span>Add to Cart</span>
-                        </button>
+                        <div class="options clearfix">
+                            <button id="canvasSize" class="dropdown">
+                                <a data-number="0" href="#">Please select...</a>
+                                <a data-number="1" href="#">25cm x 17.5cm</a>
+                                <a data-number="2" href="#">50cm x 35cmm</a>
+                                <a data-number="3" href="#">100cm x 70cm</a>
+                                <input id="canvasSizeInput" type="number" value="0" />
+                            </button>
+                        </div>
+                        <button id="canvas-addtocart-button" class="submit" type="submit" title="Add to Cart" class="action tocart">Add to Cart</button>
                         <p id="canvasinfo"></p>
                     </div>
                     <div class="tshirt">
                         <h3>Tshirt</h3>
                         <p>Design printed on a tshirt</p>
-                        <button id="tshirtGender" class="item dropdown">
-                            <a data-number="0" href="#">Please select...</a>
-                            <a data-number="1" href="#">Unisex</a>
-                            <a data-number="2" href="#">Female</a>
-                            <a data-number="3" href="#">Male</a>
-                            <input id="tshirtGenderInput" type="number" value="0" />
-                        </button>
-                        <button id="tshirtSize" class="item dropdown">
-                            <a data-number="0" href="#">Please select...</a>
-                            <a data-number="1" href="#">Small</a>
-                            <a data-number="2" href="#">Medium</a>
-                            <a data-number="3" href="#">Large</a>
-                            <a data-number="3" href="#">X-Large</a>
-                            <input id="tshirtSizeInput" type="number" value="0" />
-                        </button>
-                        <div class="type-s type-weak">110 users
-                            <div class="mvxxs">
-                                <div class="progress-bar progress-bar-branded">
-                                    <div class="progress-bar-bg">
-                                        <div style="width: 52.5%;" class="progress-bar-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="txt-r">90 needed to reach 200</div>
+                        <div class="progress" style="background-size: 50% 100%;">
+                            <h4>95 needed to reach 200</h4>
                         </div>
-                        <button type="submit" title="Add to Cart" class="action tocart" id="tshirt-addtocart-button">
-                            <span>Add to Cart</span>
-                        </button>
+                        <div class="options clearfix">
+                            <button id="tshirtGender" class="dropdown">
+                                <a data-number="0" href="#">Please select...</a>
+                                <a data-number="1" href="#">Unisex</a>
+                                <a data-number="2" href="#">Female</a>
+                                <a data-number="3" href="#">Male</a>
+                                <input id="tshirtGenderInput" type="number" value="0" />
+                            </button>
+                            <button id="tshirtSize" class="dropdown">
+                                <a data-number="0" href="#">Please select...</a>
+                                <a data-number="1" href="#">Small</a>
+                                <a data-number="2" href="#">Medium</a>
+                                <a data-number="3" href="#">Large</a>
+                                <a data-number="3" href="#">X-Large</a>
+                                <input id="tshirtSizeInput" type="number" value="0" />
+                            </button>
+                            <button id="tshirt-addtocart-button" class="submit" type="submit" title="Add to Cart" class="action tocart">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
                     </div>
                     <!-- <div class="mug">
                         <h3>Mug</h3>
