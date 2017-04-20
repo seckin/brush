@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body id="designs" class="design subpage">
+<body id="cart" class="design subpage">
     <!-- <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -14,81 +14,78 @@
 
     @include('partials.navbar')
 
-    <!-- <header class="blank"></header> -->
+    <header class="blank"></header>
     <section id="shopping-cart">
         <div class="container">
-            <div class="cart-container">
+            <div class="products">
                 @foreach($cartItems as $cartItem)
-                <div class="cart-element">
-                    <span class="product-image-container" style="width:165px;">
-                    <span class="product-image-wrapper" style="padding-bottom: 100%;">
-                        @if ($cartItem->productSpec->type == "tshirt")
-                        <img class="product-image-photo" src="{{$cartItem->design->tshirt_image}}" width="165" height="165" alt="{{$cartItem->design->name}}"></span>
-                        @endif
-                        @if ($cartItem->productSpec->type == "canvas")
-                        <img class="product-image-photo" src="{{$cartItem->design->canvas_image}}" width="165" height="165" alt="{{$cartItem->design->name}}"></span>
-                        @endif
-                    </span>
-                    <div class="custom_options">
-                        <dl class="item-options">
-                            <!-- <dt>Material</dt>Cotton Rag Fine Art Print</dd> -->
-                            <dt>Size</dt>{{$cartItem->productSpec->size}}</dd>
-                            @if ($cartItem->productSpec->type == "tshirt")
-                            <dt>Gender</dt>{{$cartItem->productSpec->gender}}</dd>
-                            @endif
+                <div class="segment">
+                    @if ($cartItem->productSpec->type == "tshirt")
+                    <img class="picture" src="{{$cartItem->design->tshirt_image}}" alt="{{$cartItem->design->name}}">
+                    @endif
+                    @if ($cartItem->productSpec->type == "canvas")
+                    <img class="picture" src="{{$cartItem->design->canvas_image}}" alt="{{$cartItem->design->name}}">
+                    @endif
+                    <div class="information">
+                        <h3>FRIDA</h3>
+                        <p>Canvas Print</p>
+                        <dl>
+                            <dt>Size</dt><dd>{{$cartItem->productSpec->size}}</dd>
                         </dl>
+                        @if ($cartItem->productSpec->type == "tshirt")
+                        <dl>
+                            <dt>Gender</dt><dd>{{$cartItem->productSpec->gender}}</dd>
+                        </dl>
+                        @endif
                     </div>
-                    <label for="qty" class="label quantity-l"><span>Quantity</span></label>
-                    <div>{{$cartItem->quantity}}</div>
                 </div>
                 @endforeach
-
-                <div class="cart-summary">
-                    <div id="cart-totals" class="cart-totals" data-bind="scope:'block-totals'">
-                        <div class="table-wrapper" data-bind="blockLoader: isLoading">
-                            <table class="data table totals">
-                                <caption class="table-caption" data-bind="text: $t('Total')">Total</caption>
-                                <tbody>
-                                    <?php
-                                        $total_price = 0;
-                                        $shipping_cost = 0;
-                                        foreach($cartItems as $cartItem) {
-                                            $total_price += $cartItem->quantity * $cartItem->price_per_item;
-                                            $shipping_cost += $cartItem->shipping_cost;
-                                        }
-                                        $total_count = $total_price + $shipping_cost;
-                                    ?>
-                                    <tr class="totals sub">
-                                        <th data-bind="text: title" class="mark" scope="row">Subtotal</th>
-                                        <td class="amount">
-                                            <span class="price" data-bind="text: getValue(), attr: {'data-th': title}" data-th="Subtotal">{{number_format($total_price/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></span>
-                                        </td>
-                                    </tr>
-                                        <tr class="totals shipping excl">
-                                            <th class="mark" scope="row">
-                                                <span class="label" data-bind="text: title">Shipping</span>
-                                                <span class="value" data-bind="text: getShippingMethodTitle()">(MNG)</span>
-                                            </th>
-                                            <td class="amount">
-                                                <span class="price" data-bind="text: getValue(), attr: {'data-th': title}" data-th="Shipping">{{number_format($shipping_cost/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></span>
-                                            </td>
-                                        </tr>
-                                    <tr class="grand totals">
+            </div>
+            <div class="summary">
+                <div id="cart-totals" class="cart-totals" data-bind="scope:'block-totals'">
+                    <div class="table-wrapper" data-bind="blockLoader: isLoading">
+                        <table class="data table totals">
+                            <caption class="table-caption" data-bind="text: $t('Total')">Total</caption>
+                            <tbody>
+                                <?php
+                                    $total_price = 0;
+                                    $shipping_cost = 0;
+                                    foreach($cartItems as $cartItem) {
+                                        $total_price += $cartItem->quantity * $cartItem->price_per_item;
+                                        $shipping_cost += $cartItem->shipping_cost;
+                                    }
+                                    $total_count = $total_price + $shipping_cost;
+                                ?>
+                                <tr class="totals sub">
+                                    <th data-bind="text: title" class="mark" scope="row">Subtotal</th>
+                                    <td class="amount">
+                                        <span class="price" data-bind="text: getValue(), attr: {'data-th': title}" data-th="Subtotal">{{number_format($total_price/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></span>
+                                    </td>
+                                </tr>
+                                    <tr class="totals shipping excl">
                                         <th class="mark" scope="row">
-                                            <strong data-bind="text: title">Order Total</strong>
+                                            <span class="label" data-bind="text: title">Shipping</span>
+                                            <span class="value" data-bind="text: getShippingMethodTitle()">(MNG)</span>
                                         </th>
-                                        <td data-bind="attr: {'data-th': title}" class="amount" data-th="Order Total">
-                                            <strong><span class="price" data-bind="text: getValue()">{{number_format($total_count/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></span></strong>
+                                        <td class="amount">
+                                            <span class="price" data-bind="text: getValue(), attr: {'data-th': title}" data-th="Shipping">{{number_format($shipping_cost/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></span>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                <tr class="grand totals">
+                                    <th class="mark" scope="row">
+                                        <strong data-bind="text: title">Order Total</strong>
+                                    </th>
+                                    <td data-bind="attr: {'data-th': title}" class="amount" data-th="Order Total">
+                                        <strong><span class="price" data-bind="text: getValue()">{{number_format($total_count/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></span></strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <button type="button" title="Go to Checkout" class="action primary checkout" onclick="window.location.href='/checkout';">
-                        <span>Go to Checkout</span>
-                    </button>
                 </div>
+                <button type="button" title="Go to Checkout" class="action primary checkout" onclick="window.location.href='/checkout';">
+                    <span>Go to Checkout</span>
+                </button>
             </div>
         </div>
     </section>

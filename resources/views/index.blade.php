@@ -2,6 +2,7 @@
 
 @section('content')
 <body id="home">
+    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/home.css') }}">
 <!--     <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -102,14 +103,12 @@
 	</div>
 
 	@include('partials.subscribe-to-list')
-
-    <!--
+    
     <footer>
         <div class="container">
-            
+            Copyright © 2017 Brush. All rights reserved.
         </div>
     </footer>
--->
     <!--
     <section class="modal">
         <div class="container">
