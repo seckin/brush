@@ -174,7 +174,6 @@ Route::get('/checkout/payment', function () {
 	$user = Auth::user();
 	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$cartItems = $order->cartItems;
-    echo "orderid:" . $order->id;
 	return view('checkout-payment', [
 		"order" => $order,
 		"cartItems" => $cartItems
