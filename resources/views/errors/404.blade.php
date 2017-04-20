@@ -15,3 +15,4 @@
     @include('partials.subscribe-to-list')
 
 </body>
+@endsection
