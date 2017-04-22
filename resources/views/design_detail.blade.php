@@ -118,7 +118,7 @@
 	    </div>
 	</section>
 
-    @include('partials.subscribe-to-list')
+    @include('partials.notify-me')
 
     <!--
     <footer>

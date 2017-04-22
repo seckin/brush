@@ -16,9 +16,9 @@
 
     <header>
     <div class="container">
-        <h1>Limited Number of Designs by Local Artists</h1>
-        <p>Visual art is a human activity in creating visual artworks, expressing the artist's imaginative or technical skill, intended to be appreciated for their beauty or emotional power.</p>
-        <a class="button" role="button">BUY ARTWORKS</a>
+        <h1>Design Prints for Earlybirds</h1>
+        <p>Are you looking for a special design to hang on your wall? Brush helps you collect unique designs by making many great illustrations available for a limited number of people.</p>
+        <a class="button" role="button">SEE ALL DESIGNS</a>
     </div>
 	</header>
 	<section class="featured">
@@ -104,11 +104,8 @@
 
 	@include('partials.subscribe-to-list')
     
-    <footer>
-        <div class="container">
-            Copyright © 2017 Brush. All rights reserved.
-        </div>
-    </footer>
+    @include('partials.footer')
+    
     <!--
     <section class="modal">
         <div class="container">
