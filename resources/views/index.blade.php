@@ -49,60 +49,10 @@
 	        </div>
 	    </div>
 	</section>
-
-	<div class="footer__customer-service text-center">
-	    <h4 class="h1 footer--headline footer--headline-help">Need help?</h4>
-	    <a class="footer__phone" href="tel:00493092033121" rel="nofollow">
-	    <i class="i-phone footer__phone-icon"></i>+90 542 336 89 06
-	    </a>
-	    <a class="footer__email" href="mailto:service@juniqe.com" rel="nofollow">
-	    <i class="i-mail footer__email-icon"></i>team@trybrush.com
-	    </a>
-	</div>
-
-	<div class="footer__signs">
-	    <div class="footer__payment text-center">
-	        <h4 class="footer--headline h4">Secure Payment</h4>
-	        <div class="footer__payment__icons">
-	            <span class="footer__payment__icon sprite-icon sprite-visa"></span>
-	            <span class="footer__payment__icon sprite-icon sprite-mastercard"></span>
-	            <span class="footer__payment__icon sprite-icon sprite-paypal"></span>
-	            <span class="footer__payment__icon sprite-icon sprite-vorkasse-en"></span>
-	        </div>
-	    </div>
-	    <div class="footer__shipping text-center">
-	        <h4 class="footer--headline h4">Fast Delivery</h4>
-	        <div class="text-center">
-	            <!-- <span class="logistics-icon sprite-icon sprite-dhl"></span> -->
-	            <span class="logistics-icon sprite-icon sprite-ups"></span>
-	            <!-- <span class="logistics-icon sprite-icon sprite-gls"></span> -->
-	            <span class="show-tablet footer__shipping-links">
-	            <!-- <a href="/faq#shipping">More information</a> -->
-	            </span>
-	        </div>
-	    </div>
-	    <div class="footer__shop-securely">
-	        <div class="row">
-	            <div class="col-xs-12">
-	                <h4 class="footer--headline h4 text-center">Shop Securely</h4>
-	            </div>
-	            <div class="col-xs-12 col-md-3 footer__trusted-icons">
-	                <div class="footer__safety-icons">
-	                    <a href="#" class="sprite-icon sprite-ssl"></a>
-	                </div>
-	            </div>
-	            <div class="col-xs-12 col-md-9 footer__safety-purchase">
-	                <ul class="footer__trusted-list">
-	                    <li class="footer__trusted-point">Free 100-day returns</li>
-	                    <li class="footer__trusted-point">Secure with SSL encryption</li>
-	                    <li class="footer__trusted-point">Buyer and data protection</li>
-	                </ul>
-	            </div>
-	        </div>
-	    </div>
-	</div>
-
-	@include('partials.subscribe-to-list')
+    
+    @include('partials.service-details')
+    
+    @include('partials.subscribe-to-list')
     
     @include('partials.footer')
     

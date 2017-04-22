@@ -29,15 +29,8 @@
 	    </div>
 	</section>
 
-	@include('partials.subscribe-to-list')
-
-    <!--
-    <footer>
-        <div class="container">
-            
-        </div>
-    </footer>
--->
+	@include('partials.notify-me')
+    
     <!--
     <section class="modal">
         <div class="container">
