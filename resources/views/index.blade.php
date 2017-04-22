@@ -17,7 +17,7 @@
     <div class="container">
         <h1>Design Prints for Early Birds</h1>
         <p>Are you looking for a special design to hang on your wall? Brush helps you find great designs by letting designers run limited edition campaigns.</p>
-        <a class="button" role="button">SEE ALL DESIGNS</a>
+        <a href="/designs" class="button" role="button">SEE ALL DESIGNS</a>
     </div>
 	</header>
 	<section class="featured">

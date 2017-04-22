@@ -51,11 +51,11 @@
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">
                                 <button id="canvasSize" class="dropdown">
-                                    <a data-number="0" href="#">Please select...</a>
-                                    <a data-number="1" href="#">25cm x 17.5cm</a>
-                                    <a data-number="2" href="#">50cm x 35cmm</a>
-                                    <a data-number="3" href="#">100cm x 70cm</a>
-                                    <input id="canvasSizeInput" type="number" value="0" />
+                                    <a data-value="" href="#">Please select...</a>
+                                    <a data-value="1" href="#">25cm x 17.5cm</a>
+                                    <a data-value="2" href="#">50cm x 35cmm</a>
+                                    <a data-value="3" href="#">100cm x 70cm</a>
+                                    <input id="canvasSizeInput" type="text" value="" />
                                 </button>
                             </div>
                         </div>
@@ -71,21 +71,21 @@
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">
                                 <button id="tshirtGender" class="dropdown">
-                                    <a data-number="0" href="#">Please select...</a>
-                                    <a data-number="1" href="#">Unisex</a>
-                                    <a data-number="2" href="#">Female</a>
-                                    <a data-number="3" href="#">Male</a>
-                                    <input id="tshirtGenderInput" type="number" value="0" />
+                                    <a data-value="" href="#">Please select...</a>
+                                    <a data-value="1" href="#">Unisex</a>
+                                    <a data-value="2" href="#">Female</a>
+                                    <a data-value="3" href="#">Male</a>
+                                    <input id="tshirtGenderInput" type="text" value="" />
                                 </button>
                             </div>
                             <div class="dropdown-wrapper">
                                 <button id="tshirtSize" class="dropdown">
-                                    <a data-number="0" href="#">Please select...</a>
-                                    <a data-number="1" href="#">Small</a>
-                                    <a data-number="2" href="#">Medium</a>
-                                    <a data-number="3" href="#">Large</a>
-                                    <a data-number="3" href="#">X-Large</a>
-                                    <input id="tshirtSizeInput" type="number" value="0" />
+                                    <a data-value="" href="#">Please select...</a>
+                                    <a data-value="1" href="#">Small</a>
+                                    <a data-value="2" href="#">Medium</a>
+                                    <a data-value="3" href="#">Large</a>
+                                    <a data-value="3" href="#">X-Large</a>
+                                    <input id="tshirtSizeInput" type="text" value="" />
                                 </button>
                             </div>
                             <button id="tshirt-addtocart-button" class="submit" type="submit" title="Add to Cart" class="action tocart">
@@ -164,6 +164,7 @@
                 // dataType: 'jsonp',
                 success: function(data) {
                     $button.html("Added!");
+                    console.log("updateCart called");
                     updateCart();
                     setTimeout(function() {
                         $button.removeClass("disabled");

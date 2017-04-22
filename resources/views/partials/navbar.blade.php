@@ -7,8 +7,9 @@
             <a class="home link" href="/">HOME</a>
             <a class="artists link" href="/artists">ARTISTS</a>
             <a class="designs link" href="/designs">DESIGNS</a>
-            <!-- <a class="about link" href="/about">ABOUT</a> -->
+            <!-- <a class="about link" href="/about">ABOUT</a>
             <a class="contact link" href="mailto:team@trybrush.com">CONTACT</a>
+            -->
             @if (Auth::check())
             <a class="cart link" href="#" class="js-ajax-cart-link header-button header-button--cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -27,7 +28,7 @@
                         <p>{{"tshirt"}}</p>
                     </span>
                 </div>
-                <a href="/checkout/cart">Go to Checkout</a>
+                <a class="button" href="/checkout/cart">Go to Checkout</a>
             </div>
             <div class="logindata" data-is-logged-in="<?php echo Auth::check() ? 1 : 0;?>"></div>
         </div>
