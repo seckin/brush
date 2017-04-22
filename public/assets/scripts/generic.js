@@ -39,10 +39,10 @@ $(document).ready(function() {
         var dropdown = $(this).parent('.dropdown');
         if(dropdown.hasClass('open')) {
             if($(this).data('number') != 0) {
-                $('a[data-number="0"]').remove();
+                dropdown.children('a[data-number="0"]').remove();
                 $(this).prependTo(dropdown);
                 var number = $(this).data('number');
-                $(this).parent().children('input').attr('value', number);
+                dropdown.children('input').attr('value', number);
                 dropdown.removeClass('open');
             } else {
                 dropdown.removeClass('open');
@@ -55,6 +55,22 @@ $(document).ready(function() {
     $(document).on('click', function(e) {
         if(!$(e.target).parents(".cartdetails.open").length) {
             $(".open.cartdetails").removeClass("open");
+        }
+        console.log(e.target);
+//        if(!$(e.target).parents(".dropdown.open").length) {
+//            $(e.target).parents(".dropdown.open").removeClass("open");
+//        }
+        if(!$(e.target).parent('.dropdown').length) {
+            $('.dropdown.open').removeClass('open');
+            
+        } else if ($(e.target).parent('.dropdown').length) {
+            // clicked inside a dropdown, but there are other dropdowns we need to close
+            var $dropdowns = $(".dropdown");
+            for(var i=0; i < $dropdowns.length; i++) {
+                if($dropdowns.eq(i)[0] != $(e.target).parent('.dropdown')[0]) {
+                    $dropdowns.eq(i).removeClass('open');
+                }
+            }
         }
     });
     /* OTHER FUNCTIONS */
