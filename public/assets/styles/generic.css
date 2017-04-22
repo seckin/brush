@@ -104,8 +104,8 @@ body.menu-open nav a.switch .close-icon { display: block; }
 .cartdetails div > span { float: left; width: 280px; height: 36px; margin: 2px 0 2px 10px; }
 .cartdetails div > span b { display: block; width: 100%; line-height: 16px; }
 .cartdetails div > span p { display: block; width: 100%; line-height: 20px; text-transform: capitalize; }
-.cartdetails > a, .cartdetails > a:visited { display: block; padding: 10px 0; color: rgba(255, 255, 255, 1); text-align: center; background-color: transparent; border-bottom: none; opacity: .65; }
-.cartdetails > a:hover { opacity: 1; }
+.cartdetails > a, .cartdetails > a:visited { display: block; padding: 10px 0; color: rgba(255, 255, 255, 1); text-align: center; background-color: transparent; border-bottom: none; }
+.cartdetails > a:hover { font-weight: bold; }
 .cartdetails.open { display: block; }
 
 /* Links */

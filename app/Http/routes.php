@@ -151,9 +151,16 @@ Route::get('/designs/{design_id}', function ($design_id) {
 });
 
 Route::get('/designs', function () {
-	$designs = Design::orderBy('created_at', 'asc')->get();
+	$designs = Design::orderBy('created_at', 'desc')->get();
 	return view('designs', [
 		"designs" => $designs
+	]);
+});
+
+Route::get('/artists', function () {
+	$artists = Artist::orderBy('created_at', 'desc')->get();
+	return view('artists', [
+		"artists" => $artists
 	]);
 });
 
