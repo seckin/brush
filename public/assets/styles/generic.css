@@ -101,7 +101,7 @@ body.menu-open nav a.switch .close-icon { display: block; }
 .cartdetails div:after { content: ''; display: block; clear: both; }
 .cartdetails div:last-of-type { border-bottom: none; }
 .cartdetails div > img { float: left; width: 40px; height: 40px; }
-.cartdetails div > span { float: left; width: 240px; height: 36px; margin: 2px 0 2px 10px; }
+.cartdetails div > span { float: left; width: 280px; height: 36px; margin: 2px 0 2px 10px; }
 .cartdetails div > span b { display: block; width: 100%; line-height: 16px; }
 .cartdetails div > span p { display: block; width: 100%; line-height: 20px; text-transform: capitalize; }
 .cartdetails > a, .cartdetails > a:visited { display: block; padding: 10px 0; color: rgba(255, 255, 255, 1); text-align: center; background-color: transparent; border-bottom: none; opacity: .65; }
@@ -372,7 +372,7 @@ footer .partners > a img { height: 100%; }
 
 /* Segments */
 
-.segment { position: relative; border: 2px solid black; height: 150px; margin-bottom: 2%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); }
+.segment { position: relative; border: 2px solid black; height: 166px; margin-bottom: 2%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); }
 .segment > * { float: left; width: auto; }
 .segment > img { height: 100%; margin-right: 2.5%; }
 .segment h1 { width: 100%; margin-bottom: 0; line-height: 1.5em; text-align: left; overflow: hidden; }
@@ -601,6 +601,29 @@ body#home header > .container > h1, body#home header > .container h1 { color: rg
 body#home header p { color: rgba(255, 255, 255, 1); }
 body#home header button, body#home header .button { color: rgba(255, 255, 255, 1); border-color: rgba(255, 255, 255, 1); }
 
+.remove-from-cart {
+	width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
 .remove-from-cart .fa-trash-o:hover {
 	font-size: 24px;
+}
+
+#canvas-addtocart-button.disabled, #tshirt-addtocart-button.disabled {
+	opacity: 0.4;
+}
+
+.cartitem-quantity {
+	float: right;
+	margin-right: 60px;
+}
+
+.cartitem-price {
+	float: right;
+    display: inline-block;
+    font-weight: bold;
 }

@@ -162,11 +162,12 @@
                 },
                 // dataType: 'jsonp',
                 success: function(data) {
-                    $button.children("span").val("Added");
+                    $button.html("Added!");
                     updateCart();
                     setTimeout(function() {
-                        $button.children("span").val("Add to Cart");
-                    }, 2000);
+                        $button.removeClass("disabled");
+                        $button.html("Add to Cart");
+                    }, 1000);
                 }
             });
         }
@@ -175,6 +176,7 @@
                 return;
             }
             $("#canvas-addtocart-button").addClass("disabled");
+            $("#canvas-addtocart-button").html("Adding...");
             console.log("canvas clicked");
             $.ajaxSetup({
                 headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
@@ -189,6 +191,7 @@
                 return;
             }
             $("#tshirt-addtocart-button").addClass("disabled");
+            $("#tshirt-addtocart-button").html("Adding...");
             console.log("canvas clicked");
             $.ajaxSetup({
                 headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }

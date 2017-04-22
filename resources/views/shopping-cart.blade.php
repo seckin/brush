@@ -46,7 +46,13 @@
                             <dt>Gender</dt><dd>{{$cartItem->productSpec->gender}}</dd>
                         </dl>
                         @endif
-                        <div class="remove-from-cart" style="width:20px; height:20px;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                        <dl>
+                            <dt>Qty</dt><dd>{{$cartItem->quantity}}</dd>
+                        </dl>
+                        <dl>
+                            <strong>{{number_format((float)$cartItem->price_per_item / 100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></strong>
+                        </dl>
+                        <div class="remove-from-cart"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                     </div>
                 </div>
                 @endforeach

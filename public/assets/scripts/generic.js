@@ -128,7 +128,7 @@ function updateCart() {
             if($(".cartdetails")) {
                 $(".cartdetails").children("div").remove();
                 for(var i=data.cartItems.length-1; i>=0; i--) {
-                    $(".cartdetails").prepend('<div><img class="product-image-photo" src="' + data.cartItems[i].design.image + '" alt="design name"><span><b>' + data.cartItems[i].design.name + '</b><p>' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</p></span></div>');
+                    $(".cartdetails").prepend('<div><img class="product-image-photo" src="' + data.cartItems[i].design.image + '" alt="design name"><span><b>' + data.cartItems[i].design.name + '</b><span>' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</span><span class="cartitem-price">' + (data.cartItems[i].price_per_item / 100.0).toFixed(2) + '<i class="fa fa-try" aria-hidden="true"></i></span><span class="cartitem-quantity">Qty: ' + data.cartItems[i].quantity + '</span> </span></div>');
                 }
             }
         }
