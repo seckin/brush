@@ -31,6 +31,8 @@
 
 	@include('partials.notify-me')
     
+	@include('partials.footer')
+    
     <!--
     <section class="modal">
         <div class="container">
