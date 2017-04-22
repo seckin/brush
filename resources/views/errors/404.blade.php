@@ -2,7 +2,6 @@
 
 @section('content')
 <body id="home">
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/home.css') }}">
 
     @include('partials.navbar')
 
@@ -15,3 +14,4 @@
     @include('partials.subscribe-to-list')
 
 </body>
+@endsection

@@ -212,6 +212,18 @@ Route::post('/api/v1/emails', function (Request $request) {
 	return array("saved" => "true");
 });
 
+Route::delete('/api/v1/cartItem', function (Request $request) {
+	$user = Auth::user();
+	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$cartItems = $order->cartItems;
+	foreach($cartItems as $cartItem) {
+		if($cartItem->id == $request->id) {
+			$cartItem->delete();
+		}
+	}
+	return array("done" => 1);
+})->middleware('auth');
+
 Route::post('/api/v1/addToCart', function (Request $request) {
 	$user = Auth::user();
 	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
@@ -266,18 +278,22 @@ Route::post('/api/v1/addToCart', function (Request $request) {
 	$productSpec->cart_item_id = $cartItem->id;
 	$productSpec->save();
 	return $cartItem;
-});
+})->middleware('auth');
 
 Route::get('/api/v1/cartInfo', function () {
 	$user = Auth::user();
 	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$cartItems = $order->cartItems;
-	$count = 0;
-	foreach($cartItems as $cartItem) {
-		$count += $cartItem->quantity;
+	// $count = 0;
+	// foreach($cartItems as $cartItem) {
+	// 	$count += $cartItem->quantity;
+	// }
+	for($i=0; $i < count($cartItems); $i++) {
+		$cartItems[$i]->product_spec = $cartItems[$i]->productSpec;
+		$cartItems[$i]->design = $cartItems[$i]->design;
 	}
-	return array("checkoutItems" => $cartItems);
-});
+	return array("cartItems" => $cartItems);
+})->middleware('auth');
 
 Route::post('/api/v1/shippingInfo', function (Request $request) {
 	$shippingInfo = new ShippingInfo;
@@ -292,9 +308,9 @@ Route::post('/api/v1/shippingInfo', function (Request $request) {
 	$order = Order::find($request->order_id);
 	$order->shipping_info_id = $shippingInfo->id;
 	$order->save();
-    
+
     $shippingInfo->order_id = $order->id;
     $shippingInfo->save();
 
 	return $shippingInfo;
-});
+})->middleware('auth');

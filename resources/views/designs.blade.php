@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<body id="home">
+<body id="designs">
 <!--     <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>

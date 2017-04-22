@@ -14,12 +14,12 @@
 
     @include('partials.navbar')
 
-    <header class="blank"></header>
+    <!-- <header class="blank"></header> -->
     <section id="shopping-cart">
         <div class="container">
             <div class="products">
                 @foreach($cartItems as $cartItem)
-                <div class="segment">
+                <div class="segment" data-cart-item-id="{{$cartItem->id}}">
                     @if ($cartItem->productSpec->type == "tshirt")
                     <img class="picture" src="{{$cartItem->design->tshirt_image}}" alt="{{$cartItem->design->name}}">
                     @endif
@@ -27,8 +27,17 @@
                     <img class="picture" src="{{$cartItem->design->canvas_image}}" alt="{{$cartItem->design->name}}">
                     @endif
                     <div class="information">
-                        <h3>FRIDA</h3>
-                        <p>Canvas Print</p>
+                        <h3>{{$cartItem->design->name}}</h3>
+                        @if ($cartItem->productSpec->type == "canvas")
+                        <dl>
+                            <dt>Type</dt><dd>Canvas</dd>
+                        </dl>
+                        @endif
+                        @if ($cartItem->productSpec->type == "tshirt")
+                        <dl>
+                            <dt>Type</dt><dd>Tshirt</dd>
+                        </dl>
+                        @endif
                         <dl>
                             <dt>Size</dt><dd>{{$cartItem->productSpec->size}}</dd>
                         </dl>
@@ -37,6 +46,7 @@
                             <dt>Gender</dt><dd>{{$cartItem->productSpec->gender}}</dd>
                         </dl>
                         @endif
+                        <div class="remove-from-cart" style="width:20px; height:20px;">X</div>
                     </div>
                 </div>
                 @endforeach
@@ -51,6 +61,7 @@
                                     $total_price = 0;
                                     $shipping_cost = 0;
                                     foreach($cartItems as $cartItem) {
+                                        // echo "cartitem id : " . $cartItem->id . "         ";
                                         $total_price += $cartItem->quantity * $cartItem->price_per_item;
                                         $shipping_cost += $cartItem->shipping_cost;
                                     }
@@ -91,6 +102,31 @@
     </section>
 
     @include('partials.subscribe-to-list')
+
+    <script>
+        $(".remove-from-cart").click(function(event) {
+            var cartItemId = $(event.target).parents(".segment").data("cartItemId");
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+            });
+            var email = $(".subscribe #email").val();
+            $.ajax({
+                url: '/api/v1/cartItem',
+                type: 'DELETE',
+                data: {
+                  id: cartItemId
+                },
+                error: function() {
+                },
+                success: function(data) {
+                    $(event.target).parents(".segment").fadeOut( "fast", function() {
+                        $(event.target).parents(".segment").remove();
+                    });
+                    updateCart();
+                }
+            });
+        });
+    </script>
 
     <!--
     <footer>

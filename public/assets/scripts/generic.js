@@ -13,7 +13,8 @@ $(document).ready(function() {
         e.preventDefault();
     });
     //Open Cart Preview
-    $('.menu > a.cart').on('click', function() {
+    $('.menu > a.cart').on('click', function(e) {
+        e.stopPropagation();
         $('.cartdetails').toggleClass('open');
     });
     //Close Status Bar on Request
@@ -34,7 +35,7 @@ $(document).ready(function() {
     }
     /* MODULES */
     //Dropdown Selector
-    $('.dropdown a').on('click', function() {
+    $('.dropdown a').on('click', function(e) {
         var dropdown = $(this).parent('.dropdown');
         if(dropdown.hasClass('open')) {
             if($(this).data('number') != 0) {
@@ -48,6 +49,12 @@ $(document).ready(function() {
             }
         } else {
             dropdown.addClass('open');
+        }
+    });
+    // close popover when clicked on somewhere else in the page
+    $(document).on('click', function(e) {
+        if(!$(e.target).parents(".cartdetails.open").length) {
+            $(".open.cartdetails").removeClass("open");
         }
     });
     /* OTHER FUNCTIONS */
@@ -94,7 +101,6 @@ $(document).ready(function () {
             error: function() {
               $('#info').html('<p>An error has occurred</p>');
             },
-            // dataType: 'jsonp',
             success: function(data) {
                 $(".subscribe #email").val('');
                 $(".subscribe .email-saved").css({"display": "block"});
@@ -112,9 +118,18 @@ function updateCart() {
         error: function() {
         },
         success: function(data) {
-            if(data.checkoutItems.length) {
+            if(data.cartItems.length) {
                 $(".header__amount").removeClass("is-hidden");
-                $(".header__amount").text("(" + data.checkoutItems.length + ")");
+                $(".header__amount").text("(" + data.cartItems.length + ")");
+            } else {
+                $(".header__amount").addClass("is-hidden");
+                $(".header__amount").text("(" + data.cartItems.length + ")");
+            }
+            if($(".cartdetails")) {
+                $(".cartdetails").children("div").remove();
+                for(var i=data.cartItems.length-1; i>=0; i--) {
+                    $(".cartdetails").prepend('<div><img class="product-image-photo" src="' + data.cartItems[i].design.image + '" alt="design name"><span><b>' + data.cartItems[i].design.name + '</b><p>' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</p></span></div>');
+                }
             }
         }
     });
