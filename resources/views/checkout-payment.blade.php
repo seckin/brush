@@ -48,6 +48,7 @@
                             <!-- Used to display Element errors -->
                             <div id="card-errors"></div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="order_id" value="{{ $order->id }}">
                           </div>
 
                           <button>Submit Payment</button>

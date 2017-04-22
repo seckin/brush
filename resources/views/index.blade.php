@@ -11,6 +11,20 @@
         </a>
     </section>
  -->
+
+     @if (session('status'))
+        <div class="alert alert-success">
+            <section class="status">
+                <div class="container">
+                    <span>{{ session('status') }}</span>
+                </div>
+                <span class="alert-close-icon">
+                    <img src="/assets/images/interface/icon-close.png" />
+                </span>
+            </section>
+        </div>
+    @endif
+
     @include('partials.navbar')
 
     <header>
@@ -54,6 +68,12 @@
     @include('partials.subscribe-to-list')
     
     @include('partials.footer')
+
+    <script>
+        $(".alert-close-icon").click(function() {
+            $(".alert").remove();
+        });
+    </script>
     
     <!--
     <section class="modal">

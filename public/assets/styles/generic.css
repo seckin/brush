@@ -624,3 +624,12 @@ body#home header button, body#home header .button { color: rgba(255, 255, 255, 1
 /* Page: Error */
 
 body#error header img { width: auto; margin-top: 5%; }
+
+
+.shipping-wrapper {
+	margin: 100px;
+}
+
+#checkout-payment .opc-wrapper {
+	margin: 100px;
+}

@@ -18,14 +18,27 @@ use App\CartItem;
 use App\ProductSpec;
 use App\Order;
 use App\ShippingInfo;
+use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 require_once(app_path().'/../vendor/autoload.php');
 
-Route::group(['middleware' => ['web']], function () {
+// Route::group(['middleware' => ['web']], function () {
 
 Route::get('/', function () {
+	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
+	$designs = Design::orderBy('created_at', 'asc')->limit(8)->get();
+	return view('index', [
+		"artists" => $artists,
+		"designs" => $designs
+	]);
+    // return view('welcome');
+});
+Route::get('/test', function (Request $request) {
+
+	Session::flash('status', 'Task was successful!');
+
 	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
 	$designs = Design::orderBy('created_at', 'asc')->limit(8)->get();
 	return view('index', [
@@ -99,7 +112,9 @@ Route::get('/payment', function () {
 
 Route::post('/charge', function (Request $request) {
 	$user = Auth::user();
-	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = $request->order_id;
+	$order = Order::find($order_id);
 	$cartItems = $order->cartItems;
 	$total_price = 0;
 	$shipping_cost = 0;
@@ -125,9 +140,10 @@ Route::post('/charge', function (Request $request) {
 	$charge = \Stripe\Charge::create(array(
 	  "amount" => $total_amount,
 	  "currency" => "try",
-	  "description" => "Example charge",
+	  "description" => "Charge for " . $user->email,
 	  "metadata" => array("order_id" => $order->id),
 	  "source" => $token,
+	  "receipt_email" => $user->email,
 	));
 
 	$payment = new Payment;
@@ -144,8 +160,6 @@ Route::post('/charge', function (Request $request) {
 })->middleware('auth');
 
 Route::get('/designs/{design_id}', function ($design_id) {
-	echo Session::get( 'key55' );
-	echo "value3";
 	DB::table('designs')->whereId($design_id)->increment('view_count');
 
 	$design = Design::find($design_id);
@@ -195,12 +209,18 @@ Route::get('/checkout', function () {
 	return view('checkout-shipping-info', ["order" => $order]);
 });
 
-Route::get('/checkout/payment', function () {
+Route::get('/checkout/payment', function (Request $request) {
 	$user = Auth::user();
-	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = Session::get("order_id");
+	$order = Order::find($order_id);
 	$order->user_id = $user->id;
 	$order->save();
 	$cartItems = $order->cartItems;
+	if(count($cartItems) == 0) {
+		$request->session()->flash('status', 'No items in cart!');
+		return redirect('/');
+	}
 	return view('checkout-payment', [
 		"order" => $order,
 		"cartItems" => $cartItems
@@ -352,4 +372,4 @@ Route::post('/api/v1/shippingInfo', function (Request $request) {
 	return $shippingInfo;
 });
 
-});
+// });
