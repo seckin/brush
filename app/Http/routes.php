@@ -157,6 +157,14 @@ Route::get('/designs', function () {
 	]);
 });
 
+Route::get('/artists/{artist_id}', function ($artist_id) {
+	$artist = Artist::find($artist_id);
+
+    return view('artist_profile', [
+    	"artist" => $artist
+    ]);
+});
+
 Route::get('/artists', function () {
 	$artists = Artist::orderBy('created_at', 'desc')->get();
 	return view('artists', [

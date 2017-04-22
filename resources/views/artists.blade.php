@@ -18,10 +18,10 @@
 	        <h3>Featured Artists</h3>
 	        <div class="quadruple stack">
 	        	@foreach($artists as $artist)
-	            <div class="item">
+	            <a class="item" href="/artists/{{$artist->id}}">
 	                <img src="{{$artist->profile_image}}" />
 	                <p>{{$artist->name}}</p>
-	            </div>
+	            </a>
 	            @endforeach
 	        </div>
 	    </div>
