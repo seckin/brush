@@ -112,9 +112,10 @@ function updateCart() {
         error: function() {
         },
         success: function(data) {
-            $(".header__amount").removeClass("is-hidden");
-            window.asd = data;
-            $(".header__amount").text("(" + data.count + ")");
+            if(data.checkoutItems.length) {
+                $(".header__amount").removeClass("is-hidden");
+                $(".header__amount").text("(" + data.checkoutItems.length + ")");
+            }
         }
     });
 }

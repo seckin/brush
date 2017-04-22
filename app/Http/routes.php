@@ -174,7 +174,6 @@ Route::get('/checkout/payment', function () {
 	$user = Auth::user();
 	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$cartItems = $order->cartItems;
-    echo "orderid:" . $order->id;
 	return view('checkout-payment', [
 		"order" => $order,
 		"cartItems" => $cartItems
@@ -277,7 +276,7 @@ Route::get('/api/v1/cartInfo', function () {
 	foreach($cartItems as $cartItem) {
 		$count += $cartItem->quantity;
 	}
-	return array("count" => $count);
+	return array("checkoutItems" => $cartItems);
 });
 
 Route::post('/api/v1/shippingInfo', function (Request $request) {

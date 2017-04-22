@@ -29,6 +29,7 @@
                 </div>
                 <a href="/checkout/cart">Go to Checkout</a>
             </div>
+            <div class="logindata" data-is-logged-in="<?php echo Auth::check() ? 1 : 0;?>"></div>
         </div>
         <a class="switch" href="#">
             <img class="menu-icon" src="/assets/images/interface/icon-menu.png">
