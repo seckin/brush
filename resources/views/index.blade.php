@@ -2,7 +2,6 @@
 
 @section('content')
 <body id="home">
-    <link type="text/css" rel="stylesheet" charset="utf-8" href="{{ asset('assets/styles/home.css') }}">
 <!--     <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -17,7 +16,7 @@
     <header>
     <div class="container">
         <h1>Design Prints for Earlybirds</h1>
-        <p>Are you looking for a special design to hang on your wall? Brush helps you collect unique designs by making many great illustrations available for a limited number of people.</p>
+        <p>Are you looking for a special design to hang on your wall? Brush helps you find great designs by letting designers run limited edition campaigns.</p>
         <a class="button" role="button">SEE ALL DESIGNS</a>
     </div>
 	</header>

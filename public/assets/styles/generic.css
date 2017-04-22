@@ -594,4 +594,9 @@ h1, h2, a, a:visited, a.link, a.link:visited, a.link::after { color: rgba(33, 33
 
 /* Page: Home */
 
+body#home header { color: rgba(255, 255, 255, 1); }
 body#home header > .container { margin: 8% auto; }
+body#home header a { color: rgba(255, 255, 255, 1); }
+body#home header > .container > h1, body#home header > .container h1 { color: rgba(255, 255, 255, 1); }
+body#home header p { color: rgba(255, 255, 255, 1); }
+body#home header button, body#home header .button { color: rgba(255, 255, 255, 1); border-color: rgba(255, 255, 255, 1); }
