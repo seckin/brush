@@ -94,10 +94,9 @@ body.menu-open nav a.switch .close-icon { display: block; }
 .submenu a, .submenu a:visited { display: inline-block; box-sizing: border-box; width: 200px; padding: 6% 10%; color: rgba(255, 255, 255, 1); font-size: 0.8em; text-align: left; background-color: rgba(255, 255, 255, .15); }
 .submenu a:hover { background-color: rgba(255, 255, 255, .15); }
 
-.cartdetails { display: none; position: absolute; top: 85px; right: 0; width: 360px; padding: 5px 0 0 0; background-color: rgba(33, 33, 33, 1); border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; }
-.cartdetails::before { content: ''; position: absolute; top: -15px; right: 40px; width: 0; height: 0; border-top: 10px solid transparent; border-left: 10px solid transparent; border-right: 10px solid rgba(33, 33, 33, 1); border-bottom: 10px solid rgba(33, 33, 33, 1); }
-.cartdetails div { display: block; box-sizing: border-box; width: 360px; padding: 10px; color: rgba(255, 255, 255, 1); font-size: 0.8em; text-align: left; background-color: rgba(255, 255, 255, .15); border-bottom: 2px dotted rgba(33, 33, 33, 1); }
-.cartdetails div:hover { background-color: rgba(255, 255, 255, .2); }
+.cartdetails { display: none; position: absolute; top: 85px; right: 0; width: 364px; padding: 2px 2px 2px 2px; background-color: rgba(33, 33, 33, 1); border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; }
+.cartdetails::before { content: ''; position: absolute; top: -19px; right: 40px; width: 0; height: 0; border-top: 10px solid transparent; border-left: 10px solid transparent; border-right: 10px solid rgba(33, 33, 33, 1); border-bottom: 10px solid rgba(33, 33, 33, 1); }
+.cartdetails div { display: block; box-sizing: border-box; width: 360px; padding: 10px; color: black; font-size: 0.8em; text-align: left; background-color: rgba(255, 255, 255, .95); border-bottom: 2px solid rgba(33, 33, 33, 1); }
 .cartdetails div:after { content: ''; display: block; clear: both; }
 .cartdetails div:last-of-type { border-bottom: none; }
 .cartdetails div > img { float: left; width: 40px; height: 40px; }
@@ -222,7 +221,7 @@ section#design-detail[data-tab="mug"] .mug { display: block !important; }
 /* Shopping Cart */
 
 section#shopping-cart > .container { position: relative; }
-section#shopping-cart > .container > .products { float: left; width: 64%; }
+section#shopping-cart > .container > .products { float: left; width: 64%; min-height: 100px;}
 section#shopping-cart > .container > .summary { float: left; position: relative; width: 32%; margin-left: 4%; padding: 2.5%; background: rgba(33, 33, 33, .15); border: 3px solid rgba(33, 33, 33, 1); }
 
 /* Section: Announcement */
@@ -370,7 +369,7 @@ footer .partners > a img { height: 100%; }
 
 /* Segments */
 
-.segment { position: relative; height: 150px; margin-bottom: 2%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); }
+.segment { position: relative; border: 2px solid black; height: 150px; margin-bottom: 2%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); }
 .segment > * { float: left; width: auto; }
 .segment > img { height: 100%; margin-right: 2.5%; }
 .segment h1 { width: 100%; margin-bottom: 0; line-height: 1.5em; text-align: left; overflow: hidden; }
