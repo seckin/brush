@@ -23,6 +23,8 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 require_once(app_path().'/../vendor/autoload.php');
 
+Route::group(['middleware' => ['web']], function () {
+
 Route::get('/', function () {
 	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
 	$designs = Design::orderBy('created_at', 'asc')->limit(8)->get();
@@ -136,10 +138,14 @@ Route::post('/charge', function (Request $request) {
 	$order->payment_id = $payment->id;
 	$order->save();
 
+	Session::forget('order_id');
+
     return view('charge');
-});
+})->middleware('auth');
 
 Route::get('/designs/{design_id}', function ($design_id) {
+	echo Session::get( 'key55' );
+	echo "value3";
 	DB::table('designs')->whereId($design_id)->increment('view_count');
 
 	$design = Design::find($design_id);
@@ -173,21 +179,27 @@ Route::get('/artists', function () {
 });
 
 Route::get('/checkout/cart', function () {
-	$user = Auth::user();
-	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	// $user = Auth::user();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = Session::get("order_id");
+	$order = Order::find($order_id);
 	$cartItems = $order->cartItems;
 	return view('shopping-cart', ["cartItems" => $cartItems]);
-})->middleware('auth');
+});
 
 Route::get('/checkout', function () {
-	$user = Auth::user();
-	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	// $user = Auth::user();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = Session::get("order_id");
+	$order = Order::find($order_id);
 	return view('checkout-shipping-info', ["order" => $order]);
-})->middleware('auth');
+});
 
 Route::get('/checkout/payment', function () {
 	$user = Auth::user();
 	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order->user_id = $user->id;
+	$order->save();
 	$cartItems = $order->cartItems;
 	return view('checkout-payment', [
 		"order" => $order,
@@ -228,8 +240,10 @@ Route::post('/api/v1/emails', function (Request $request) {
 });
 
 Route::delete('/api/v1/cartItem', function (Request $request) {
-	$user = Auth::user();
-	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	// $user = Auth::user();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = Session::get("order_id");
+	$order = Order::find($order_id);
 	$cartItems = $order->cartItems;
 	foreach($cartItems as $cartItem) {
 		if($cartItem->id == $request->id) {
@@ -240,8 +254,10 @@ Route::delete('/api/v1/cartItem', function (Request $request) {
 })->middleware('auth');
 
 Route::post('/api/v1/addToCart', function (Request $request) {
-	$user = Auth::user();
-	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = Session::get("order_id");
+	// $user = Auth::user();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order = Order::find($order_id);
 	// if the item is the same as the item that was added before, only adjust the quantity.
 	if($order) {
 		$cartItems = $order->cartItems;
@@ -267,8 +283,9 @@ Route::post('/api/v1/addToCart', function (Request $request) {
 
 	if(!$order) {
 		$order = new Order;
-		$order->user_id = $user->id;
+		// $order->user_id = $user->id;
 		$order->save();
+		Session::set("order_id", $order->id);
 	}
 	$cartItem->order_id = $order->id;
 	$cartItem->quantity = 1;
@@ -293,11 +310,16 @@ Route::post('/api/v1/addToCart', function (Request $request) {
 	$productSpec->cart_item_id = $cartItem->id;
 	$productSpec->save();
 	return $cartItem;
-})->middleware('auth');
+});
 
 Route::get('/api/v1/cartInfo', function () {
-	$user = Auth::user();
-	$order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	// $user = Auth::user();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = Session::get("order_id");
+	$order = Order::find($order_id);
+	if(!$order) {
+		return array("cartItems" => array());
+	}
 	$cartItems = $order->cartItems;
 	// $count = 0;
 	// foreach($cartItems as $cartItem) {
@@ -308,7 +330,7 @@ Route::get('/api/v1/cartInfo', function () {
 		$cartItems[$i]->design = $cartItems[$i]->design;
 	}
 	return array("cartItems" => $cartItems);
-})->middleware('auth');
+});
 
 Route::post('/api/v1/shippingInfo', function (Request $request) {
 	$shippingInfo = new ShippingInfo;
@@ -328,4 +350,6 @@ Route::post('/api/v1/shippingInfo', function (Request $request) {
     $shippingInfo->save();
 
 	return $shippingInfo;
-})->middleware('auth');
+});
+
+});
