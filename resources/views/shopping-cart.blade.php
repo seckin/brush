@@ -46,7 +46,7 @@
                             <dt>Gender</dt><dd>{{$cartItem->productSpec->gender}}</dd>
                         </dl>
                         @endif
-                        <div class="remove-from-cart" style="width:20px; height:20px;">X</div>
+                        <div class="remove-from-cart" style="width:20px; height:20px;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                     </div>
                 </div>
                 @endforeach

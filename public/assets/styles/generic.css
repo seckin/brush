@@ -600,3 +600,7 @@ body#home header a { color: rgba(255, 255, 255, 1); }
 body#home header > .container > h1, body#home header > .container h1 { color: rgba(255, 255, 255, 1); }
 body#home header p { color: rgba(255, 255, 255, 1); }
 body#home header button, body#home header .button { color: rgba(255, 255, 255, 1); border-color: rgba(255, 255, 255, 1); }
+
+.remove-from-cart .fa-trash-o:hover {
+	font-size: 24px;
+}

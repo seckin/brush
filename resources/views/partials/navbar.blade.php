@@ -7,7 +7,7 @@
             <a class="home link" href="/">HOME</a>
             <a class="artists link" href="/artists">ARTISTS</a>
             <a class="designs link" href="/designs">DESIGNS</a>
-            <a class="about link" href="/about">ABOUT</a>
+            <!-- <a class="about link" href="/about">ABOUT</a> -->
             <a class="contact link" href="mailto:team@trybrush.com">CONTACT</a>
             @if (Auth::check())
             <a class="cart link" href="#" class="js-ajax-cart-link header-button header-button--cart">
