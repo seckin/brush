@@ -51,12 +51,12 @@
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">
                                 <button id="canvasSize" class="dropdown">
-                                    <a data-number="0" href="#">Please select...</a>
-                                    <a data-number="40X30" href="#">40cm x 30cm</a>
-                                    <a data-number="60X40" href="#">60cm x 40cmm</a>
-                                    <a data-number="76X50" href="#">76cm x 50cm</a>
-                                    <a data-number="100X76" href="#">100cm x 76cm</a>
-                                    <input id="canvasSizeInput" type="number" value="0" />
+                                    <a data-value="" href="#">Please select...</a>
+                                    <a data-value="40X30" href="#">40cm x 30cm</a>
+                                    <a data-value="60X40" href="#">60cm x 40cmm</a>
+                                    <a data-value="76X50" href="#">76cm x 50cm</a>
+                                    <a data-value="100X76" href="#">100cm x 76cm</a>
+                                    <input id="canvasSizeInput" type="text" value="" />
                                 </button>
                             </div>
                         </div>
@@ -72,22 +72,22 @@
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">
                                 <button id="tshirtGender" class="dropdown">
-                                    <a data-number="0" href="#">Please select...</a>
-                                    <!-- <a data-number="1" href="#">Unisex</a> -->
-                                    <a data-number="Female" href="#">Female</a>
-                                    <a data-number="Male" href="#">Male</a>
-                                    <input id="tshirtGenderInput" type="number" value="0" />
+                                    <a data-value="" href="#">Please select...</a>
+                                    <!-- <a data-value="1" href="#">Unisex</a> -->
+                                    <a data-value="Female" href="#">Female</a>
+                                    <a data-value="Male" href="#">Male</a>
+                                    <input id="tshirtGenderInput" type="text" value="" />
                                 </button>
                             </div>
                             <div class="dropdown-wrapper">
                                 <button id="tshirtSize" class="dropdown">
-                                    <a data-number="0" href="#">Please select...</a>
-                                    <a data-number="S" href="#">Small</a>
-                                    <a data-number="M" href="#">Medium</a>
-                                    <a data-number="L" href="#">Large</a>
-                                    <a data-number="XL" href="#">X-Large</a>
-                                    <a data-number="XXL" href="#">XX-Large</a>
-                                    <input id="tshirtSizeInput" type="number" value="0" />
+                                    <a data-value="" href="#">Please select...</a>
+                                    <a data-value="S" href="#">Small</a>
+                                    <a data-value="M" href="#">Medium</a>
+                                    <a data-value="L" href="#">Large</a>
+                                    <a data-value="XL" href="#">X-Large</a>
+                                    <a data-value="XXL" href="#">XX-Large</a>
+                                    <input id="tshirtSizeInput" type="text" value="" />
                                 </button>
                             </div>
                             <button id="tshirt-addtocart-button" class="submit" type="submit" title="Add to Cart" class="action tocart">
@@ -166,6 +166,7 @@
                 // dataType: 'jsonp',
                 success: function(data) {
                     $button.html("Added!");
+                    console.log("updateCart called");
                     updateCart();
                     setTimeout(function() {
                         $button.removeClass("disabled");
@@ -178,7 +179,7 @@
             if($("#canvas-addtocart-button").hasClass("disabled")){
                 return;
             }
-            if($("#canvasSizeInput").attr("value") == 0) {
+            if($("#canvasSizeInput").attr("value") == "") {
                 alert("Please select a size for your canvas");
                 return;
             }
@@ -198,12 +199,12 @@
             if($("#tshirt-addtocart-button").hasClass("disabled")){
                 return;
             }
-            if($("#tshirtSizeInput").attr("value") == 0) {
-                alert("Please select a size for your tshirt");
+            if($("#tshirtGenderInput").attr("value") == "") {
+                alert("Please select a gender for your tshirt");
                 return;
             }
-            if($("#tshirtGenderInput").attr("value") == 0) {
-                alert("Please select a gender for your tshirt");
+            if($("#tshirtSizeInput").attr("value") == "") {
+                alert("Please select a size for your tshirt");
                 return;
             }
             $("#tshirt-addtocart-button").addClass("disabled");

@@ -29,7 +29,7 @@ header, section, footer, .container { box-sizing: border-box; }
 }
 
 body, a, b, p, h1, h2, h3, h4, h5, h6, span, del, button, .button { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
-h1, h2, h3, h4, h5, h6, b, strong, button, .button, dt { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+h1, h2, h3, h4, h5, h6, b, strong, button, .button { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
 h1 { color: rgba(33, 33, 33, 1); font-family: 'averiaseriflibreregular', serif; line-height: 125%; margin-bottom: 1em; }
 h2 { color: rgba(33, 33, 33, 1); font-family: 'averiaseriflibreregular', serif; line-height: 135%; }
 h3 { color: rgba(33, 33, 33, 1); line-height: 150%; }
@@ -45,7 +45,8 @@ h3 + div { margin-top: 1%; }
 /* Input */
 
 input, textarea, select, button, .button { width: 100%; box-sizing: border-box; outline: 0; }
-input, textarea { color: rgba(33, 33, 33, 1); outline: 0; border: 0; border-radius: 5px; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
+input:hover, textarea:hover, select:hover { background-color: rgba(255, 255, 255, .5); }
+input, textarea { margin-bottom: 2.5%; padding: 3% 4%; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; border: 3px solid rgba(33, 33, 33, 1); border-radius: 0; background-color: rgba(255, 255, 255, 1); transition: background-color .25s ease; }
 input::placeholder, textarea::placeholder { color: rgba(33, 33, 33, .5); }
 input:-moz-placeholder, textarea:-moz-placeholder { color: rgba(33, 33, 33, .5); }
 input::-moz-placeholder, textarea::-moz-placeholder { color: rgba(33, 33, 33, .5); }
@@ -65,7 +66,7 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 
 /* Navigation */
 
-nav { position: fixed; top: 0; left: 0; right: 0; height: 100px; margin-bottom: -100px; z-index: 10; background-color: rgba(255, 255, 255, 1); box-shadow: 0 1px 5px rgba(33, 33, 33, 0), 0 1px 3px rgba(33, 33, 33, 0); }
+nav { position: fixed; box-sizing: border-box; top: 0; left: 0; right: 0; height: 100px; margin-bottom: -100px; z-index: 10; background-color: rgba(255, 255, 255, 1); border-bottom: 1px solid rgba(0, 0, 0, .15); box-shadow: 0 1px 5px rgba(33, 33, 33, 0), 0 1px 3px rgba(33, 33, 33, 0); }
 nav .container { position: relative; height: 100px; }
 nav a.switch { display: none; }
 nav a.switch .menu-icon { position: relative; float: right; width: auto !important; height: 26px; margin: 37px 0; }
@@ -95,17 +96,19 @@ body.menu-open nav a.switch .close-icon { display: block; }
 .submenu a, .submenu a:visited { display: inline-block; box-sizing: border-box; width: 200px; padding: 6% 10%; color: rgba(255, 255, 255, 1); font-size: 0.8em; text-align: left; background-color: rgba(255, 255, 255, .15); }
 .submenu a:hover { background-color: rgba(255, 255, 255, .15); }
 
-.cartdetails { display: none; position: absolute; top: 85px; right: 0; width: 364px; padding: 2px 2px 2px 2px; background-color: rgba(33, 33, 33, 1); border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; }
-.cartdetails::before { content: ''; position: absolute; top: -19px; right: 40px; width: 0; height: 0; border-top: 10px solid transparent; border-left: 10px solid transparent; border-right: 10px solid rgba(33, 33, 33, 1); border-bottom: 10px solid rgba(33, 33, 33, 1); }
-.cartdetails div { display: block; box-sizing: border-box; width: 360px; padding: 10px; color: black; font-size: 0.8em; text-align: left; background-color: rgba(255, 255, 255, .95); border-bottom: 2px solid rgba(33, 33, 33, 1); }
+/* Cart Details */
+
+.cartdetails { display: none; position: absolute; top: 85px; right: 0; width: 360px; background-color: rgba(255, 255, 255, 1); border: 5px solid rgba(33, 33, 33, 1); border-left: none; border-right: none; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23); }
+.cartdetails::before { content: ''; position: absolute; top: -20px; right: 40px; width: 0; height: 0; border-top: 10px solid transparent; border-left: 10px solid transparent; border-right: 10px solid rgba(33, 33, 33, 1); border-bottom: 10px solid rgba(33, 33, 33, 1); }
+.cartdetails div { display: block; box-sizing: border-box; width: 360px; padding: 10px; color: rgba(33, 33, 33, 1); font-size: 0.8em; text-align: left; background-color: rgba(255, 255, 255, .15); border-bottom: 1px dotted rgba(33, 33, 33, 1); }
+.cartdetails div:hover { background-color: rgba(33, 33, 33, .1); }
 .cartdetails div:after { content: ''; display: block; clear: both; }
 .cartdetails div:last-of-type { border-bottom: none; }
 .cartdetails div > img { float: left; width: 40px; height: 40px; }
-.cartdetails div > span { float: left; width: 280px; height: 36px; margin: 2px 0 2px 10px; }
+.cartdetails div > span { float: left; width: 240px; height: 36px; margin: 2px 0 2px 10px; }
 .cartdetails div > span b { display: block; width: 100%; line-height: 16px; }
 .cartdetails div > span p { display: block; width: 100%; line-height: 20px; text-transform: capitalize; }
-.cartdetails > a, .cartdetails > a:visited { display: block; padding: 10px 0; color: rgba(255, 255, 255, 1); text-align: center; background-color: transparent; border-bottom: none; }
-.cartdetails > a:hover { font-weight: bold; }
+.cartdetails > a.button, .cartdetails > a.button:visited { margin: 5% auto; padding: 3% 4%; background-color: rgba(33, 33, 33, .15); }
 .cartdetails.open { display: block; }
 
 /* Links */
@@ -127,7 +130,7 @@ header > .container, section > .container { margin: 4% auto; }
 
 /* Header */
 
-header { display: inline-block; width: 100%; min-height: auto; background-color: rgba(33, 33, 33, .15); }
+header { display: inline-block; width: 100%; min-height: auto; background-color: rgba(33, 33, 33, .1); }
 header a { display: inline; }
 header > .container > h1, header > .container h1 { display: block; margin: 3% 0; font-size: 48px; text-align: center; text-shadow: -3px 3px rgba(33, 33, 33, .25); letter-spacing: -.015em; }
 header .container { position: relative; height: auto; transition: left 1s ease; }
@@ -140,8 +143,8 @@ header.blank { display: block; height: 200px; }
 /* Sections */
 
 section { display: inline-block; width: 100%; vertical-align: middle; }
+section.darker { background-color: rgba(33, 33, 33, .1); }
 section > .container { text-align: left; }
-section > .editable.container { outline: 0; }
 
 /* Section: Status */
 
@@ -220,11 +223,30 @@ section#design-detail[data-tab="canvas"] .canvas { display: block !important; }
 section#design-detail[data-tab="tshirt"] .tshirt { display: block !important; }
 section#design-detail[data-tab="mug"] .mug { display: block !important; }
 
-/* Shopping Cart */
+/* Section: Shopping Cart */
 
 section#shopping-cart > .container { position: relative; }
 section#shopping-cart > .container > .products { float: left; width: 64%; min-height: 100px;}
-section#shopping-cart > .container > .summary { float: left; position: relative; width: 32%; margin-left: 4%; padding: 2.5%; background: rgba(33, 33, 33, .15); border: 3px solid rgba(33, 33, 33, 1); }
+section#shopping-cart > .container > .summary { float: left; position: relative; width: 32%; margin-left: 4%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border: 3px solid rgba(33, 33, 33, 1); }
+section#shopping-cart > .container > .summary button, section#shopping-cart > .container > .summary .button { margin-top: 10%; padding: 3% 4%; background-color: rgba(33, 33, 33, .15); }
+section#shopping-cart > .container > .summary dl { margin-top: 2.5%; }
+section#shopping-cart > .container > .summary dd { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+section#shopping-cart .products .information  { padding: 1% 0; font-size: .9em; line-height: 125%; }
+section#shopping-cart .products .information h3 { font-size: 1.5em; text-transform: uppercase; }
+section#shopping-cart .products .price { float: right; margin: 2.5% 2.5% 0 0; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; font-size: 1.5em; text-transform: uppercase; letter-spacing: -.05em; }
+section#shopping-cart .products .price i { margin-left: .15em; }
+section#shopping-cart .products .remove-from-cart { position: absolute; right: 2.5%; bottom: 2.5%; width: 1em; height: 1.25em; text-align: center; }
+section#shopping-cart .products .remove-from-cart i { position: relative; top: 0; font-size: 1.15em; cursor: pointer; }
+section#shopping-cart .products .remove-from-cart i:hover { top: -0.05em; font-size: 1.25em; }
+
+/* Section: Checkout Shipping Info */
+
+section#checkout-shipping-info .container > span { display: inline-block; }
+section#checkout-shipping-info input { float: left; width: 350px; height: 60px; }
+section#checkout-shipping-info input[name="firstname"], section#checkout-shipping-info input[name="city"] { margin-right: 20px; }
+section#checkout-shipping-info input[name="street"] { width: 720px; }
+section#checkout-shipping-info button.dropdown#countryName { min-width: 350px; }
+section#checkout-shipping-info button.dropdown#countryName > a:first-child::before { content: 'Country: '; }
 
 /* Section: Announcement */
 
@@ -364,7 +386,7 @@ footer .right { float: right; text-align: right; }
 
 /* Segments */
 
-.segment { position: relative; border: 2px solid black; height: 166px; margin-bottom: 2%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); }
+.segment { position: relative; height: 166px; margin-bottom: 2%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
 .segment > * { float: left; width: auto; }
 .segment > img { height: 100%; margin-right: 2.5%; }
 .segment h1 { width: 100%; margin-bottom: 0; line-height: 1.5em; text-align: left; overflow: hidden; }
@@ -387,7 +409,7 @@ footer .right { float: right; text-align: right; }
 
 /* Buttons */
 
-button, .button { display: table; position: relative; top: 0; left: 0; width: auto; min-height: 40px; margin: 0 auto; margin-top: 3%; color: rgba(33, 33, 33, 1); line-height: 100%; padding: 1.5% 2%; font-size: 100%; text-align: center; background-color: rgba(255, 255, 255, 1); border-width: 3px; border-style: solid; border-color: rgba(33, 33, 33, 1); transition: all .075s ease; cursor: pointer; }
+button, .button { display: table; position: relative; top: 0; left: 0; width: auto; min-height: 40px; margin: 0 auto; margin-top: 3%; color: rgba(33, 33, 33, 1); line-height: 100%; padding: 1.5% 2%; font-size: 100%; text-align: center; background-color: transparent; border-width: 3px; border-style: solid; border-color: rgba(33, 33, 33, 1); transition: all .075s ease; cursor: pointer; }
 button:disabled, .button:disabled { box-shadow: none; opacity: 0.15; -moz-opacity:0.35; -khtml-opacity: 0.35; filter: alpha(opacity=35); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=35)"; }
 button, .button, button *, .button * { cursor: pointer !important; }
 button a { display: table-cell; position: relative; vertical-align: middle; line-height: 67%; }
@@ -429,6 +451,10 @@ h1, h2, a, a:visited, a.link, a.link:visited, a.link::after { color: rgba(33, 33
 /* Clearfix */
 
 .clearfix:after { content: ''; display: block; clear: both; }
+
+/* Hidden */
+
+.hidden { display: none; }
 
 /* Grayscale */
 
@@ -595,17 +621,9 @@ body#home header > .container > h1, body#home header > .container h1 { color: rg
 body#home header p { color: rgba(255, 255, 255, 1); }
 body#home header button, body#home header .button { color: rgba(255, 255, 255, 1); border-color: rgba(255, 255, 255, 1); }
 
-.remove-from-cart {
-	width: 20px;
-    height: 20px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-}
+/* Page: Error */
 
-.remove-from-cart .fa-trash-o:hover {
-	font-size: 24px;
-}
+body#error section img { width: auto; margin-top: 5%; }
 
 #canvas-addtocart-button.disabled, #tshirt-addtocart-button.disabled {
 	opacity: 0.4;
@@ -621,10 +639,6 @@ body#home header button, body#home header .button { color: rgba(255, 255, 255, 1
     display: inline-block;
     font-weight: bold;
 }
-/* Page: Error */
-
-body#error header img { width: auto; margin-top: 5%; }
-
 
 .shipping-wrapper {
 	margin: 100px;

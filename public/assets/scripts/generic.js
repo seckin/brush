@@ -38,11 +38,11 @@ $(document).ready(function() {
     $('.dropdown a').on('click', function(e) {
         var dropdown = $(this).parent('.dropdown');
         if(dropdown.hasClass('open')) {
-            if($(this).data('number') != 0) {
-                dropdown.children('a[data-number="0"]').remove();
+            if($(this).data('value') != 0) {
+                dropdown.children('a[data-value=""]').remove();
                 $(this).prependTo(dropdown);
-                var number = $(this).data('number');
-                dropdown.children('input').attr('value', number);
+                var value = $(this).data('value');
+                dropdown.children('input').attr('value', value);
                 dropdown.removeClass('open');
             } else {
                 dropdown.removeClass('open');
@@ -51,7 +51,7 @@ $(document).ready(function() {
             dropdown.addClass('open');
         }
     });
-    // close popover when clicked on somewhere else in the page
+    //Close popovers when clicked on somewhere else in the page
     $(document).on('click', function(e) {
         if(!$(e.target).parents(".cartdetails.open").length) {
             $(".open.cartdetails").removeClass("open");
@@ -139,7 +139,9 @@ function updateCart() {
             }
             if($(".cartdetails")) {
                 $(".cartdetails").children("div").remove();
+                console.log("cart details: updating");
                 for(var i=data.cartItems.length-1; i>=0; i--) {
+                    console.log("cart details inside");
                     $(".cartdetails").prepend('<div><img class="product-image-photo" src="' + data.cartItems[i].design.image + '" alt="design name"><span><b>' + data.cartItems[i].design.name + '</b><span>' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</span><span class="cartitem-price">' + (data.cartItems[i].price_per_item / 100.0).toFixed(2) + '<i class="fa fa-try" aria-hidden="true"></i></span><span class="cartitem-quantity">Qty: ' + data.cartItems[i].quantity + '</span> </span></div>');
                 }
             }

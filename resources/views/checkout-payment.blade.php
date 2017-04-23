@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body id="cart" class="design subpage">
+<body id="cart" class="checkout-payment subpage">
     <!-- <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -18,8 +18,8 @@
         var stripe = Stripe('pk_live_rT8HEb47PxJvbZHme4C14NT6');
         var elements = stripe.elements();
     </script>
-
-    <section id="checkout-payment">
+    <header class="blank"></header>
+    <section class="darker" id="checkout-payment">
        <ul class="opc-progress-bar">
             <li class="opc-progress-bar-item _complete is-hidden" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
                 <span data-bind="text: item.title, click: $parent.navigateTo">Shipping</span>
@@ -182,7 +182,6 @@
                       </button> -->
                   </div>
                   <div class="shipping-information-content">
-                      <?php var_dump($order->id);?>
                     {{$order->shippingInfo->name}} {{$order->shippingInfo->last_name}}<br>
                     {{$order->shippingInfo->address}}<br>
                     {{$order->shippingInfo->city}}<br>

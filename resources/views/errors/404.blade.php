@@ -5,13 +5,13 @@
 
     @include('partials.navbar')
 
-    <header>
+    <section class="darker">
         <div class="container">
             <h1>Page not found.</h1>
             <p>Sorry for the inconvenience. Click to go <a href="/">Home</a>.</p>
             <img src="/assets/images/illustrations/error.png"/>
         </div>
-    </header>
+    </section>
 
     @include('partials.subscribe-to-list')
     
