@@ -86,7 +86,7 @@
                     <dt>Order Total</dt>
                     <dd>{{number_format($total_count/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></dd>
                 </dl>
-                <a class="button" href="/checkout" role="button">Go to Checkout</a>
+                <a class="button" href="/checkout" role="button">Continue with Shipping</a>
             </div>
         </div>
     </section>
