@@ -197,7 +197,11 @@ Route::get('/checkout/cart', function () {
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$order_id = Session::get("order_id");
 	$order = Order::find($order_id);
-	$cartItems = $order->cartItems;
+	if(!$order) {
+		$cartItems = array();
+	} else {
+		$cartItems = $order->cartItems;
+	}
 	return view('shopping-cart', ["cartItems" => $cartItems]);
 });
 
@@ -206,6 +210,9 @@ Route::get('/checkout', function () {
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$order_id = Session::get("order_id");
 	$order = Order::find($order_id);
+	if(!$order) {
+		return redirect('/');
+	}
 	return view('checkout-shipping-info', ["order" => $order]);
 });
 

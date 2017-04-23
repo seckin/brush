@@ -135,9 +135,10 @@ function updateCart() {
                 $(".header__amount").text("(" + data.cartItems.length + ")");
             } else {
                 $(".header__amount").addClass("is-hidden");
-                $(".header__amount").text("(" + data.cartItems.length + ")");
+                // $(".header__amount").text("(" + data.cartItems.length + ")");
+                $(".cartdetails").prepend('<div><span>No items in cart yet!</span></div>');
             }
-            if($(".cartdetails")) {
+            if($(".cartdetails") && data.cartItems.length) {
                 $(".cartdetails").children("div").remove();
                 console.log("cart details: updating");
                 for(var i=data.cartItems.length-1; i>=0; i--) {
