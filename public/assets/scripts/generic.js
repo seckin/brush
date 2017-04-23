@@ -56,13 +56,9 @@ $(document).ready(function() {
         if(!$(e.target).parents(".cartdetails.open").length) {
             $(".open.cartdetails").removeClass("open");
         }
-        console.log(e.target);
-//        if(!$(e.target).parents(".dropdown.open").length) {
-//            $(e.target).parents(".dropdown.open").removeClass("open");
-//        }
+
         if(!$(e.target).parent('.dropdown').length) {
             $('.dropdown.open').removeClass('open');
-            
         } else if ($(e.target).parent('.dropdown').length) {
             // clicked inside a dropdown, but there are other dropdowns we need to close
             var $dropdowns = $(".dropdown");

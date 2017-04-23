@@ -149,6 +149,30 @@
             headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
         });
         $(".primary.button").click(function() {
+            if($("input[name='firstname']").val().trim() == "") {
+              alert("Please enter your first name");
+              return;
+            }
+            if($("input[name='lastname']").val().trim() == "") {
+              alert("Please enter your last name");
+              return;
+            }
+            if($("input[name='street[0]']").val().trim() == "") {
+              alert("Please enter your street address");
+              return;
+            }
+            if($("input[name='city']").val().trim() == "") {
+              alert("Please enter your city");
+              return;
+            }
+            if($("select[name='country_id']").val() == "") {
+              alert("Please select your country");
+              return;
+            }
+            if($("input[name='telephone']").val().trim() == "") {
+              alert("Please enter your phone number");
+              return;
+            }
 
             var email = $(".subscribe #email").val();
             $.ajax({
@@ -156,12 +180,12 @@
                 type: 'POST',
                 data: {
                   order_id: $(".orderid").data("orderId"),
-                  firstname: $("input[name='firstname']").val(),
-                  lastname: $("input[name='lastname']").val(),
-                  address: ($("input[name='street[0]']").val() + ' ' + $("input[name='street[1]']").val()).trim(),
-                  city: $("input[name='city']").val(),
+                  firstname: $("input[name='firstname']").val().trim(),
+                  lastname: $("input[name='lastname']").val().trim(),
+                  address: ($("input[name='street[0]']").val().trim() + ' ' + $("input[name='street[1]']").val().trim()).trim(),
+                  city: $("input[name='city']").val().trim(),
                   country: $("select[name='country_id']").val(),
-                  phone_number: $("input[name='telephone']").val()
+                  phone_number: $("input[name='telephone']").val().trim()
                 },
                 error: function() {
                 },
