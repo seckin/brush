@@ -42,7 +42,7 @@
               alert("Please enter your last name");
               return;
             }
-            if($("input[name='street[0]']").val().trim() == "") {
+            if($("input[name='street']").val().trim() == "") {
               alert("Please enter your street address");
               return;
             }
@@ -50,7 +50,7 @@
               alert("Please enter your city");
               return;
             }
-            if($("select[name='country_id']").val() == "") {
+            if($("input[name='country']").val() == "") {
               alert("Please select your country");
               return;
             }
