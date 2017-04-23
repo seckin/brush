@@ -92,7 +92,9 @@ Route::post('/create-design', function (Request $request) {
 	$design->description = $request->description;
 	$design->artist_id = $request->artist_id;
 	$design->tshirt_price = $request->tshirt_price;
+	$design->tshirt_limit = $request->tshirt_limit;
 	$design->canvas_price = $request->canvas_price;
+	$design->canvas_limit = $request->canvas_limit;
 	$design->image = $imageUrl;
 	$design->tshirt_image = $tshirtImageUrl;
 	$design->canvas_image = $canvasImageUrl;
@@ -194,7 +196,7 @@ Route::get('/designs/{design_id}', function ($design_id) {
     	"similar_designs" => $similar_designs,
     	"canvas_total_sold" => $canvasTotalSold,
     	"canvas_limit" => $design->canvas_limit ? $design->canvas_limit : 50,
-    	"tshirt_total_sold" => 50, //$tshirtTotalSold,
+    	"tshirt_total_sold" => $tshirtTotalSold,
     	"tshirt_limit" => $design->tshirt_limit ? $design->tshirt_limit : 50
     ]);
 });
