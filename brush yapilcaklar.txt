@@ -90,11 +90,10 @@ OK limit kadar tshirt/canvas satildiysa addToCart action'ina izin verme
 
 OK bi item sold out'sa Add To Cart butonunu disabled goster, bi yere Sold Out yaz.
 
+-------------------------------
 
-
-charge success sayfasini guzellestir
-
-brush logosu high-def olcak
+OK login olup olmadigini anlayamiyosun. buna genel bi cozum lazim. user sayfasi ekleyebiliriz
+	- account tabi olcak ve account tabi uzerine geldiginde logout linki de cikacak.
 
 OK "100 needed to reach 100" => "100 more to go" yaridan az kaldiysa "only 50 more left!"
 
@@ -102,44 +101,24 @@ OK satis bari eger %0'daysa gene de %1'lik doluluk gosterelim
 
 OK satis bari rengini degistir: rgb(98, 234, 128)
 
-junique'teki gibi ssl logosunu koy ve 3 itemi da ayni hizadan baslat
+NOPE junique'teki gibi ssl logosunu koy ve 3 itemi da ayni hizadan baslat
 
 OK junique'teki account tabi ve sayfasina benzer bi tab/sayfa yap. order'larini gorebilsinler sayfada sadece. tab'dan da logout olabilsinler, eger loggedoutlarsa login ve register sayfalarina gidebilsinler
+
+OK satis limitini create_design sayfasina da yansit
+
+OK stripe charge objesini payment table'i olusturup oraya kaydet
 
 Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
 	"curated and affordable wall art and fashion."
 	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
 	A sale happens only if all of the predetermined number of items is sold
 
-shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
-
-satis limitini create_design sayfasina da yansit
-
 checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
 
-login olup olmadigini anlayamiyosun. buna genel bi cozum lazim. user sayfasi ekleyebiliriz
-	- account tabi olcak ve account tabi uzerine geldiginde logout linki de cikacak.
-
-design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
-
-canvas size'a gore fiyat degiscek
-
-buttonlari gri yerine daha canli bi renk yapalim
-	- brush stroke resmi koycak ozan buna
-
-tshirt fotosu kadin erkek secildiginde degiscek
-
-canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
-
-out of stock designlar koycak ozan ~10 tane
+shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
 
 order'a payment'in eklendigi tarihi ayri bi column'da tut payment_date gibi, boylece my-account sayfasinda order date gosterebiliriz. (gostermeyi de yap)
-
-
-
-tum sayfalarin responsive oldugundan emin ol
-
-canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
 
 design detail sayfasinda "incl. tax excluding shipping fees" yazalim
 
@@ -162,6 +141,33 @@ Google analytics entegre et
 
 secure payment ve need help kisimlarini shopping cart sayfasina da koy
 
+
+
+
+
+charge success sayfasini guzellestir
+
+brush logosu high-def olcak
+
+design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
+
+buttonlari gri yerine daha canli bi renk yapalim
+	- brush stroke resmi koycak ozan buna
+
+tshirt fotosu kadin erkek secildiginde degiscek
+
+canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
+
+out of stock designlar koycak ozan ~10 tane
+
+my account zero case ekle (ozan tasarimi yaptiktan sonra)
+
+tum sayfalarin responsive oldugundan emin ol
+
+canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
+
+canvas size'a gore sayfadaki fiyat degiscek
+
 mobilde test et siteyi. bastan sona satin alma uye olma flowunu ve diger sayfalari gozden gecir
 
 NOPE bi item sold out degilse sayfada bi yere In Stock yaz GG'deki gibi
@@ -169,8 +175,6 @@ NOPE bi item sold out degilse sayfada bi yere In Stock yaz GG'deki gibi
 ptt ve mng'ye gidip canvas, tshirt gondermenin yurtici yurtdisi fiyatlarini ogren
 
 alert strip'inin tasarimi duzeltilcek
-
-OK stripe charge objesini payment table'i olusturup oraya kaydet
 
 payment sayfasi tasarimi uzerinden gecilcek.
 	ornek payment formu: https://stripe.com/docs/elements
