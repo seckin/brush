@@ -215,9 +215,11 @@ Route::get('/designs', function () {
 
 Route::get('/artists/{artist_id}', function ($artist_id) {
 	$artist = Artist::find($artist_id);
+	$designs = $artist->designs;
 
     return view('artist_profile', [
-    	"artist" => $artist
+    	"artist" => $artist,
+    	"designs" => $designs
     ]);
 });
 

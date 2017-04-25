@@ -29,6 +29,7 @@
     <script type="text/javascript" src="/assets/scripts/generic.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
     
+    @include('partials.analyticstracking')
 </head>
 
 @yield('content')

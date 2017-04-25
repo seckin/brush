@@ -120,7 +120,7 @@
 	</section>
 	<section class="showcase">
 	    <div class="container">
-	        <h3>Similar Designs</h3>
+	        <h3>You may also like</h3>
 	        <div class="cards">
 	            @foreach($similar_designs as $design)
                 <div class="card item">
@@ -133,6 +133,8 @@
 	        </div>
 	    </div>
 	</section>
+
+    @include('partials.service-details')
 
     @include('partials.notify-me')
     

@@ -109,6 +109,16 @@ OK satis limitini create_design sayfasina da yansit
 
 OK stripe charge objesini payment table'i olusturup oraya kaydet
 
+OK order'a payment'in eklendigi tarihi ayri bi column'da tut payment_date gibi, boylece my-account sayfasinda order date gosterebiliriz. (gostermeyi de yap)
+
+OK "similar designs" yerine "You may also like" yaz
+
+OK secure payment ve need help kisimlarini design detail sayfasina da koy
+
+OK Google analytics entegre et
+
+OK secure payment ve need help kisimlarini shopping cart sayfasina da koy
+
 Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
 	"curated and affordable wall art and fashion."
 	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
@@ -117,8 +127,6 @@ Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
 checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
 
 shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
-
-OK order'a payment'in eklendigi tarihi ayri bi column'da tut payment_date gibi, boylece my-account sayfasinda order date gosterebiliriz. (gostermeyi de yap)
 
 design detail sayfasinda "incl. tax excluding shipping fees" yazalim
 
@@ -131,15 +139,7 @@ canvas altina bunu ekle, tshirt altina da benzer bi yazi ekle:
 	  Finish	Matt
 	  Print Type	12-colour digital printing
 
-bunu bi artist description olarak ekle: "For Andrea Minini, design is all about love at first sight. It either has it or it doesn’t, and he can tell from just a glance. The Milanese, born in 1979, studied at the Politecnico di Milano and has been working as an Art Director for an agency, alongside creating his own work. His series “Animals in Moiré” emerged as an effort to create depth and complexity from just a few lines, using the power of moiré patterns."
-
-"similar designs" yerine "You may also like" yaz
-
-secure payment ve need help kisimlarini design detail sayfasina da koy
-
-Google analytics entegre et
-
-secure payment ve need help kisimlarini shopping cart sayfasina da koy
+production'da bunu artist description olarak ekle: "For Andrea Minini, design is all about love at first sight. It either has it or it doesn’t, and he can tell from just a glance. The Milanese, born in 1979, studied at the Politecnico di Milano and has been working as an Art Director for an agency, alongside creating his own work. His series “Animals in Moiré” emerged as an effort to create depth and complexity from just a few lines, using the power of moiré patterns."
 
 
 

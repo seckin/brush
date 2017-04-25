@@ -49,7 +49,7 @@
 	</section>
 	<section class="showcase">
 	    <div class="container">
-	        <h3>Popular Artworks</h3>
+	        <h3>Popular Designs</h3>
 	        <div class="cards">
 	        	@foreach($designs as $design)
 	            <div class="card item">
