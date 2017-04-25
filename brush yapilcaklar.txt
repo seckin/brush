@@ -96,15 +96,15 @@ charge success sayfasini guzellestir
 
 brush logosu high-def olcak
 
-"100 needed to reach 100" => "100 more to go" yaridan az kaldiysa "only 50 more left!"
+OK "100 needed to reach 100" => "100 more to go" yaridan az kaldiysa "only 50 more left!"
 
-satis bari eger %0'daysa gene de %1'lik doluluk gosterelim
+OK satis bari eger %0'daysa gene de %1'lik doluluk gosterelim
 
-satis bari rengini degistir: rgb(98, 234, 128)
+OK satis bari rengini degistir: rgb(98, 234, 128)
 
 junique'teki gibi ssl logosunu koy ve 3 itemi da ayni hizadan baslat
 
-junique'teki account tabi ve sayfasina benzer bi tab/sayfa yap. order'larini gorebilsinler sayfada sadece. tab'dan da logout olabilsinler, eger loggedoutlarsa login ve register sayfalarina gidebilsinler
+OK junique'teki account tabi ve sayfasina benzer bi tab/sayfa yap. order'larini gorebilsinler sayfada sadece. tab'dan da logout olabilsinler, eger loggedoutlarsa login ve register sayfalarina gidebilsinler
 
 Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
 	"curated and affordable wall art and fashion."
@@ -133,6 +133,7 @@ canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
 
 out of stock designlar koycak ozan ~10 tane
 
+order'a payment'in eklendigi tarihi ayri bi column'da tut payment_date gibi, boylece my-account sayfasinda order date gosterebiliriz. (gostermeyi de yap)
 
 
 

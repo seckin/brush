@@ -17,6 +17,11 @@ $(document).ready(function() {
         e.stopPropagation();
         $('.cartdetails').toggleClass('open');
     });
+    //Open Account
+    $('.menu > a.account').on('click', function(e) {
+        e.stopPropagation();
+        $('.accountdetails').toggleClass('open');
+    });
     //Close Status Bar on Request
     $('section.status > a').click(function(){
         $('section.status').remove();

@@ -4,6 +4,16 @@
             <img src="/assets/images/identity/logo.png">
         </a>
         <div class="menu">
+            <?php if(!Auth::guest()) { ?>
+            <a class="account link" href="javascript: void(0)">ACCOUNT</a>
+            <div class="accountdetails">
+                <a class="button" href="/my-account">My Account</a>
+                <a class="button" href="/logout">Logout</a>
+            </div>
+            <?php } else { ?>
+            <a class="login link" href="/login">LOGIN</a>
+            <a class="register link" href="/register">REGISTER</a>
+            <?php }?>
             <a class="home link" href="/">HOME</a>
             <a class="artists link" href="/artists">ARTISTS</a>
             <a class="designs link" href="/designs">DESIGNS</a>

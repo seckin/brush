@@ -223,6 +223,14 @@ Route::get('/artists', function () {
 	]);
 });
 
+Route::get('/my-account', function () {
+	$user = Auth::user();
+	$orders = Order::orderBy('created_at', 'desc')->where("payment_id", '!=', null)->where("user_id", "=", $user->id)->get();
+	return view('my-account', [
+		"orders" => $orders
+	]);
+})->middleware('auth');
+
 Route::get('/checkout/cart', function () {
 	// $user = Auth::user();
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
