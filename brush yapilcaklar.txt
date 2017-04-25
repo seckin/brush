@@ -1,0 +1,180 @@
+OK fonksiyonun icini doldur: post('/create-artist
+
+OK auth sistemi yap
+
+OK design migrationini tamamla
+
+OK design olusturma arayuzu yap
+
+OK payment flow'unu yap
+
+OK domain'i al
+
+OK siteyi live yap
+
+OK https'e gecir production'i
+
+OK anasayfayi db'yle calisir hale getir
+
+OK design db modifications:
+	add description to designs
+	designlarin sayfalarinin view sayilarini tut
+
+OK contact emaili koy siteye
+
+OK layout yapisina gecir design sayfasini ve anasayfayi
+
+OK burdaki cart iconunu hacila, bizim contact'in yanina koy https://www.juniqe.com/
+
+-------------
+
+OK payment objesini olustur charge ettikten sonra.
+
+OK charge sayfasini degistir. eski sayfalar(login/signup) tasariminda geliyor.
+
+OK add to cart butonu koy design detail sayfasina. api ile calissin. order objesi olustursun
+
+OK ayni sayfada hem email girilip hem add to cart yapilabiliyor mu kontrol et (ayni csrf tokenle yapilamiyor olabilir)
+
+OK stripe'dan gelen sms'te fixingsf.com gozukuyor firma ismi. duzelt.
+
+OK purchase aninda email gondermek: belki bunu manuel yapabiliriz, herkese kisiye ozel email seklinde.
+
+OK need help kismini anasayfaya gom background image'i ile beraber
+	https://www.juniqe.com/miles-of-light
+
+OK shopping cart sayfasi yap
+	https://www.gauntletgallery.com/checkout/cart/
+
+OK shipping info sayfasi yap
+	https://www.gauntletgallery.com/checkout/
+
+OK billing info sayfasi yap
+	https://www.gauntletgallery.com/checkout/#payment
+
+OK boyle bi yazi koy asagiya
+	Copyright © 2016 Gauntletgallery. All rights reserved.
+
+OK secure payment row'unu trustmark disinda al gom ana sayfaya
+	https://www.juniqe.com/
+
+OK header'daki cart'in uzerine tiklandiginda gauntlet'teki gibi popover cikar
+
+OK payment modelini olustur
+
+OK 404 sayfasini cal: https://www.juniqe.com/cookies-wrong-url
+
+OK artists sayfasi yap, profil sayfasi yap
+
+OK add to cart'a tiklaninca once Adding'e donussun sonra Added!'a sonra tekrar Add To Cart'a
+
+OK cart'tan item silme flow'unu yap.
+
+OK cart kutusunu yap. cartupdate icinde js ile html olusturarak sayfaya gomerek yapcaksin
+
+OK open olan order_id'yi session'da tut, user logged in degilse session uzerinden order'i cekip item ekleme cikarma islerini yap, user login oldugunda order'i user ile iliskilendir.
+	- cart header item'ini login degilse bile goster (acik order varsa obvi)
+	- payment sayfasini logged-in degillerse goremesinler, diger tum sayfalar logged-in olmadan kullanilabilir olsun (api'lar da dahil)
+
+NOPE cart 0'ken headerdaki cart butonu gozukmesin
+
+OK shipping ve sonraki sayfalarda bos gelen field'lar vs arayuzde error versin
+
+OK add to cart'lari option'larla calisir hale getir.
+
+OK make artists in homepage clickable
+
+OK "95 needed to reach 200" payment sayisini dogru goster, her tasarim icin bi tshirt bi de canvas satis limiti al olustururken
+
+OK limit kadar tshirt/canvas satildiysa addToCart action'ina izin verme
+
+OK bi item sold out'sa Add To Cart butonunu disabled goster, bi yere Sold Out yaz.
+
+
+
+charge success sayfasini guzellestir
+
+brush logosu high-def olcak
+
+"100 needed to reach 100" => "100 more to go" yaridan az kaldiysa "only 50 more left!"
+
+satis bari eger %0'daysa gene de %1'lik doluluk gosterelim
+
+satis bari rengini degistir: rgb(98, 234, 128)
+
+junique'teki gibi ssl logosunu koy ve 3 itemi da ayni hizadan baslat
+
+junique'teki account tabi ve sayfasina benzer bi tab/sayfa yap. order'larini gorebilsinler sayfada sadece. tab'dan da logout olabilsinler, eger loggedoutlarsa login ve register sayfalarina gidebilsinler
+
+Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
+	"curated and affordable wall art and fashion."
+	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
+	A sale happens only if all of the predetermined number of items is sold
+
+shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
+
+satis limitini create_design sayfasina da yansit
+
+checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
+
+login olup olmadigini anlayamiyosun. buna genel bi cozum lazim. user sayfasi ekleyebiliriz
+	- account tabi olcak ve account tabi uzerine geldiginde logout linki de cikacak.
+
+design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
+
+canvas size'a gore fiyat degiscek
+
+buttonlari gri yerine daha canli bi renk yapalim
+	- brush stroke resmi koycak ozan buna
+
+tshirt fotosu kadin erkek secildiginde degiscek
+
+canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
+
+out of stock designlar koycak ozan ~10 tane
+
+
+
+
+tum sayfalarin responsive oldugundan emin ol
+
+canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
+
+design detail sayfasinda "incl. tax excluding shipping fees" yazalim
+
+"Delivery in 6 to 9 working days" yazalim design detail sayfasina. yazinin basina tick koy juniqe'teki gibi
+
+canvas altina bunu ekle, tshirt altina da benzer bi yazi ekle:
+	- "Gallery-quality fine art canvas print.
+	   The canvas material is printed and then stretched on a wooden frame. The design covers the edges of the canvas."
+	- Material	340 g/m² cotton (65%) and polyester (35%)
+	  Finish	Matt
+	  Print Type	12-colour digital printing
+
+bunu bi artist description olarak ekle: "For Andrea Minini, design is all about love at first sight. It either has it or it doesn’t, and he can tell from just a glance. The Milanese, born in 1979, studied at the Politecnico di Milano and has been working as an Art Director for an agency, alongside creating his own work. His series “Animals in Moiré” emerged as an effort to create depth and complexity from just a few lines, using the power of moiré patterns."
+
+"similar designs" yerine "You may also like" yaz
+
+secure payment ve need help kisimlarini design detail sayfasina da koy
+
+Google analytics entegre et
+
+secure payment ve need help kisimlarini shopping cart sayfasina da koy
+
+mobilde test et siteyi. bastan sona satin alma uye olma flowunu ve diger sayfalari gozden gecir
+
+NOPE bi item sold out degilse sayfada bi yere In Stock yaz GG'deki gibi
+
+ptt ve mng'ye gidip canvas, tshirt gondermenin yurtici yurtdisi fiyatlarini ogren
+
+alert strip'inin tasarimi duzeltilcek
+
+OK stripe charge objesini payment table'i olusturup oraya kaydet
+
+payment sayfasi tasarimi uzerinden gecilcek.
+	ornek payment formu: https://stripe.com/docs/elements
+
+Sitenin bi yerine bunu koyalim(bunu emaille de yapabiliriz):
+	"Amazing tshirt designs sent via Slack.
+	Find your next favorite tshirt without lifting a finger."
+	- image olarak da bunu koy gecici de olsa: https://www.indiehackers.com/images/partner-icons/code-for-cash-1.png
