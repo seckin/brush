@@ -19,6 +19,7 @@ use App\ProductSpec;
 use App\Order;
 use App\ShippingInfo;
 use App\Payment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -37,7 +38,10 @@ Route::get('/', function () {
 });
 Route::get('/test', function (Request $request) {
 
-	Session::flash('status', 'Task was successful!');
+	$order = Order::find(6);
+	$order->payment_at = new \DateTime();
+	$order->save();
+	// Session::flash('status', 'Task was successful!');
 
 	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
 	$designs = Design::orderBy('created_at', 'asc')->limit(8)->get();
@@ -154,6 +158,7 @@ Route::post('/charge', function (Request $request) {
 	$payment->save();
 
 	$order->payment_id = $payment->id;
+	$order->payment_at = new \DateTime();
 	$order->save();
 
 	Session::forget('order_id');
@@ -226,8 +231,16 @@ Route::get('/artists', function () {
 Route::get('/my-account', function () {
 	$user = Auth::user();
 	$orders = Order::orderBy('created_at', 'desc')->where("payment_id", '!=', null)->where("user_id", "=", $user->id)->get();
+	$dates = array();
+	for($i = 0; $i<count($orders); $i++) {
+		$date = date_create(Carbon::parse($orders[$i]->payment_at)->addHours(3));
+		$formatted_date = date_format($date, 'g:ia \o\n l jS F Y');
+		array_push($dates, $formatted_date);
+	}
+
 	return view('my-account', [
-		"orders" => $orders
+		"orders" => $orders,
+		"dates" => $dates
 	]);
 })->middleware('auth');
 

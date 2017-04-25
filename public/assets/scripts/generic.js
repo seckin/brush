@@ -16,11 +16,17 @@ $(document).ready(function() {
     $('.menu > a.cart').on('click', function(e) {
         e.stopPropagation();
         $('.cartdetails').toggleClass('open');
+
+        // close accountdetails if it is open
+        $('.accountdetails').removeClass('open');
     });
     //Open Account
     $('.menu > a.account').on('click', function(e) {
         e.stopPropagation();
         $('.accountdetails').toggleClass('open');
+
+        // close cartdetails if it is open
+        $('.cartdetails').removeClass('open');
     });
     //Close Status Bar on Request
     $('section.status > a').click(function(){
@@ -60,6 +66,10 @@ $(document).ready(function() {
     $(document).on('click', function(e) {
         if(!$(e.target).parents(".cartdetails.open").length) {
             $(".open.cartdetails").removeClass("open");
+        }
+
+        if(!$(e.target).parents(".accountdetails.open").length) {
+            $(".open.accountdetails").removeClass("open");
         }
 
         if(!$(e.target).parent('.dropdown').length) {

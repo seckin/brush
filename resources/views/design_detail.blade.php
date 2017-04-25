@@ -46,7 +46,7 @@
                         <h3>Canvas</h3>
                         <p>Design printed on a canvas</p>
                         <div class="progress" style="background-size: {{max (2, 100.0 * $canvas_total_sold / (1.0 * $canvas_limit))}}% 100%;">
-                            <h4 style="float:left;">{{$canvas_total_sold}} supporters</h4>
+                            <h4 style="float:left;">{{$canvas_total_sold}} {{$canvas_total_sold == 1 ? "supporter" : "supporters" }}</h4>
                             <h4 style="top: 10px;float: right;">{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</h4>
                         </div>
                         <div class="options clearfix">
@@ -70,8 +70,9 @@
                     <div class="tshirt">
                         <h3>Tshirt</h3>
                         <p>Design printed on a tshirt</p>
-                        <div class="progress" style="background-size: {{100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit)}}% 100%;">
-                            <h4>{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</h4>
+                        <div class="progress" style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;">
+                            <h4 style="float:left;">{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</h4>
+                            <h4 style="top: 10px;float: right;">{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</h4>
                         </div>
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">

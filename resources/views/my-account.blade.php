@@ -42,8 +42,7 @@
     	            </div>
                     <div class="order-date">
                         <?php
-                            $date = date_create($order->updated_at->addHours(3));
-                            echo date_format($date, 'g:ia \o\n l jS F Y');
+                            echo array_shift($dates);
                         ?>
                     </div>
                     <div class="order-status">

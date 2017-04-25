@@ -118,7 +118,7 @@ checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
 
 shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
 
-order'a payment'in eklendigi tarihi ayri bi column'da tut payment_date gibi, boylece my-account sayfasinda order date gosterebiliriz. (gostermeyi de yap)
+OK order'a payment'in eklendigi tarihi ayri bi column'da tut payment_date gibi, boylece my-account sayfasinda order date gosterebiliriz. (gostermeyi de yap)
 
 design detail sayfasinda "incl. tax excluding shipping fees" yazalim
 
