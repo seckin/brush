@@ -138,8 +138,8 @@ OK canvas altina bunu ekle, tshirt altina da benzer bi yazi ekle:
 
 
 
-Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
-	"curated and affordable wall art and fashion."
+OK Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
+	Curated and affordable wall art and fashion.
 	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
 	A sale happens only if all of the predetermined number of items is sold
 

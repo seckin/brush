@@ -62,6 +62,17 @@
 	        </div>
 	    </div>
 	</section>
+
+    <section class="intro-information">
+        <div class="intro-information container">
+            <p style="width:900px; margin: 0 auto;font-weight: bold;">Before you ask...</p>
+            <ul style="list-style: circle;width:900px; margin: 0 auto;">
+                <li>We curate and sell affordable wall art and fashion.</li>
+                <li>Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends who has the item!</li>
+                <li>A sale happens only if all of the predetermined number of items is sold.</li>
+            </ul>
+        </div>
+    </section>
     
     @include('partials.service-details')
     
