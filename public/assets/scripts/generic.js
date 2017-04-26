@@ -16,6 +16,17 @@ $(document).ready(function() {
     $('.menu > a.checkout').on('click', function(e) {
         e.stopPropagation();
         $('.cartdetails').toggleClass('open');
+
+        // close accountdetails if it is open
+        $('.accountdetails').removeClass('open');
+    });
+    //Open Account
+    $('.menu > a.account').on('click', function(e) {
+        e.stopPropagation();
+        $('.accountdetails').toggleClass('open');
+
+        // close cartdetails if it is open
+        $('.cartdetails').removeClass('open');
     });
     //Close Status Bar on Request
     $('section.status > a').click(function(){
@@ -56,13 +67,13 @@ $(document).ready(function() {
         if(!$(e.target).parents(".cartdetails.open").length) {
             $(".open.cartdetails").removeClass("open");
         }
-        console.log(e.target);
-//        if(!$(e.target).parents(".dropdown.open").length) {
-//            $(e.target).parents(".dropdown.open").removeClass("open");
-//        }
+
+        if(!$(e.target).parents(".accountdetails.open").length) {
+            $(".open.accountdetails").removeClass("open");
+        }
+
         if(!$(e.target).parent('.dropdown').length) {
             $('.dropdown.open').removeClass('open');
-            
         } else if ($(e.target).parent('.dropdown').length) {
             // clicked inside a dropdown, but there are other dropdowns we need to close
             var $dropdowns = $(".dropdown");
@@ -139,9 +150,10 @@ function updateCart() {
                 $(".header__amount").text("(" + data.cartItems.length + ")");
             } else {
                 $(".header__amount").addClass("is-hidden");
-                $(".header__amount").text("(" + data.cartItems.length + ")");
+                // $(".header__amount").text("(" + data.cartItems.length + ")");
+                $(".cartdetails").prepend('<div><span>No items in cart yet!</span></div>');
             }
-            if($(".cartdetails")) {
+            if($(".cartdetails") && data.cartItems.length) {
                 $(".cartdetails").children("div").remove();
                 console.log("cart details: updating");
                 for(var i=data.cartItems.length-1; i>=0; i--) {

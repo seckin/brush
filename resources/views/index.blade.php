@@ -29,7 +29,7 @@
 
     <header>
     <div class="container">
-        <h1>Design Prints for Early Birds</h1>
+        <h1>Prints and T-shirts for Early Birds</h1>
         <p>Are you looking for a special design to hang on your wall? Brush helps you find great designs by letting designers run limited edition campaigns.</p>
         <a href="/designs" class="button" role="button">SEE ALL DESIGNS</a>
     </div>
@@ -49,7 +49,7 @@
 	</section>
 	<section class="showcase">
 	    <div class="container">
-	        <h3>Popular Artworks</h3>
+	        <h3>Popular Designs</h3>
 	        <div class="cards">
 	        	@foreach($designs as $design)
 	            <div class="card item">

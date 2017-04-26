@@ -23,6 +23,22 @@
     	<p>{{$artist->description}}</p>
     </section>
 
+    <section class="showcase">
+        <div class="container">
+            <h3>Artist's Designs</h3>
+            <div class="cards">
+                @foreach($designs as $design)
+                <div class="card item">
+                    <a href="/designs/{{$design->id}}">
+                        <img src="{{$design->image}}" />
+                        <p>{{$design->name}}</p>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     @include('partials.subscribe-to-list')
 
 </body>

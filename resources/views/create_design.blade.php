@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Brush</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -32,8 +32,14 @@
                     Tshirt Price: <input type="text" name="tshirt_price" value="">
                     <span class="error">* Invalid Price</span>
                     <br><br>
+                    Tshirt Sale Limit: <input type="text" name="tshirt_limit" value="">
+                    <span class="error">* Invalid Limit</span>
+                    <br><br>
                     Canvas Price: <input type="text" name="canvas_price" value="">
                     <span class="error">* Invalid Price</span>
+                    <br><br>
+                    Canvas Sale Limit: <input type="text" name="canvas_limit" value="">
+                    <span class="error">* Invalid Limit</span>
                     <br><br>
                     Image: <input type="file" name="image" value="">
                     <span class="error">* Invalid Image</span>

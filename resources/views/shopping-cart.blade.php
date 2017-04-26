@@ -47,6 +47,8 @@
         </div>
     </section>
 
+    @include('partials.service-details')
+
     @include('partials.subscribe-to-list')
 
     @include('partials.footer')

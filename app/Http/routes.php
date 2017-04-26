@@ -19,6 +19,7 @@ use App\ProductSpec;
 use App\Order;
 use App\ShippingInfo;
 use App\Payment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -37,7 +38,10 @@ Route::get('/', function () {
 });
 Route::get('/test', function (Request $request) {
 
-	Session::flash('status', 'Task was successful!');
+	$order = Order::find(6);
+	$order->payment_at = new \DateTime();
+	$order->save();
+	// Session::flash('status', 'Task was successful!');
 
 	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
 	$designs = Design::orderBy('created_at', 'asc')->limit(8)->get();
@@ -92,7 +96,9 @@ Route::post('/create-design', function (Request $request) {
 	$design->description = $request->description;
 	$design->artist_id = $request->artist_id;
 	$design->tshirt_price = $request->tshirt_price;
+	$design->tshirt_limit = $request->tshirt_limit;
 	$design->canvas_price = $request->canvas_price;
+	$design->canvas_limit = $request->canvas_limit;
 	$design->image = $imageUrl;
 	$design->tshirt_image = $tshirtImageUrl;
 	$design->canvas_image = $canvasImageUrl;
@@ -152,6 +158,7 @@ Route::post('/charge', function (Request $request) {
 	$payment->save();
 
 	$order->payment_id = $payment->id;
+	$order->payment_at = new \DateTime();
 	$order->save();
 
 	Session::forget('order_id');
@@ -164,9 +171,38 @@ Route::get('/designs/{design_id}', function ($design_id) {
 
 	$design = Design::find($design_id);
 	$similar_designs = Design::orderBy('created_at', 'asc')->whereNotIn("id", [$design_id])->limit(8)->get();
+
+	$cartItems = CartItem::orderBy('created_at', 'asc')->where("design_id", '=', $design->id)->get();
+    $canvasTotalSold = 0;
+    foreach($cartItems as $cartItem) {
+        if($cartItem->productSpec && $cartItem->productSpec->type == "canvas") {
+        	if($cartItem->order) {
+	        	$payment = Payment::find($cartItem->order->payment_id);
+	        	if($payment) {
+	                $canvasTotalSold += $cartItem->quantity;
+		        }
+		    }
+        }
+    }
+
+    $tshirtTotalSold = 0;
+    foreach($cartItems as $cartItem) {
+        if($cartItem->productSpec && $cartItem->productSpec->type == "tshirt") {
+            if($cartItem->order) {
+            	$payment = Payment::find($cartItem->order->payment_id);
+            	if($payment) {
+	                $tshirtTotalSold += $cartItem->quantity;
+	            }
+	        }
+        }
+    }
     return view('design_detail', [
     	"design" => $design,
-    	"similar_designs" => $similar_designs
+    	"similar_designs" => $similar_designs,
+    	"canvas_total_sold" => $canvasTotalSold,
+    	"canvas_limit" => $design->canvas_limit ? $design->canvas_limit : 50,
+    	"tshirt_total_sold" => $tshirtTotalSold,
+    	"tshirt_limit" => $design->tshirt_limit ? $design->tshirt_limit : 50
     ]);
 });
 
@@ -179,9 +215,11 @@ Route::get('/designs', function () {
 
 Route::get('/artists/{artist_id}', function ($artist_id) {
 	$artist = Artist::find($artist_id);
+	$designs = $artist->designs;
 
     return view('artist_profile', [
-    	"artist" => $artist
+    	"artist" => $artist,
+    	"designs" => $designs
     ]);
 });
 
@@ -192,12 +230,32 @@ Route::get('/artists', function () {
 	]);
 });
 
+Route::get('/my-account', function () {
+	$user = Auth::user();
+	$orders = Order::orderBy('created_at', 'desc')->where("payment_id", '!=', null)->where("user_id", "=", $user->id)->get();
+	$dates = array();
+	for($i = 0; $i<count($orders); $i++) {
+		$date = date_create(Carbon::parse($orders[$i]->payment_at)->addHours(3));
+		$formatted_date = date_format($date, 'g:ia \o\n l jS F Y');
+		array_push($dates, $formatted_date);
+	}
+
+	return view('my-account', [
+		"orders" => $orders,
+		"dates" => $dates
+	]);
+})->middleware('auth');
+
 Route::get('/checkout/cart', function () {
 	// $user = Auth::user();
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$order_id = Session::get("order_id");
 	$order = Order::find($order_id);
-	$cartItems = $order->cartItems;
+	if(!$order) {
+		$cartItems = array();
+	} else {
+		$cartItems = $order->cartItems;
+	}
 	return view('shopping-cart', [
         "checkoutStep" => 1,
         "cartItems" => $cartItems,
@@ -210,6 +268,9 @@ Route::get('/checkout/shipping', function () {
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$order_id = Session::get("order_id");
 	$order = Order::find($order_id);
+    if(!$order) {
+		return redirect('/');
+	}
     $cartItems = $order->cartItems;
 	return view('checkout-shipping-info', [
         "checkoutStep" => 2,
@@ -287,6 +348,44 @@ Route::delete('/api/v1/cartItem', function (Request $request) {
 })->middleware('auth');
 
 Route::post('/api/v1/addToCart', function (Request $request) {
+	// first, check if the item is sold out. if it is, return an error.
+	$design = Design::find($request->designId);
+	$cartItems = CartItem::orderBy('created_at', 'asc')->where("design_id", '=', $request->designId)->get();
+	if($request->type == "canvas") {
+	    $canvasTotalSold = 0;
+	    foreach($cartItems as $cartItem) {
+	        if($cartItem->productSpec && $cartItem->productSpec->type == "canvas") {
+	        	if($cartItem->order) {
+		        	$payment = Payment::find($cartItem->order->payment_id);
+		        	if($payment) {
+		                $canvasTotalSold += $cartItem->quantity;
+			        }
+			    }
+	        }
+	    }
+	    if($canvasTotalSold >= $design->canvas_limit) {
+	    	$returnData = array("error" => "Item is sold out :(");
+	    	return response()->json($returnData, 400);
+	    }
+	}
+	if($request->type == "tshirt") {
+	    $tshirtTotalSold = 0;
+	    foreach($cartItems as $cartItem) {
+	        if($cartItem->productSpec && $cartItem->productSpec->type == "tshirt") {
+	        	if($cartItem->order) {
+		        	$payment = Payment::find($cartItem->order->payment_id);
+		        	if($payment) {
+		                $tshirtTotalSold += $cartItem->quantity;
+			        }
+			    }
+	        }
+	    }
+	    if($tshirtTotalSold >= $design->tshirt_limit) {
+	    	$returnData = array("error" => "Item is sold out :(");
+	    	return response()->json($returnData, 400);
+	    }
+	}
+
 	$order_id = Session::get("order_id");
 	// $user = Auth::user();
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();

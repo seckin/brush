@@ -45,53 +45,64 @@
                     <div class="canvas">
                         <h3>Canvas</h3>
                         <p>Design printed on a canvas</p>
-                        <div class="progress" style="background-size: 50% 100%;">
-                            <h4>95 needed to reach 200</h4>
+                        <div class="progress" style="background-size: {{max (2, 100.0 * $canvas_total_sold / (1.0 * $canvas_limit))}}% 100%;">
+                            <h4 style="float:left;">{{$canvas_total_sold}} {{$canvas_total_sold == 1 ? "supporter" : "supporters" }}</h4>
+                            <h4 style="top: 10px;float: right;">{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</h4>
                         </div>
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">
                                 <button id="canvasSize" class="dropdown">
                                     <a data-value="" href="#">Please select...</a>
-                                    <a data-value="1" href="#">25cm x 17.5cm</a>
-                                    <a data-value="2" href="#">50cm x 35cmm</a>
-                                    <a data-value="3" href="#">100cm x 70cm</a>
+                                    <a data-value="40X30" href="#">40cm x 30cm</a>
+                                    <a data-value="60X40" href="#">60cm x 40cmm</a>
+                                    <a data-value="76X50" href="#">76cm x 50cm</a>
+                                    <a data-value="100X76" href="#">100cm x 76cm</a>
                                     <input id="canvasSizeInput" type="text" value="" />
                                 </button>
                             </div>
+                            <button id="canvas-addtocart-button" class="submit action tocart <?php if ($canvas_total_sold == $canvas_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">Add to Cart</button>
+                            @if ($canvas_total_sold == $canvas_limit)
+                                <div style="clear: both;">Canvas sold out :(</div>
+                            @endif
                         </div>
-                        <button id="canvas-addtocart-button" class="submit" type="submit" title="Add to Cart" class="action tocart">Add to Cart</button>
                         <p id="canvasinfo"></p>
                     </div>
                     <div class="tshirt">
                         <h3>Tshirt</h3>
                         <p>Design printed on a tshirt</p>
-                        <div class="progress" style="background-size: 50% 100%;">
-                            <h4>95 needed to reach 200</h4>
+                        <div class="progress" style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;">
+                            <h4 style="float:left;">{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</h4>
+                            <h4 style="top: 10px;float: right;">{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</h4>
                         </div>
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">
                                 <button id="tshirtGender" class="dropdown">
                                     <a data-value="" href="#">Please select...</a>
-                                    <a data-value="1" href="#">Unisex</a>
-                                    <a data-value="2" href="#">Female</a>
-                                    <a data-value="3" href="#">Male</a>
+                                    <!-- <a data-value="1" href="#">Unisex</a> -->
+                                    <a data-value="Female" href="#">Female</a>
+                                    <a data-value="Male" href="#">Male</a>
                                     <input id="tshirtGenderInput" type="text" value="" />
                                 </button>
                             </div>
                             <div class="dropdown-wrapper">
                                 <button id="tshirtSize" class="dropdown">
                                     <a data-value="" href="#">Please select...</a>
-                                    <a data-value="1" href="#">Small</a>
-                                    <a data-value="2" href="#">Medium</a>
-                                    <a data-value="3" href="#">Large</a>
-                                    <a data-value="3" href="#">X-Large</a>
+                                    <a data-value="S" href="#">Small</a>
+                                    <a data-value="M" href="#">Medium</a>
+                                    <a data-value="L" href="#">Large</a>
+                                    <a data-value="XL" href="#">X-Large</a>
+                                    <a data-value="XXL" href="#">XX-Large</a>
                                     <input id="tshirtSizeInput" type="text" value="" />
                                 </button>
                             </div>
-                            <button id="tshirt-addtocart-button" class="submit" type="submit" title="Add to Cart" class="action tocart">
+                            <button id="tshirt-addtocart-button" class="submit action tocart <?php if ($tshirt_total_sold == $tshirt_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">
                                 <span>Add to Cart</span>
                             </button>
+                            @if ($tshirt_total_sold == $tshirt_limit)
+                                <div style="clear: both;">T-shirt sold out :(</div>
+                            @endif
                         </div>
+                        <p id="tshirtinfo"></p>
                     </div>
                     <!-- <div class="mug">
                         <h3>Mug</h3>
@@ -109,7 +120,7 @@
 	</section>
 	<section class="showcase">
 	    <div class="container">
-	        <h3>Similar Designs</h3>
+	        <h3>You may also like</h3>
 	        <div class="cards">
 	            @foreach($similar_designs as $design)
                 <div class="card item">
@@ -122,6 +133,8 @@
 	        </div>
 	    </div>
 	</section>
+
+    @include('partials.service-details')
 
     @include('partials.notify-me')
     
@@ -145,9 +158,6 @@
     -->
     <script>
         function addToCart(size, iscanvas, $button, gender) {
-            if(!$(".logindata").data("isLoggedIn")) {
-                window.location.href="/login";
-            }
             var designId = $(".design_id").data("designId");
             $.ajax({
                 url: '/api/v1/addToCart',
@@ -158,13 +168,14 @@
                   designId: designId,
                   gender: gender
                 },
-                error: function() {
-                  $('#' + (iscanvas ? "canvas" : "tshirt" ) + 'info').html('<p>An error has occurred</p>');
+                error: function(data) {
+                    $('#' + (iscanvas ? "canvas" : "tshirt" ) + 'info').html('<p>' + data.responseJSON.error + '</p>');
+                    $button.removeClass("disabled");
+                    $button.html("Add to Cart");
                 },
                 // dataType: 'jsonp',
                 success: function(data) {
                     $button.html("Added!");
-                    console.log("updateCart called");
                     updateCart();
                     setTimeout(function() {
                         $button.removeClass("disabled");
@@ -177,14 +188,19 @@
             if($("#canvas-addtocart-button").hasClass("disabled")){
                 return;
             }
+            if($("#canvasSizeInput").attr("value") == "") {
+                alert("Please select a size for your canvas");
+                return;
+            }
             $("#canvas-addtocart-button").addClass("disabled");
+
             $("#canvas-addtocart-button").html("Adding...");
-            console.log("canvas clicked");
+
             $.ajaxSetup({
                 headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
             });
             var iscanvas = 1;
-            var size = "70X50";
+            var size = $("#canvasSizeInput").attr("value");
             var $button = $("#canvas-addtocart-button");
             addToCart(size, iscanvas, $button);
         });
@@ -192,15 +208,23 @@
             if($("#tshirt-addtocart-button").hasClass("disabled")){
                 return;
             }
+            if($("#tshirtGenderInput").attr("value") == "") {
+                alert("Please select a gender for your tshirt");
+                return;
+            }
+            if($("#tshirtSizeInput").attr("value") == "") {
+                alert("Please select a size for your tshirt");
+                return;
+            }
             $("#tshirt-addtocart-button").addClass("disabled");
             $("#tshirt-addtocart-button").html("Adding...");
-            console.log("canvas clicked");
+
             $.ajaxSetup({
                 headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
             });
             var iscanvas = 0;
-            var size = "M";
-            var gender = "Male";
+            var size = $("#tshirtSizeInput").attr("value");
+            var gender = $("#tshirtGenderInput").attr("value");
             var $button = $("#tshirt-addtocart-button");
             addToCart(size, iscanvas, $button, gender);
         });
