@@ -55,7 +55,7 @@
 	            <div class="card item">
 	                <a href="/designs/{{$design->id}}">
 	                    <img src="{{$design->image}}" />
-	                    <p>{{$design->name}}</p>
+	                    <!--<p>{{$design->name}}</p>-->
 	                </a>
 	            </div>
 	            @endforeach

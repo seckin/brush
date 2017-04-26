@@ -11,7 +11,7 @@
             <a class="contact link" href="mailto:team@trybrush.com">CONTACT</a>
             -->
             @if (Auth::check())
-            <a class="cart link" href="#" class="js-ajax-cart-link header-button header-button--cart">
+            <a class="checkout link" href="#" class="js-ajax-cart-link header-button header-button--cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span class="">
                   <span class="hide-tablet">CART</span>
@@ -28,7 +28,7 @@
                         <p>{{"tshirt"}}</p>
                     </span>
                 </div>
-                <a class="button" href="/checkout/cart">Go to Checkout</a>
+                <a class="action button" href="/checkout/cart">Go to Checkout</a>
             </div>
             <div class="logindata" data-is-logged-in="<?php echo Auth::check() ? 1 : 0;?>"></div>
         </div>

@@ -2,22 +2,14 @@
 
 @section('content')
 
-<body id="cart" class="shopping-cart subpage">
-    <!-- <section class="status">
-        <div class="container">
-            <a href="#">Visit our newest collection: Cityscapes</a>
-        </div>
-        <a href="#">
-            <img src="/assets/images/interface/icon-close.png" />
-        </a>
-    </section> -->
+<body id="checkout" class="cart subpage">
 
     @include('partials.navbar')
 
     <!-- <header class="blank"></header> -->
-    <section class="darker" id="shopping-cart">
+    <section class="darker" id="checkout-cart">
         <div class="container">
-            <div class="products">
+            <div class="process">
                 @foreach($cartItems as $cartItem)
                 <div class="segment" data-cart-item-id="{{$cartItem->id}}">
                     @if ($cartItem->productSpec->type == "tshirt")
@@ -27,19 +19,8 @@
                     <img class="picture" src="{{$cartItem->design->canvas_image}}" alt="{{$cartItem->design->name}}">
                     @endif
                     <div class="information">
-                        <h3>{{$cartItem->design->name}}</h3>
-                        @if ($cartItem->productSpec->type == "canvas")
-                        <dl>
-                            <dt>Type</dt>
-                            <dd>Canvas</dd>
-                        </dl>
-                        @endif
-                        @if ($cartItem->productSpec->type == "tshirt")
-                        <dl>
-                            <dt>Type</dt>
-                            <dd>Tshirt</dd>
-                        </dl>
-                        @endif
+                        <h3 class="product-name">{{$cartItem->design->name}}</h3>
+                        <p class="product-type">{{$cartItem->productSpec->type}}</p>
                         <dl>
                             <dt>Size</dt>
                             <dd>{{$cartItem->productSpec->size}}</dd>
@@ -62,32 +43,7 @@
                 </div>
                 @endforeach
             </div>
-            <div class="summary">
-                <?php
-                    $total_price = 0;
-                    $shipping_cost = 0;
-                    foreach($cartItems as $cartItem) {
-                        // echo "cartitem id : " . $cartItem->id . "         ";
-                        $total_price += $cartItem->quantity * $cartItem->price_per_item;
-                        $shipping_cost += $cartItem->shipping_cost;
-                    }
-                    $total_count = $total_price + $shipping_cost;
-                ?>
-                <h3>Total</h3>
-                <dl>
-                    <dt>Subtotal</dt>
-                    <dd>{{number_format($total_price/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></dd>
-                </dl>
-                <dl>
-                    <dt>Shipping (MNG)</dt>
-                    <dd>{{number_format($shipping_cost/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></dd>
-                </dl>
-                <dl>
-                    <dt>Order Total</dt>
-                    <dd>{{number_format($total_count/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></dd>
-                </dl>
-                <a class="button" href="/checkout" role="button">Go to Checkout</a>
-            </div>
+            @include('partials.order-summary')
         </div>
     </section>
 

@@ -2,32 +2,33 @@
 
 @section('content')
 
-<body id="cart" class="checkout-shipping-info subpage">
+<body id="checkout" class="shipping subpage">
 
     @include('partials.navbar')
     
     <!--<header class="blank"></header>-->
-    <section class="darker" id="checkout-shipping-info">
-        <div class="narrow container">
-            <input class="orderid hidden" name="orderid" value="{{$order->id}}">
-            <h3>Shipping Information</h3>
-            <span>
-                <input type="text" name="firstname" placeholder="First name">
-                <input type="text" name="lastname" placeholder="Last name">
-                <input type="text" name="telephone" placeholder="Phone Number">
-            </span>
-            <span>
-                <input type="text" name="street" placeholder="Street Address">
-                <input type="text" name="city" placeholder="City">
-                <div class="dropdown-wrapper">
-                    <button id="countryName" class="dropdown">
-                        <a data-value="" href="#">Please select...</a>
-                        <a data-value="TR" href="#">Turkey</a>
-                        <input type="text" name="country" value="" />
-                    </button>
-                </div>
-            </span>
-            <button type="submit" class="submit">Next</button>
+    <section class="darker" id="checkout-shipping">
+        <div class="container">
+            <div class="process">
+                <input class="orderid hidden" name="orderid" value="{{$order->id}}">
+                <span>
+                    <input type="text" name="firstname" placeholder="First name">
+                    <input type="text" name="lastname" placeholder="Last name">
+                    <input type="text" name="telephone" placeholder="Phone Number">
+                </span>
+                <span>
+                    <input type="text" name="street" placeholder="Street Address">
+                    <input type="text" name="city" placeholder="City">
+                    <div class="dropdown-wrapper">
+                        <button id="countryName" class="dropdown">
+                            <a data-value="" href="#">Please select...</a>
+                            <a data-value="TR" href="#">Turkey</a>
+                            <input type="text" name="country" value="" />
+                        </button>
+                    </div>
+                </span>
+            </div>
+            @include('partials.order-summary')
         </div>
         <script>
         $.ajaxSetup({
@@ -51,7 +52,7 @@
                 error: function() {
                 },
                 success: function(data) {
-                    window.location.href='/checkout/payment';
+//                    window.location.href='/checkout/payment';
                 }
             });
         });

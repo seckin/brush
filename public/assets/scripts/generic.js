@@ -13,7 +13,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
     //Open Cart Preview
-    $('.menu > a.cart').on('click', function(e) {
+    $('.menu > a.checkout').on('click', function(e) {
         e.stopPropagation();
         $('.cartdetails').toggleClass('open');
     });
