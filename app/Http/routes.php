@@ -256,18 +256,28 @@ Route::get('/checkout/cart', function () {
 	} else {
 		$cartItems = $order->cartItems;
 	}
-	return view('shopping-cart', ["cartItems" => $cartItems]);
+	return view('shopping-cart', [
+        "checkoutStep" => 1,
+        "cartItems" => $cartItems,
+        "shippingInfo" => null
+    ]);
 });
 
-Route::get('/checkout', function () {
+Route::get('/checkout/shipping', function () {
 	// $user = Auth::user();
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$order_id = Session::get("order_id");
 	$order = Order::find($order_id);
-	if(!$order) {
+    if(!$order) {
 		return redirect('/');
 	}
-	return view('checkout-shipping-info', ["order" => $order]);
+    $cartItems = $order->cartItems;
+	return view('checkout-shipping-info', [
+        "checkoutStep" => 2,
+        "order" => $order,
+        "cartItems" => $cartItems,
+        "shippingInfo" => null
+    ]);
 });
 
 Route::get('/checkout/payment', function (Request $request) {
@@ -278,13 +288,16 @@ Route::get('/checkout/payment', function (Request $request) {
 	$order->user_id = $user->id;
 	$order->save();
 	$cartItems = $order->cartItems;
+    $shippingInfo = ShippingInfo::find($order->shipping_info_id);
 	if(count($cartItems) == 0) {
 		$request->session()->flash('status', 'No items in cart!');
 		return redirect('/');
 	}
 	return view('checkout-payment', [
+        "checkoutStep" => 3,
 		"order" => $order,
-		"cartItems" => $cartItems
+		"cartItems" => $cartItems,
+        "shippingInfo" => $shippingInfo
 	]);
 })->middleware('auth');
 

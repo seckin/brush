@@ -1,6 +1,6 @@
 /* Initial */
 
-body { position: relative; padding-bottom: 50px; color: rgba(33, 33, 33, 1); font-family: 'robotolight', sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1); }
+body { position: relative; padding-bottom: 50px; color: rgba(33, 33, 33, 1); font-family: 'robotolight', sans-serif; font-size: 16px; background-color: rgba(33, 33, 33, .1); }
 
 /* Defaults */
 
@@ -34,13 +34,18 @@ h1 { color: rgba(33, 33, 33, 1); font-family: 'averiaseriflibreregular', serif; 
 h2 { color: rgba(33, 33, 33, 1); font-family: 'averiaseriflibreregular', serif; line-height: 135%; }
 h3 { color: rgba(33, 33, 33, 1); line-height: 150%; }
 p { line-height: 135%; margin-bottom: 1em; }
-h1 + p { margin-top: .65em; }
-h2 + p { margin-top: .5em; }
-h3 + p { margin-top: .35em; }
+h1 + p { margin-top: .75em; }
+h2 + p { margin-top: .65em; }
+h3 + p { margin-top: .5em; }
 
-h1 + div { margin-top: 3%; }
-h2 + div { margin-top: 2%; }
-h3 + div { margin-top: 1%; }
+h1 + div, h1 + span { margin-top: 3%; }
+h2 + div, h2 + span { margin-top: 2%; }
+h3 + div, h3 + span { margin-top: 1%; }
+
+/* Formatting */
+
+.product-name { text-transform: uppercase; }
+.product-type { text-transform: capitalize; }
 
 /* Input */
 
@@ -157,8 +162,8 @@ header.blank { display: block; height: 200px; }
 
 /* Sections */
 
-section { display: inline-block; width: 100%; vertical-align: middle; }
-section.darker { background-color: rgba(33, 33, 33, .1); }
+section { display: inline-block; width: 100%; vertical-align: middle; background-color: rgba(255, 255, 255, 1); }
+section.darker { background-color: transparent; }
 section > .container { text-align: left; }
 
 /* Section: Status */
@@ -238,30 +243,28 @@ section#design-detail[data-tab="canvas"] .canvas { display: block !important; }
 section#design-detail[data-tab="tshirt"] .tshirt { display: block !important; }
 section#design-detail[data-tab="mug"] .mug { display: block !important; }
 
-/* Section: Shopping Cart */
+/* Section: Checkout > Cart */
 
-section#shopping-cart > .container { position: relative; }
-section#shopping-cart > .container > .products { float: left; width: 64%; min-height: 100px;}
-section#shopping-cart > .container > .summary { float: left; position: relative; width: 32%; margin-left: 4%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border: 3px solid rgba(33, 33, 33, 1); }
-section#shopping-cart > .container > .summary button, section#shopping-cart > .container > .summary .button { margin-top: 10%; padding: 3% 4%; background-color: rgba(33, 33, 33, .15); }
-section#shopping-cart > .container > .summary dl { margin-top: 2.5%; }
-section#shopping-cart > .container > .summary dd { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
-section#shopping-cart .products .information  { padding: 1% 0; font-size: .9em; line-height: 125%; }
-section#shopping-cart .products .information h3 { font-size: 1.5em; text-transform: uppercase; }
-section#shopping-cart .products .price { float: right; margin: 2.5% 2.5% 0 0; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; font-size: 1.5em; text-transform: uppercase; letter-spacing: -.05em; }
-section#shopping-cart .products .price i { margin-left: .15em; }
-section#shopping-cart .products .remove-from-cart { position: absolute; right: 2.5%; bottom: 2.5%; width: 1em; height: 1.25em; text-align: center; }
-section#shopping-cart .products .remove-from-cart i { position: relative; top: 0; font-size: 1.15em; cursor: pointer; }
-section#shopping-cart .products .remove-from-cart i:hover { top: -0.05em; font-size: 1.25em; }
+section#checkout-cart > .container { position: relative; }
+section#checkout-cart .process .information  { margin: 2.5%; font-size: .9em; line-height: 125%; }
+section#checkout-cart .process .information h3 { font-size: 1.5em; text-transform: uppercase; }
+section#checkout-cart .process .information p { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+section#checkout-cart .process .price { float: right; margin: 2.5% 2.5% 0 0; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; font-size: 1.5em; text-transform: uppercase; letter-spacing: -.05em; }
+section#checkout-cart .process .price i { margin-left: .15em; }
+section#checkout-cart .process .remove-from-cart { position: absolute; right: 15px; bottom: 10px; width: 1em; height: 1.25em; text-align: center; }
+section#checkout-cart .process .remove-from-cart i { position: relative; top: 0; font-size: 1.15em; cursor: pointer; }
+section#checkout-cart .process .remove-from-cart i:hover { top: -0.05em; font-size: 1.25em; }
 
-/* Section: Checkout Shipping Info */
+/* Section: Checkout > Shipping */
 
-section#checkout-shipping-info .container > span { display: inline-block; }
-section#checkout-shipping-info input { float: left; width: 350px; height: 60px; }
-section#checkout-shipping-info input[name="firstname"], section#checkout-shipping-info input[name="city"] { margin-right: 20px; }
-section#checkout-shipping-info input[name="street"] { width: 720px; }
-section#checkout-shipping-info button.dropdown#countryName { min-width: 350px; }
-section#checkout-shipping-info button.dropdown#countryName > a:first-child::before { content: 'Country: '; }
+section#checkout-shipping .process > span { display: inline-block; }
+section#checkout-shipping .process > span > * { border: none; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24) }
+section#checkout-shipping .process input, section#checkout-shipping .process .dropdown-wrapper { float: left; width: 49%; height: 60px; }
+section#checkout-shipping .process input[name="firstname"], section#checkout-shipping input[name="city"] { margin-right: 2%; }
+section#checkout-shipping .process input[name="street"] { width: 100%; }
+section#checkout-shipping .process button.dropdown#countryName { min-width: 100%; border: none; }
+section#checkout-shipping .process button.dropdown#countryName > a:first-child { height: 60px; line-height: 60px; }
+section#checkout-shipping .process button.dropdown#countryName > a:first-child::before { content: 'Country: '; }
 
 /* Section: Announcement */
 
@@ -391,7 +394,7 @@ footer .right { float: right; text-align: right; }
 .card.yayindaki-projeler b { background-color: rgba(33, 33, 33, 1); }
 .card.suresi-uzatilan-projeler b { background-color: rgba(255, 180, 0, 1); }
 .card.tamamlanan-projeler b { background-color: rgba(255, 0, 40, 1); }
-.card a { display: block; margin: 3% 3% 0 3%; }
+.card a { display: block; margin: 3%; }
 .card img { width: 100%; margin: 0; }
 .card h1 { width: 90%; margin-bottom: 3%; line-height: 1.5em; text-align: center; overflow: hidden; }
 .card p { color: rgba(33, 33, 33, .8); margin: 2% 0; font-size: .85em; line-height: 1.5em; text-align: center; overflow: hidden; }
@@ -403,10 +406,12 @@ footer .right { float: right; text-align: right; }
 
 /* Segments */
 
-.segment { position: relative; height: 166px; margin-bottom: 2%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
+.segment { position: relative; margin-bottom: 2%; padding: 5%; overflow: hidden; word-wrap: break-word; background-color: rgba(255, 255, 255, 1); box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
 .segment > * { float: left; width: auto; }
-.segment > img { height: 100%; margin-right: 2.5%; }
-.segment h1 { width: 100%; margin-bottom: 0; line-height: 1.5em; text-align: left; overflow: hidden; }
+.segment > img { height: 100%; max-height: 165px; }
+.segment h3 { width: 100%; line-height: 67%; text-align: left; }
+.segment p { width: 100%; line-height: 67%; text-align: left; }
+.segment dl { font-size: .85em; }
 .segment a.toggle { display: inline; position: absolute; top: 0; right: 0; width: 1.5em; height: 1.5em; margin: 2% 2% 0 0; padding: 0; text-align: right; border: none; opacity: .65; cursor: pointer; transition: opacity .35s ease; }
 .segment a.toggle:hover { opacity: 1; }
 .segment a.toggle img { float: none; width: 100%; height: 100%; transform: rotate(0deg); transition-duration: .35s; }
@@ -414,19 +419,17 @@ footer .right { float: right; text-align: right; }
 .segment .log { display: block; overflow: hidden; width: 100%; max-height: 0; font-size: .65em; background-color: rgba(33, 33, 33, .035); transition: max-height .5s ease; }
 .segment .log.open { max-height: 500px; transition: max-height 1s ease; }
 .segment .log ul { padding: 2% 3%; }
-.segment p { width: 100%; height: 1.5em; color: rgba(33, 33, 33, .8); font-size: .85em; line-height: 1.5em; text-align: left; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 .segment blockquote { display: inline-block; float: left; box-sizing: border-box; width: 100%; margin-top: 1%; color: rgba(33, 33, 33, 1); font-family: 'averiaseriflibreregular', serif; font-size: .85em; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .segment blockquote p { display: inline; margin-top: 0; margin-right: 5%; padding-left: 25px; padding-bottom: 2px; color: rgba(33, 33, 33, .75); font-size: inherit; text-align: left;  background-position: left center; background-repeat: no-repeat; background-color: transparent; }
 .segment blockquote p:last-child { background-image: url(/assets/images/interface/icon-prize.png); }
 .segment blockquote p:first-child { background-image: url(/assets/images/interface/icon-timeleft.png); }
 .segment b { display: block; position: relative; box-sizing: border-box; left: 0; right: 0; bottom: 0; width: 100%; height: 10%; padding: 3%; color: rgba(255, 255, 255, 1); text-align: center; background-color: rgba(33, 33, 33, 1); }
-.segment button, .segment .button { display: block; width: 100%; height: 10%; margin-top: 0; color: rgba(33, 33, 33, .35) !important; text-align: center; background-color: rgba(33, 33, 33, .1); border-left: none !important; border-radius: 0; box-shadow: inset 0 10px 10px -10px rgba(33, 33, 33, .15) !important; }
-.segment button, .segment .button:hover { color: rgba(33, 33, 33, .5) !important; }
+.segment button, .segment .button { display: block; margin-top: 0; text-align: center; background-color: rgba(33, 33, 33, .1); border-radius: 0; }
 .segment + h1 { margin-top: 5%; }
 
 /* Buttons */
 
-button, .button { display: table; position: relative; top: 0; left: 0; width: auto; min-height: 40px; margin: 0 auto; margin-top: 3%; color: rgba(33, 33, 33, 1); line-height: 100%; padding: 1.5% 2%; font-size: 100%; text-align: center; background-color: transparent; border-width: 3px; border-style: solid; border-color: rgba(33, 33, 33, 1); transition: all .075s ease; cursor: pointer; }
+button, .button { display: table; position: relative; top: 0; left: 0; width: auto; min-height: 40px; margin: 0 auto; margin-top: 3%; color: rgba(33, 33, 33, 1); line-height: 100%; padding: 1.5% 2%; font-size: 100%; text-align: center; background-color: transparent; border-width: 3px; border-style: solid; border-color: rgba(33, 33, 33, 1); transition: all .15s ease; cursor: pointer; }
 button:disabled, .button:disabled { box-shadow: none; opacity: 0.15; -moz-opacity:0.35; -khtml-opacity: 0.35; filter: alpha(opacity=35); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=35)"; }
 button, .button, button *, .button * { cursor: pointer !important; }
 button a { display: table-cell; position: relative; vertical-align: middle; line-height: 67%; }
@@ -441,6 +444,11 @@ button.bottom:hover, .button.bottom:hover { box-shadow: none; color: rgba(255, 2
 button img, .button img { display: inline-block; position: relative; height: 30px; vertical-align: middle; }
 button > img + p, .button > img + p { line-height: 20px; }
 
+/* Button: Action */
+
+button.action, .button.action { background-color: transparent !important; background-image: url(/assets/images/interface/bg-button_action.png); background-size: 110% 150%; background-position: center; background-repeat: no-repeat; }
+button.action:hover, .button.action:hover { background-size: 110% 150%; }
+
 /* Button: Dropdown */
 
 button.dropdown { display: block; box-sizing: border-box; position: relative; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; min-width: 360px; height: 60px; margin: 0; padding: 0; overflow-y: hidden; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; background-color: rgba(255, 255, 255, 1); border-width: 3px; border-radius: 0; box-shadow: none; transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
@@ -452,11 +460,9 @@ button.dropdown a:first-child::before { font-family: "robotoblack", "Roboto Blac
 button.dropdown.open a:first-child { background-image: url(/assets/images/interface/arrow-up.png); }
 button.dropdown input { display: none; }
 
-.dropdown-wrapper { height: 60px; }
-
 /* Data Lists */
 
-dl { display: block; }
+dl { display: block; line-height: 135%; }
 dt { display: inline; }
 dt:after { content: ': '; }
 dd { display: inline; }
@@ -637,6 +643,38 @@ body#home header a { color: rgba(255, 255, 255, 1); }
 body#home header > .container > h1, body#home header > .container h1 { color: rgba(255, 255, 255, 1); }
 body#home header p { color: rgba(255, 255, 255, 1); }
 body#home header button, body#home header .button { color: rgba(255, 255, 255, 1); border-color: rgba(255, 255, 255, 1); }
+
+/* Page: Checkout */
+
+body#checkout section > .container > .process { float: left; width: 64%; min-height: 100px;}
+body#checkout section > .container > .summary { float: left; position: relative; width: 32%; margin-left: 4%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border: 3px solid rgba(33, 33, 33, 1); }
+body#checkout section > .container > .summary button, body#checkout section > .container > .summary .button { padding: 3% 4%; }
+body#checkout section > .container > .summary > div { margin-top: 5%; }
+body#checkout section > .container > .summary h3 { display: inline-block; }
+body#checkout section > .container > .summary h3.toggle { padding-right: 10%; background-image: url(/assets/images/interface/arrow-down.png); background-repeat: no-repeat; background-position: right center; background-size: contain; cursor: pointer; }
+body#checkout section > .container > .summary h3.toggle.open { padding-right: 10%; background-image: url(/assets/images/interface/arrow-up.png); }
+body#checkout section > .container > .summary h3.toggle + .content { display: none; }
+body#checkout section > .container > .summary h3.toggle.open + .content { display: block; }
+body#checkout section > .container > .summary dd { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+
+body#checkout section > .container > .summary .product { width: 100%; margin-top: 5%; }
+body#checkout section > .container > .summary .product:last-of-type { margin-bottom: 0; }
+body#checkout section > .container > .summary .product-image { float: left; width: 32%; }
+body#checkout section > .container > .summary .product-information { float: left; width: 64%; margin-left: 4%; }
+body#checkout section > .container > .summary .product-information h3 { margin: 0; margin-top: -.3em; }
+body#checkout section > .container > .summary .product-information p { margin: 0; }
+body#checkout section > .container > .summary .product-information dl { margin-top: 2.5%; font-size: .65em; line-height: .85em; }
+
+/* Page: Checkout > Cart */
+
+body#checkout.cart section > .container > .process .segment { padding: 0; }
+
+/* Page: Checkout > Payment */
+
+body#checkout.payment section > .container > .process .segment .panel-body { width: 100%; }
+body#checkout.payment section > .container > .process .segment .panel-body h3 { text-align: center; }
+body#checkout.payment section > .container > .process .segment .panel-body label { font-size: .75em; }
+body#checkout.payment section > .container > .process .segment .panel-body .form-row { width: 400px; margin: 5% auto; padding: 2.5%; border: 1px dashed rgba(33, 33, 33, .25); }
 
 /* Page: Error */
 
