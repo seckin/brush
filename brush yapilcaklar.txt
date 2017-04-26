@@ -119,67 +119,81 @@ OK Google analytics entegre et
 
 OK secure payment ve need help kisimlarini shopping cart sayfasina da koy
 
-Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
-	"curated and affordable wall art and fashion."
-	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
-	A sale happens only if all of the predetermined number of items is sold
+OK buttonlari gri yerine daha canli bi renk yapalim
+	- brush stroke resmi koycak ozan buna
 
-checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
+NOPE bi item sold out degilse sayfada bi yere In Stock yaz GG'deki gibi
 
-shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
+OK payment sayfasi tasarimi uzerinden gecilcek.
+	ornek payment formu: https://stripe.com/docs/elements
 
-design detail sayfasinda "incl. tax excluding shipping fees" yazalim
+OK "Delivery in 6 to 9 working days" yazalim design detail sayfasina. yazinin basina tick koy juniqe'teki gibi
 
-"Delivery in 6 to 9 working days" yazalim design detail sayfasina. yazinin basina tick koy juniqe'teki gibi
-
-canvas altina bunu ekle, tshirt altina da benzer bi yazi ekle:
+OK canvas altina bunu ekle, tshirt altina da benzer bi yazi ekle:
 	- "Gallery-quality fine art canvas print.
 	   The canvas material is printed and then stretched on a wooden frame. The design covers the edges of the canvas."
 	- Material	340 g/m² cotton (65%) and polyester (35%)
 	  Finish	Matt
 	  Print Type	12-colour digital printing
 
+
+
+OK Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
+	Curated and affordable wall art and fashion.
+	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
+	A sale happens only if all of the predetermined number of items is sold
+
+OK checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
+
+OK shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
+
 production'da bunu artist description olarak ekle: "For Andrea Minini, design is all about love at first sight. It either has it or it doesn’t, and he can tell from just a glance. The Milanese, born in 1979, studied at the Politecnico di Milano and has been working as an Art Director for an agency, alongside creating his own work. His series “Animals in Moiré” emerged as an effort to create depth and complexity from just a few lines, using the power of moiré patterns."
 
+indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
 
-
-
+login ve register sayfalarini yap
 
 charge success sayfasini guzellestir
 
 brush logosu high-def olcak
 
 design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
-
-buttonlari gri yerine daha canli bi renk yapalim
-	- brush stroke resmi koycak ozan buna
+	- design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
+	- canvas size'a gore sayfadaki fiyat degiscek
 
 tshirt fotosu kadin erkek secildiginde degiscek
 
-canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
-
-out of stock designlar koycak ozan ~10 tane
+ornek designlar koycak ozan ~10 tane
 
 my account zero case ekle (ozan tasarimi yaptiktan sonra)
 
-tum sayfalarin responsive oldugundan emin ol
-
 canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
 
-canvas size'a gore sayfadaki fiyat degiscek
-
 mobilde test et siteyi. bastan sona satin alma uye olma flowunu ve diger sayfalari gozden gecir
-
-NOPE bi item sold out degilse sayfada bi yere In Stock yaz GG'deki gibi
+	- tum sayfalarin responsive oldugundan emin ol
 
 ptt ve mng'ye gidip canvas, tshirt gondermenin yurtici yurtdisi fiyatlarini ogren
 
 alert strip'inin tasarimi duzeltilcek
 
-payment sayfasi tasarimi uzerinden gecilcek.
-	ornek payment formu: https://stripe.com/docs/elements
+
+
+
+
+
+
+
+
+
+sonradan yapilcaklar:
+---------------------------
 
 Sitenin bi yerine bunu koyalim(bunu emaille de yapabiliriz):
 	"Amazing tshirt designs sent via Slack.
 	Find your next favorite tshirt without lifting a finger."
 	- image olarak da bunu koy gecici de olsa: https://www.indiehackers.com/images/partner-icons/code-for-cash-1.png
+
+bi kullanici signout olup digeri ayni browserdan girince cart'lar karisiyor. bunu duzelt.
+
+canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
+

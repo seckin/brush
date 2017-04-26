@@ -73,6 +73,7 @@
                         $(event.target).parents(".segment").remove();
                     });
                     updateCart();
+                    updateOrderSummary();
                 }
             });
         });

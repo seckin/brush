@@ -9,3 +9,15 @@ function upload_to_s3($image){
 	$imageUrl = $s3Prefix . $imageFilePath;
 	return $imageUrl;
 }
+
+function get_order_summary($order) {
+	$cartItems = $order->cartItems;
+	$total_price = 0;
+    $shipping_cost = 800;
+    foreach($cartItems as $cartItem) {
+        $total_price += $cartItem->quantity * $cartItem->price_per_item;
+        // $shipping_cost += $cartItem->shipping_cost;
+    }
+    $total_amount = $total_price + $shipping_cost;
+    return array("items_price" => $total_price, "shipping_cost" => $shipping_cost, "total_amount" => $total_amount);
+}

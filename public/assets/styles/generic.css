@@ -705,3 +705,7 @@ body#error section img { width: auto; margin-top: 5%; }
 #checkout-payment .opc-wrapper {
 	margin: 100px;
 }
+
+.body ul.extra-info li:before {
+  content: '✓';
+}

@@ -12,10 +12,10 @@
     <!-- Total -->
     <?php
         $total_price = 0;
-        $shipping_cost = 0;
+        $shipping_cost = 800;
         foreach($cartItems as $cartItem) {
             $total_price += $cartItem->quantity * $cartItem->price_per_item;
-            $shipping_cost += $cartItem->shipping_cost;
+            // $shipping_cost += $cartItem->shipping_cost;
         }
         $total_amount = $total_price + $shipping_cost;
     ?>
@@ -23,15 +23,15 @@
         <h3>Order Summary</h3>
         <dl>
             <dt>Subtotal</dt>
-            <dd>{{number_format($total_price/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></dd>
+            <dd><span>{{number_format($total_price/100.0, 2, '.', '')}}</span><i class="fa fa-try" aria-hidden="true"></i></dd>
         </dl>
         <dl>
             <dt>Shipping (MNG)</dt>
-            <dd>{{number_format($shipping_cost/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></dd>
+            <dd><span>{{number_format($shipping_cost/100.0, 2, '.', '')}}</span><i class="fa fa-try" aria-hidden="true"></i></dd>
         </dl>
         <dl>
             <dt>Order Total</dt>
-            <dd>{{number_format($total_amount/100.0, 2, '.', '')}}<i class="fa fa-try" aria-hidden="true"></i></dd>
+            <dd><span>{{number_format($total_amount/100.0, 2, '.', '')}}</span><i class="fa fa-try" aria-hidden="true"></i></dd>
         </dl>
     </div>
     

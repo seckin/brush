@@ -66,6 +66,14 @@
                             @endif
                         </div>
                         <p id="canvasinfo"></p>
+                        <ul class="extra-info" style="display: block;margin-top: 40px;font-size: 16px;">
+                            <li>Delivery in 3 to 6 working days after the campaign is over.</li>
+                            <li>Gallery-quality fine art canvas print.</li>
+                            <li>The canvas material is printed and then stretched on a wooden frame. The design covers the edges of the canvas.</li>
+                            <li>Material: 340 g/m² cotton (65%) and polyester (35%)</li>
+                            <li>Finish: Matt</li>
+                            <li>Print Type: 12-colour digital printing</li>
+                        </ul>
                     </div>
                     <div class="tshirt">
                         <h3>Tshirt</h3>
@@ -103,7 +111,15 @@
                             @endif
                         </div>
                         <p id="tshirtinfo"></p>
+                        <ul class="extra-info" style="display: block;margin-top: 40px;font-size: 16px;">
+                            <li>Delivery in 3 to 6 working days after the campaign is over.</li>
+                            <li>Material: 100% cotton jersey</li>
+                            <li>Fit: Regular fit</li>
+                            <li>Print Type: Digital-direct printing</li>
+                            <li>Care: Machine washable at 30ºC</li>
+                        </ul>
                     </div>
+                    
                     <!-- <div class="mug">
                         <h3>Mug</h3>
                         <p>Mug content</p>
