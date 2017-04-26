@@ -51,7 +51,7 @@ h3 + div, h3 + span { margin-top: 1%; }
 
 input, textarea, select, button, .button { width: 100%; box-sizing: border-box; outline: 0; }
 input:hover, textarea:hover, select:hover { background-color: rgba(255, 255, 255, .5); }
-input, textarea { margin-bottom: 2.5%; padding: 3% 4%; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; border: 3px solid rgba(33, 33, 33, 1); border-radius: 0; background-color: rgba(255, 255, 255, 1); transition: background-color .25s ease; }
+input, textarea { margin-bottom: 2.5%; padding: 3% 4%; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; border: none; border-radius: 0; background-color: rgba(255, 255, 255, 1); box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: background-color .25s ease; }
 input::placeholder, textarea::placeholder { color: rgba(33, 33, 33, .5); }
 input:-moz-placeholder, textarea:-moz-placeholder { color: rgba(33, 33, 33, .5); }
 input::-moz-placeholder, textarea::-moz-placeholder { color: rgba(33, 33, 33, .5); }
@@ -64,8 +64,8 @@ input::-moz-placeholder:focus, textarea::-moz-placeholder:focus { color: rgba(33
 input:-ms-input-placeholder:focus, textarea:-ms-input-placeholder:focus { color: rgba(33, 33, 33, .15); }
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color: rgba(33, 33, 33, .15); }
 
-.checkbox { display: inline-block; width: 100%; margin: 0; padding: 0; text-align: left; font-size: .75em; line-height: 25px; vertical-align: middle; }
-.checkbox .boolean { display: inline-block; float: left; width: 21px; height: 21px; margin: 2px 10px 2px 0; color: rgba(33, 33, 33, 1); background-color: rgba(255, 255, 255, 1); outline: 0; border: 0; border-radius: 5px; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); cursor: pointer !important; }
+.checkbox { display: inline-block; margin: 0; padding: 0; text-align: left; line-height: 25px; vertical-align: middle; }
+.checkbox .boolean { display: inline-block; float: left; width: 25px; height: 25px; margin-right: 10px; color: rgba(33, 33, 33, 1); background-color: rgba(255, 255, 255, 1); outline: 0; border: 0; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); cursor: pointer !important; }
 .checkbox .boolean.true { background-image: url('/assets/images/interface/icon-checked.png'); background-size: contain; }
 .checkbox input[type="checkbox"] { display: none !important; }
 
@@ -258,7 +258,7 @@ section#checkout-cart .process .remove-from-cart i:hover { top: -0.05em; font-si
 /* Section: Checkout > Shipping */
 
 section#checkout-shipping .process > span { display: inline-block; }
-section#checkout-shipping .process > span > * { border: none; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24) }
+section#checkout-shipping .process > span > * { border: none; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); }
 section#checkout-shipping .process input, section#checkout-shipping .process .dropdown-wrapper { float: left; width: 49%; height: 60px; }
 section#checkout-shipping .process input[name="firstname"], section#checkout-shipping input[name="city"] { margin-right: 2%; }
 section#checkout-shipping .process input[name="street"] { width: 100%; }
@@ -342,15 +342,16 @@ footer .right { float: right; text-align: right; }
 
 /* Sign-up & Sign-in */
 
-.sign { display: inline-block; width: 40%; margin-top: 4%; }
+.sign { display: block; width: 40%; margin: 0 auto; margin-top: 4%; }
+.sign .options > * { display: inline-block; font-size: .85em; line-height: 25px; }
+.sign .options > *:first-child { float: left; text-align: left; }
+.sign .options > *:last-child { float: right; text-align: right; }
 .sign > a.option { display: inline-block; float: left; width: 50%; padding: 2% 0; color: rgba(33, 33, 33, 1); background-color: rgba(33, 33, 33, 0); }
 .sign > a.option.active { color: rgba(255, 255, 255, 1); background-color: rgba(33, 33, 33, 1); }
-.sign .form { display: inline-block; width: 100%; margin-bottom: 1%; padding: 8%; background-color: rgba(33, 33, 33, 1); }
-.sign .form .checkbox { margin-bottom: 4%; color: rgba(255, 255, 255, 1); }
-.sign .form input { display: inline-block; width: 100%; margin-bottom: 4%; padding: 3% 5%; box-sizing: border-box; }
-.sign .form input.valid { background-image: url(/assets/images/interface/icon-valid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
-.sign .form input.invalid { background-image: url(/assets/images/interface/icon-invalid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
-.sign .form button { display: inline-block; width: 100%; margin: 0; padding: 5%; color: rgba(255, 255, 255, 1); box-sizing: border-box; }
+.sign input { display: inline-block; width: 100%; height: 60px; margin-bottom: 4%; padding: 3% 5%; box-sizing: border-box; }
+.sign input.valid { background-image: url(/assets/images/interface/icon-valid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
+.sign input.invalid { background-image: url(/assets/images/interface/icon-invalid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
+.sign button { display: inline-block; width: 100%; margin-top: 5%; padding: 3%; box-sizing: border-box; }
 .sign p.title { color: rgba(255, 255, 255, 1); }
 .sign p.error { padding: 1%; color: rgba(255, 255, 255, 1); font-size: .85em; background-color: rgba(255, 0, 40, 1); }
 .sign a.reminder { float: right; font-size: 0.85em; text-align: right; opacity: .75; }

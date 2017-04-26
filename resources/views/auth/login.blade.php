@@ -7,71 +7,57 @@
     
     <!--<header class="blank"></header>-->
     <section class="darker">
-    <div class="narrow container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                            {{ csrf_field() }}
+        <div class="container">
+            <div class="sign">
+                <form role="form" method="POST" action="{{ url('/login') }}">
+                    {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Enter your email address" />
+                    @if ($errors->has('email'))
+                    <p class="error">
+                        {{ $errors->first('email') }}
+                    </p>
+                    @endif
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                    <input id="password" type="password" name="password" placeholder="Enter your password" />
+                    @if ($errors->has('password'))
+                    <p class="error">
+                        {{ $errors->first('password') }}
+                    </p>
+                    @endif
 
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password">
-
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-sign-in"></i> Login
-                                    </button>
-
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="options clearfix">
+                        <div class="checkbox">
+                            <div class="boolean"></div>
+                            Remember me
+                            <input id="remember" type="checkbox" name="remember" />
+                        </div>
+                        <a class="link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                     </div>
-                </div>
+
+                    <button type="submit">
+                        <i class="fa fa-btn fa-sign-in"></i> Login
+                    </button>
+
+                </form>
             </div>
         </div>
-    </div>
     </section>
     
     @include('partials.footer')
+    
+    <script>
+        $(document).ready(function() {
+            $('.checkbox .boolean').click(function() {
+                if ($(this).hasClass('true')) {
+                    $(this).parent().children('input[type="checkbox"]').removeAttr('checked');
+                } else {
+                    $(this).parent().children('input[type="checkbox"]').attr('checked', true);
+                }
+                $(this).toggleClass('true');
+            });
+        });
+    </script>
     
 </body>
 @endsection
