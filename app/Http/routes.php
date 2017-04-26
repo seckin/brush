@@ -123,10 +123,10 @@ Route::post('/charge', function (Request $request) {
 	$order = Order::find($order_id);
 	$cartItems = $order->cartItems;
 	$total_price = 0;
-	$shipping_cost = 0;
+	$shipping_cost = 800;
 	foreach($cartItems as $cartItem) {
         $total_price += $cartItem->quantity * $cartItem->price_per_item;
-        $shipping_cost += $cartItem->shipping_cost;
+        // $shipping_cost += $cartItem->shipping_cost;
     }
     $total_amount = $total_price + $shipping_cost;
 
@@ -462,6 +462,16 @@ Route::get('/api/v1/cartInfo', function () {
 		$cartItems[$i]->design = $cartItems[$i]->design;
 	}
 	return array("cartItems" => $cartItems);
+});
+
+Route::get('/api/v1/orderSummary', function () {
+	// $user = Auth::user();
+	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
+	$order_id = Session::get("order_id");
+	$order = Order::find($order_id);
+	$result = get_order_summary($order);
+
+	return $result;
 });
 
 Route::post('/api/v1/shippingInfo', function (Request $request) {

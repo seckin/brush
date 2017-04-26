@@ -164,3 +164,19 @@ function updateCart() {
         }
     });
 }
+
+function updateOrderSummary() {
+    $.ajax({
+        url: '/api/v1/orderSummary',
+        type: 'GET',
+        data: {
+        },
+        error: function() {
+        },
+        success: function(data) {
+            $(".total dd > span").eq(0).html((data.items_price / 100.0).toFixed(2));
+            $(".total dd > span").eq(1).html((data.shipping_cost / 100.0).toFixed(2));
+            $(".total dd > span").eq(2).html((data.total_amount / 100.0).toFixed(2));
+        }
+    });
+}

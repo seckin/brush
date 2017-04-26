@@ -143,9 +143,9 @@ OK Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
 	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
 	A sale happens only if all of the predetermined number of items is sold
 
-checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
+OK checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
 
-shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
+OK shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
 
 production'da bunu artist description olarak ekle: "For Andrea Minini, design is all about love at first sight. It either has it or it doesn’t, and he can tell from just a glance. The Milanese, born in 1979, studied at the Politecnico di Milano and has been working as an Art Director for an agency, alongside creating his own work. His series “Animals in Moiré” emerged as an effort to create depth and complexity from just a few lines, using the power of moiré patterns."
 
