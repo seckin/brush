@@ -460,6 +460,8 @@ button.dropdown a:first-child::before { font-family: "robotoblack", "Roboto Blac
 button.dropdown.open a:first-child { background-image: url(/assets/images/interface/arrow-up.png); }
 button.dropdown input { display: none; }
 
+.dropdown-wrapper { height: 60px; }
+
 /* Data Lists */
 
 dl { display: block; line-height: 135%; }
