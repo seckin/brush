@@ -1,11 +1,11 @@
 <div class="summary">
     
     @if ($checkoutStep == 1)
-    <a class="action button" href="/checkout/shipping" role="button">Continue to Shipping</a>
+    <a class="action submit button padded" href="/checkout/shipping" role="button">Continue to Shipping</a>
     @elseif ($checkoutStep == 2)
-    <a class="action button" href="/checkout/payment" role="button">Continue to Payment</a>
+    <a class="action submit button padded" href="#" role="button">Continue to Payment</a>
     @elseif ($checkoutStep == 3)
-    <a class="action button" href="#" role="button">Place Order</a>
+<!--    <a class="action submit button" href="#" role="button">Place Order</a>-->
     @endif
     
 

@@ -152,6 +152,9 @@ production'da bunu artist description olarak ekle: "For Andrea Minini, design is
 indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
 
 login ve register sayfalarini yap
+    OK - Ozan
+
+loginde hatalar yazilmali
 
 charge success sayfasini guzellestir
 
@@ -176,7 +179,7 @@ ptt ve mng'ye gidip canvas, tshirt gondermenin yurtici yurtdisi fiyatlarini ogre
 
 alert strip'inin tasarimi duzeltilcek
 
-
+404 ve 503 sayfasini duzelt
 
 
 

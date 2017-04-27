@@ -129,8 +129,15 @@ $(document).ready(function () {
               $('#info').html('<p>An error has occurred</p>');
             },
             success: function(data) {
-                $(".subscribe #email").val('');
-                $(".subscribe .email-saved").css({"display": "block"});
+                //$(".subscribe .email-saved").css({"display": "block"});
+                $(".subscribe .button").text('Joining');
+                setTimeout(function(){
+                    $(".subscribe .button").text('Joined!');
+                }, 1000);
+                setTimeout(function(){
+                    $(".subscribe #email").val('');
+                    $(".subscribe .button").text('Join');
+                }, 5000);
             }
         });
     });

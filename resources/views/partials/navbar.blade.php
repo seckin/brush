@@ -29,7 +29,7 @@
             </a>
             <script>updateCart();</script>
             <div class="cartdetails">
-                <a class="action button" href="/checkout/cart">Go to Checkout</a>
+                <a class="action button padded" href="/checkout/cart">Go to Checkout</a>
             </div>
             <div class="logindata" data-is-logged-in="<?php echo Auth::check() ? 1 : 0;?>"></div>
         </div>
