@@ -54,6 +54,7 @@ $(document).ready(function() {
                 $(this).prependTo(dropdown);
                 var value = $(this).data('value');
                 dropdown.children('input').attr('value', value);
+                $(dropdown.children('input')).change();
                 dropdown.removeClass('open');
             } else {
                 dropdown.removeClass('open');

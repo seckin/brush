@@ -228,7 +228,9 @@ section#design-detail > .container > div.information .body .tags > a { position:
 section#design-detail > .container > div.information .body .tags > a:hover { top: -2px; }
 section#design-detail > .container > div.information .body h3 { line-height: 67%; }
 section#design-detail > .container > div.information .body p { width: 75%; margin-bottom: 1%; }
-section#design-detail > .container > div.information .body .price { position: absolute; top: 0; right: 0; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; font-size: 2em; text-transform: uppercase; letter-spacing: -.05em; }
+section#design-detail > .container > div.information .body .price { position: absolute; text-align: right; top: 0; right: 0; font-size: 2em; }
+section#design-detail > .container > div.information .body .price .price-text { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; text-transform: uppercase; letter-spacing: -.05em; }
+section#design-detail > .container > div.information .body .price .incl-tax { font-size: 14px; font-weight: lighter; color: gray; }
 section#design-detail > .container > div.information .body button.dropdown { margin-top: 2%; }
 section#design-detail > .container > div.information .body .extra { opacity: .65; margin-top: 5%; font-size: .75em; }
 section#design-detail > .container > div.information .body .extra li::before { content: '✓'; margin-right: .15em; }
@@ -723,4 +725,21 @@ body#error section img { width: auto; margin-top: 5%; }
 	margin-left: 5px;
 	font-size: 16px;
 	font-weight: lighter;
+}
+
+.canvas .options {
+	padding-top: 20px;
+}
+
+.tshirt .options {
+	padding-top: 20px;
+}
+
+.discount-code input {
+	box-shadow: 0 1px 3px rgba(33, 33, 33, .92), 0 1px 2px rgba(33, 33, 33, .94);
+}
+
+table, th, td {
+   border: 1px solid black;
+   font-size: 21px;
 }

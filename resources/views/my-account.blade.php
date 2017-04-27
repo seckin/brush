@@ -17,8 +17,19 @@
 	    <div class="container">
 	        <h3>Your Orders</h3>
 	        <div class="row">
-	        	@foreach($orders as $order)
-    	            <div class="cart-item-names">
+            <table border="0" cellpadding="0" cellspacing="0" class="AnaTablo" align="center">
+                <tbody>
+                    <tr><td valign="top" class="IcerikOrtaTabloIcerikTd"> 
+                    <table width="100%" border="0" cellpadding="3" cellspacing="1" class="UrunListeGosterimTablo">
+                    <form action="" method="POST" name="siparis_izleme"></form> 
+                    <tbody>
+                    <tr class="UrunListeGosterimTabloBaslikTr"> 
+                    <td width="10%">Order ID</td><td width="17%">Date/Time</td>
+                    <td width="18%">Payment type</td><td width="17%">Status</td><td width="14%">Shipping Tracking No</td>
+
+                    </tr>
+
+                    @foreach($orders as $order)
                         <?php
                             $details = array();
                             foreach($order->cartItems as $cartItem) {
@@ -37,19 +48,20 @@
                                 array_push($details, $detail);
                             }
                             $details_str = join("<br>", $details);
-                            echo $details_str;
+                            $details_str;
                         ?>
-    	            </div>
-                    <div class="order-date">
-                        <?php
-                            echo array_shift($dates);
-                        ?>
-                    </div>
-                    <div class="order-status">
-                        Your order is being prepared.
-                    </div>
-	            @endforeach
-	        </div>
+                        <tr class="UrunListeGosterimTabloListeTr1"> 
+                        <td>100{{$order->id}}</td>
+                        <td>{{array_shift($dates)}}</td>
+                        <td>{!! $details_str !!}</td>
+                        <td title="Kargoya Teslim Edildi">Your order is being prepared.</td>
+                        <td title="Kargonuzun Takibi İçin Tıklayın">200{{$order->id}}</td>
+
+                        </tr>
+                    @endforeach
+                    </tbody></table></td></tr></tbody>
+            </table>
+            </div>
 	    </div>
 	</section>
 

@@ -156,17 +156,16 @@ OK indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
 
 login ve register sayfalarini yap
     OK - Ozan
-
-loginde hatalar yazilmali
+    - Seckin -- sayfalarda hatalar yazilmali
 
 charge success sayfasini guzellestir
 
 brush logosu high-def olcak
 
 design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
-	- design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
+	OK - design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
 	- canvas size'a gore sayfadaki fiyat degiscek
-	- canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
+	OK - canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
 
 tshirt fotosu kadin erkek secildiginde degiscek
 
