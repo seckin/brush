@@ -14,7 +14,7 @@
 
     @include('partials.navbar')
 
-    <header class="blank"></header>
+    <header class="blank" style="background-image: url({{$design->image}});"></header>
     <div class="design_id" data-design-id="{{$design->id}}"></div>
 	<section id="design-detail" data-tab="design">
 	    <div class="container">
@@ -31,16 +31,7 @@
                 </div>
                 <div class="body">
                     <div class="design">
-                        <!-- <h3>Description</h3> -->
                         <p>{{$design->description}}</p>
-                        <!-- <h3>Tags</h3>
-                        <p class="tags">
-                            <a href="#">Frida</a>
-                            <a href="#">Frida</a>
-                            <a href="#">Frida</a>
-                            <a href="#">Frida</a>
-                            <a href="#">Frida</a>
-                        </p> -->
                     </div>
                     <div class="canvas">
                         <h3>Canvas</h3>
@@ -53,10 +44,22 @@
                             <div class="dropdown-wrapper">
                                 <button id="canvasSize" class="dropdown">
                                     <a data-value="" href="#">Please select...</a>
-                                    <a data-value="40X30" href="#">40cm x 30cm</a>
-                                    <a data-value="60X40" href="#">60cm x 40cmm</a>
-                                    <a data-value="76X50" href="#">76cm x 50cm</a>
-                                    <a data-value="100X76" href="#">100cm x 76cm</a>
+                                    <a data-value="40X30" data-price="30" href="#">
+                                        40cm x 30cm
+                                        <i class="fa fa-try" aria-hidden="true"></i>
+                                    </a>
+                                    <a data-value="60X40" data-price="30" href="#">
+                                        60cm x 40cm
+                                        <i class="fa fa-try" aria-hidden="true"></i>
+                                    </a>
+                                    <a data-value="76X50" data-price="30" href="#">
+                                        76cm x 50cm
+                                        <i class="fa fa-try" aria-hidden="true"></i>
+                                    </a>
+                                    <a data-value="100X76" data-price="30" href="#">
+                                        100cm x 76cm
+                                        <i class="fa fa-try" aria-hidden="true"></i>
+                                    </a>
                                     <input id="canvasSizeInput" type="text" value="" />
                                 </button>
                             </div>
@@ -66,7 +69,7 @@
                             @endif
                         </div>
                         <p id="canvasinfo"></p>
-                        <ul class="extra-info" style="display: block;margin-top: 40px;font-size: 16px;">
+                        <ul class="extra">
                             <li>Delivery in 3 to 6 working days after the campaign is over.</li>
                             <li>Gallery-quality fine art canvas print.</li>
                             <li>The canvas material is printed and then stretched on a wooden frame. The design covers the edges of the canvas.</li>
@@ -78,6 +81,10 @@
                     <div class="tshirt">
                         <h3>Tshirt</h3>
                         <p>Design printed on a tshirt</p>
+                        <div class="price">
+                            0.40
+                            <i class="fa fa-try" aria-hidden="true"></i>
+                        </div>
                         <div class="progress" style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;">
                             <h4 style="float:left;">{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</h4>
                             <h4 style="top: 10px;float: right;">{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</h4>
@@ -86,7 +93,6 @@
                             <div class="dropdown-wrapper">
                                 <button id="tshirtGender" class="dropdown">
                                     <a data-value="" href="#">Please select...</a>
-                                    <!-- <a data-value="1" href="#">Unisex</a> -->
                                     <a data-value="Female" href="#">Female</a>
                                     <a data-value="Male" href="#">Male</a>
                                     <input id="tshirtGenderInput" type="text" value="" />
@@ -103,15 +109,13 @@
                                     <input id="tshirtSizeInput" type="text" value="" />
                                 </button>
                             </div>
-                            <button id="tshirt-addtocart-button" class="submit action tocart <?php if ($tshirt_total_sold == $tshirt_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">
-                                <span>Add to Cart</span>
-                            </button>
+                            <button id="tshirt-addtocart-button" class="submit action tocart <?php if ($tshirt_total_sold == $tshirt_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">Add to Cart</button>
                             @if ($tshirt_total_sold == $tshirt_limit)
-                                <div style="clear: both;">T-shirt sold out :(</div>
+                                <p class="error">T-shirt sold out :(</p>
                             @endif
                         </div>
                         <p id="tshirtinfo"></p>
-                        <ul class="extra-info" style="display: block;margin-top: 40px;font-size: 16px;">
+                        <ul class="extra">
                             <li>Delivery in 3 to 6 working days after the campaign is over.</li>
                             <li>Material: 100% cotton jersey</li>
                             <li>Fit: Regular fit</li>
@@ -205,7 +209,10 @@
                 return;
             }
             if($("#canvasSizeInput").attr("value") == "") {
-                alert("Please select a size for your canvas");
+                //alert("Please select a size for your canvas");
+                setTimeout(function(){
+                    $("#canvasSize").addClass('open');
+                }, 100);
                 return;
             }
             $("#canvas-addtocart-button").addClass("disabled");
@@ -225,11 +232,17 @@
                 return;
             }
             if($("#tshirtGenderInput").attr("value") == "") {
-                alert("Please select a gender for your tshirt");
+                //alert("Please select a gender for your tshirt");
+                setTimeout(function(){
+                    $("#tshirtGender").addClass('open');
+                }, 100);
                 return;
             }
             if($("#tshirtSizeInput").attr("value") == "") {
-                alert("Please select a size for your tshirt");
+                //alert("Please select a size for your tshirt");
+                setTimeout(function(){
+                    $("#tshirtSize").addClass('open');
+                }, 100);
                 return;
             }
             $("#tshirt-addtocart-button").addClass("disabled");

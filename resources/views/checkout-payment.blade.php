@@ -40,7 +40,6 @@
         </div>
     </section>
         
-        
     <script>
         $(".items-in-cart").click(function() {
             $(".items-in-cart").toggleClass("active");
@@ -53,6 +52,10 @@
     </script>
 
     <script>
+        $("a.submit").click(function(){
+            $("#payment-form").submit();
+        });
+
         // Custom styling can be passed to options when creating an Element.
         var style = {
           base: {

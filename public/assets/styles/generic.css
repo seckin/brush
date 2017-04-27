@@ -51,7 +51,7 @@ h3 + div, h3 + span { margin-top: 1%; }
 
 input, textarea, select, button, .button { width: 100%; box-sizing: border-box; outline: 0; }
 input:hover, textarea:hover, select:hover { background-color: rgba(255, 255, 255, .5); }
-input, textarea { margin-bottom: 2.5%; padding: 3% 4%; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; border: 3px solid rgba(33, 33, 33, 1); border-radius: 0; background-color: rgba(255, 255, 255, 1); transition: background-color .25s ease; }
+input, textarea { margin-bottom: 2.5%; padding: 3% 4%; color: rgba(33, 33, 33, 1); font-size: 100%; line-height: 67%; border: none; border-radius: 0; background-color: rgba(255, 255, 255, 1); box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: background-color .25s ease; }
 input::placeholder, textarea::placeholder { color: rgba(33, 33, 33, .5); }
 input:-moz-placeholder, textarea:-moz-placeholder { color: rgba(33, 33, 33, .5); }
 input::-moz-placeholder, textarea::-moz-placeholder { color: rgba(33, 33, 33, .5); }
@@ -64,8 +64,8 @@ input::-moz-placeholder:focus, textarea::-moz-placeholder:focus { color: rgba(33
 input:-ms-input-placeholder:focus, textarea:-ms-input-placeholder:focus { color: rgba(33, 33, 33, .15); }
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color: rgba(33, 33, 33, .15); }
 
-.checkbox { display: inline-block; width: 100%; margin: 0; padding: 0; text-align: left; font-size: .75em; line-height: 25px; vertical-align: middle; }
-.checkbox .boolean { display: inline-block; float: left; width: 21px; height: 21px; margin: 2px 10px 2px 0; color: rgba(33, 33, 33, 1); background-color: rgba(255, 255, 255, 1); outline: 0; border: 0; border-radius: 5px; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); cursor: pointer !important; }
+.checkbox { display: inline-block; margin: 0; padding: 0; text-align: left; line-height: 25px; vertical-align: middle; }
+.checkbox .boolean { display: inline-block; float: left; width: 25px; height: 25px; margin-right: 10px; color: rgba(33, 33, 33, 1); background-color: rgba(255, 255, 255, 1); outline: 0; border: 0; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); transition: all 0.3s cubic-bezier(.25, .8, .25, 1); cursor: pointer !important; }
 .checkbox .boolean.true { background-image: url('/assets/images/interface/icon-checked.png'); background-size: contain; }
 .checkbox input[type="checkbox"] { display: none !important; }
 
@@ -113,12 +113,12 @@ body.menu-open nav a.switch .close-icon { display: block; }
 .cartdetails div > span { float: left; width: 240px; height: 36px; margin: 2px 0 2px 10px; }
 .cartdetails div > span b { display: block; width: 100%; line-height: 16px; }
 .cartdetails div > span p { display: block; width: 100%; line-height: 20px; text-transform: capitalize; }
-.cartdetails > a.button, .cartdetails > a.button:visited { margin: 5% auto; padding: 3% 4%; background-color: rgba(33, 33, 33, .15); }
+.cartdetails > a.button, .cartdetails > a.button:visited { margin: 5% auto; background-color: rgba(33, 33, 33, .15); }
 .cartdetails.open { display: block; }
 
 /* Account Details */
 
-.accountdetails { display: none; position: absolute; top: 85px; right: 450px; width: 200px; background-color: rgba(255, 255, 255, 1); border: 5px solid rgba(33, 33, 33, 1); border-left: none; border-right: none; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23); }
+.accountdetails { display: none; position: absolute; top: 85px; right: 130px; width: 200px; background-color: rgba(255, 255, 255, 1); border: 5px solid rgba(33, 33, 33, 1); border-left: none; border-right: none; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23); }
 .accountdetails::before { content: ''; position: absolute; top: -20px; right: 40px; width: 0; height: 0; border-top: 10px solid transparent; border-left: 10px solid transparent; border-right: 10px solid rgba(33, 33, 33, 1); border-bottom: 10px solid rgba(33, 33, 33, 1); }
 .accountdetails div { display: block; box-sizing: border-box; width: 360px; padding: 10px; color: rgba(33, 33, 33, 1); font-size: 0.8em; text-align: left; background-color: rgba(255, 255, 255, .15); border-bottom: 1px dotted rgba(33, 33, 33, 1); }
 .accountdetails div:hover { background-color: rgba(33, 33, 33, .1); }
@@ -158,7 +158,7 @@ header p { display: block; font-size: 1.2em; line-height: 150%; }
 header button, header .button { font-size: 20px; background-color: transparent; border-width: 4px; }
 header button:hover, header .button:hover { text-shadow: -3px 3px rgba(33, 33, 33, .25); }
 header button:active, header .button:active { text-shadow: 0px 0px rgba(33, 33, 33, 0); }
-header.blank { display: block; height: 200px; }
+header.blank { display: block; overflow: hidden; height: 200px; background-size: cover; background-position: center top; filter: blur(40px) brightness(115%) grayscale(35%); }
 
 /* Sections */
 
@@ -222,12 +222,20 @@ section#design-detail > .container > div.information .head > .tabbing a[data-id=
 section#design-detail > .container > div.information .head > .tabbing a[data-id="canvas"] { background-image: url(/assets/images/interface/icon-product_canvas.png); }
 section#design-detail > .container > div.information .head > .tabbing a[data-id="tshirt"] { background-image: url(/assets/images/interface/icon-product_tshirt.png); }
 section#design-detail > .container > div.information .head > .tabbing a[data-id="mug"] { background-image: url(/assets/images/interface/icon-product_mug.png); }
-section#design-detail > .container > div.information .body > div { display: none; }
-section#design-detail > .container > div.information .body { margin-top: 2.5%; }
+section#design-detail > .container > div.information .body > div { display: none; position: relative; }
+section#design-detail > .container > div.information .body { margin-top: 5%; }
 section#design-detail > .container > div.information .body .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
 section#design-detail > .container > div.information .body .tags > a:hover { top: -2px; }
-section#design-detail > .container > div.information .body p { margin-bottom: 1%; }
+section#design-detail > .container > div.information .body h3 { line-height: 67%; }
+section#design-detail > .container > div.information .body p { width: 75%; margin-bottom: 1%; }
+section#design-detail > .container > div.information .body .price { position: absolute; top: 0; right: 0; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; font-size: 2em; text-transform: uppercase; letter-spacing: -.05em; }
 section#design-detail > .container > div.information .body button.dropdown { margin-top: 2%; }
+section#design-detail > .container > div.information .body .extra { opacity: .65; margin-top: 5%; font-size: .75em; }
+section#design-detail > .container > div.information .body .extra li::before { content: '✓'; margin-right: .15em; }
+section#design-detail button.dropdown > a i { float: right; height: 50px; font-size: .95em; line-height: 50px; display: inline; }
+section#design-detail button.dropdown > a::after { content: attr(data-price); float: right; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+section#design-detail button.dropdown > a:first-child i { display: none; }
+section#design-detail button.dropdown > a:first-child::after { display: none; }
 
 section#design-detail button.dropdown#canvasSize > a:first-child::before { content: 'Canvas Size: '; }
 section#design-detail button.dropdown#tshirtSize > a:first-child::before { content: 'Tshirt Size: '; }
@@ -258,7 +266,7 @@ section#checkout-cart .process .remove-from-cart i:hover { top: -0.05em; font-si
 /* Section: Checkout > Shipping */
 
 section#checkout-shipping .process > span { display: inline-block; }
-section#checkout-shipping .process > span > * { border: none; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24) }
+section#checkout-shipping .process > span > * { border: none; box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); }
 section#checkout-shipping .process input, section#checkout-shipping .process .dropdown-wrapper { float: left; width: 49%; height: 60px; }
 section#checkout-shipping .process input[name="firstname"], section#checkout-shipping input[name="city"] { margin-right: 2%; }
 section#checkout-shipping .process input[name="street"] { width: 100%; }
@@ -307,7 +315,7 @@ section.action .container > *:last-child { float: right; height: 60px; padding: 
 section.action input { width: auto; height: 100%; padding: 0 2.5%; border-radius: 0; }
 section.action h3, section.action p { color: rgba(255, 255, 255, 1); margin: 0; }
 section.action h3 { line-height: 135%; }
-section.action button, section.action .button { float: right; box-sizing: border-box; height: 50px; margin: 0; padding: 0 2.5%; line-height: calc(50px - (2 * 3px)); color: rgba(255, 255, 255, 1); background-color: transparent; border: 3px solid rgba(255, 255, 255, 1); border-radius: 0; box-shadow: none; }
+section.action button, section.action .button { float: right; box-sizing: border-box; height: 50px; min-height: 50px; margin: 0; padding: 0 2.5%; line-height: calc(50px - (2 * 3px)); text-transform: uppercase; color: rgba(255, 255, 255, 1); background-color: transparent; border: 3px solid rgba(255, 255, 255, 1); border-radius: 0; box-shadow: none; }
 section.action * + button, section.action * + .button { margin-left: 2.5%; }
 section.action button:hover, section.action .button:hover { background-color: rgba(33, 33, 33, 1); }
 section.action button.caution, section.action .button.caution { background-color: rgba(255, 0, 40, .25); }
@@ -342,15 +350,16 @@ footer .right { float: right; text-align: right; }
 
 /* Sign-up & Sign-in */
 
-.sign { display: inline-block; width: 40%; margin-top: 4%; }
+.sign { display: block; width: 40%; margin: 0 auto; margin-top: 4%; }
+.sign .options > * { display: inline-block; font-size: .85em; line-height: 25px; }
+.sign .options > *:first-child { float: left; text-align: left; }
+.sign .options > *:last-child { float: right; text-align: right; }
 .sign > a.option { display: inline-block; float: left; width: 50%; padding: 2% 0; color: rgba(33, 33, 33, 1); background-color: rgba(33, 33, 33, 0); }
 .sign > a.option.active { color: rgba(255, 255, 255, 1); background-color: rgba(33, 33, 33, 1); }
-.sign .form { display: inline-block; width: 100%; margin-bottom: 1%; padding: 8%; background-color: rgba(33, 33, 33, 1); }
-.sign .form .checkbox { margin-bottom: 4%; color: rgba(255, 255, 255, 1); }
-.sign .form input { display: inline-block; width: 100%; margin-bottom: 4%; padding: 3% 5%; box-sizing: border-box; }
-.sign .form input.valid { background-image: url(/assets/images/interface/icon-valid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
-.sign .form input.invalid { background-image: url(/assets/images/interface/icon-invalid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
-.sign .form button { display: inline-block; width: 100%; margin: 0; padding: 5%; color: rgba(255, 255, 255, 1); box-sizing: border-box; }
+.sign input { display: inline-block; width: 100%; height: 60px; margin-bottom: 4%; padding: 3% 5%; box-sizing: border-box; }
+.sign input.valid { background-image: url(/assets/images/interface/icon-valid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
+.sign input.invalid { background-image: url(/assets/images/interface/icon-invalid.png); background-repeat: no-repeat; background-position: right center; background-size: 2em 2em; }
+.sign button { display: inline-block; width: 100%; margin-top: 5%; padding: 3%; box-sizing: border-box; }
 .sign p.title { color: rgba(255, 255, 255, 1); }
 .sign p.error { padding: 1%; color: rgba(255, 255, 255, 1); font-size: .85em; background-color: rgba(255, 0, 40, 1); }
 .sign a.reminder { float: right; font-size: 0.85em; text-align: right; opacity: .75; }
@@ -429,7 +438,7 @@ footer .right { float: right; text-align: right; }
 
 /* Buttons */
 
-button, .button { display: table; position: relative; top: 0; left: 0; width: auto; min-height: 40px; margin: 0 auto; margin-top: 3%; color: rgba(33, 33, 33, 1); line-height: 100%; padding: 1.5% 2%; font-size: 100%; text-align: center; background-color: transparent; border-width: 3px; border-style: solid; border-color: rgba(33, 33, 33, 1); transition: all .15s ease; cursor: pointer; }
+button, .button { display: table; position: relative; top: 0; left: 0; width: auto; min-height: 60px; margin: 0 auto; margin-top: 3%; color: rgba(33, 33, 33, 1); line-height: 100%; padding: 1.5% 2%; font-size: 100%; text-align: center; background-color: transparent; border-width: 3px; border-style: solid; border-color: rgba(33, 33, 33, 1); transition: all .15s ease; cursor: pointer; }
 button:disabled, .button:disabled { box-shadow: none; opacity: 0.15; -moz-opacity:0.35; -khtml-opacity: 0.35; filter: alpha(opacity=35); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=35)"; }
 button, .button, button *, .button * { cursor: pointer !important; }
 button a { display: table-cell; position: relative; vertical-align: middle; line-height: 67%; }
@@ -446,8 +455,9 @@ button > img + p, .button > img + p { line-height: 20px; }
 
 /* Button: Action */
 
-button.action, .button.action { background-color: transparent !important; background-image: url(/assets/images/interface/bg-button_action.png); background-size: 110% 150%; background-position: center; background-repeat: no-repeat; }
-button.action:hover, .button.action:hover { background-size: 110% 150%; }
+button.action, .button.action { top: 0; left: 0; padding: 3% 6%; background-color: transparent !important; background-image: url(/assets/images/interface/bg-button_action.png); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; border: none; box-shadow: none; filter: hue-rotate(190deg); transition: all .25s ease; }
+button.action:hover, .button.action:hover { background-size: 97.5% 97.5%; font-size: 97.5%; }
+button.action.padded, .button.action.padded { padding: 6% 12%; }
 
 /* Button: Dropdown */
 
@@ -459,6 +469,8 @@ button.dropdown a:first-child { height: 54px; line-height: 54px; background-imag
 button.dropdown a:first-child::before { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
 button.dropdown.open a:first-child { background-image: url(/assets/images/interface/arrow-up.png); }
 button.dropdown input { display: none; }
+
+.dropdown-wrapper { height: 60px; }
 
 /* Data Lists */
 
@@ -648,7 +660,6 @@ body#home header button, body#home header .button { color: rgba(255, 255, 255, 1
 
 body#checkout section > .container > .process { float: left; width: 64%; min-height: 100px;}
 body#checkout section > .container > .summary { float: left; position: relative; width: 32%; margin-left: 4%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border: 3px solid rgba(33, 33, 33, 1); }
-body#checkout section > .container > .summary button, body#checkout section > .container > .summary .button { padding: 3% 4%; }
 body#checkout section > .container > .summary > div { margin-top: 5%; }
 body#checkout section > .container > .summary h3 { display: inline-block; }
 body#checkout section > .container > .summary h3.toggle { padding-right: 10%; background-image: url(/assets/images/interface/arrow-down.png); background-repeat: no-repeat; background-position: right center; background-size: contain; cursor: pointer; }
@@ -674,7 +685,7 @@ body#checkout.cart section > .container > .process .segment { padding: 0; }
 body#checkout.payment section > .container > .process .segment .panel-body { width: 100%; }
 body#checkout.payment section > .container > .process .segment .panel-body h3 { text-align: center; }
 body#checkout.payment section > .container > .process .segment .panel-body label { font-size: .75em; }
-body#checkout.payment section > .container > .process .segment .panel-body .form-row { width: 400px; margin: 5% auto; padding: 2.5%; border: 1px dashed rgba(33, 33, 33, .25); }
+body#checkout.payment section > .container > .process .segment .panel-body .form-row { width: 400px; margin: 5% auto; padding: 2.5%; border: 1px solid rgba(33, 33, 33, .25); }
 
 /* Page: Error */
 

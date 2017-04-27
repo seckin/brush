@@ -34,7 +34,7 @@
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
         });
-        $(".summary a.action").click(function() {
+        $("a.button.submit").click(function() {
             if($("input[name='firstname']").val().trim() == "") {
               alert("Please enter your first name");
               return;
@@ -76,7 +76,7 @@
                 error: function() {
                 },
                 success: function(data) {
-                   window.location.href='/checkout/payment';
+                    window.location.href='/checkout/payment';
                 }
             });
         });
@@ -92,21 +92,5 @@
     
     @include('partials.footer')
     
-    <!--
-    <section class="modal">
-        <div class="container">
-            <div class="box">
-                <div class="head">
-                    <b>ONAY GEREKİYOR</b>
-                </div>
-                <div class="body">
-                    <p>Taslağı silmek istediğinizden emin misiniz?</p>
-                    <a class="button">TAMAM</a>
-                    <a class="button reject">İPTAL</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
 </body>
 @endsection

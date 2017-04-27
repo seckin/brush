@@ -155,6 +155,9 @@ OK indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
 		timestamps
 
 login ve register sayfalarini yap
+    OK - Ozan
+
+loginde hatalar yazilmali
 
 charge success sayfasini guzellestir
 
@@ -180,7 +183,7 @@ production'da bunu artist description olarak ekle: "For Andrea Minini, design is
 
 alert strip'inin tasarimi duzeltilcek
 
-
+404 ve 503 sayfasini duzelt
 
 
 
