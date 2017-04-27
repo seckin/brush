@@ -19,6 +19,7 @@ use App\ProductSpec;
 use App\Order;
 use App\ShippingInfo;
 use App\Payment;
+use App\DiscountCode;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
@@ -121,14 +122,7 @@ Route::post('/charge', function (Request $request) {
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$order_id = $request->order_id;
 	$order = Order::find($order_id);
-	$cartItems = $order->cartItems;
-	$total_price = 0;
-	$shipping_cost = 800;
-	foreach($cartItems as $cartItem) {
-        $total_price += $cartItem->quantity * $cartItem->price_per_item;
-        // $shipping_cost += $cartItem->shipping_cost;
-    }
-    $total_amount = $total_price + $shipping_cost;
+    $order_summary = get_order_summary($order);
 
 	// Set your secret key: remember to change this to your live secret key in production
 	// See your keys here: https://dashboard.stripe.com/account/apikeys
@@ -144,7 +138,7 @@ Route::post('/charge', function (Request $request) {
 
 	// Charge the user's card:
 	$charge = \Stripe\Charge::create(array(
-	  "amount" => $total_amount,
+	  "amount" => $order_summary["total_amount"],
 	  "currency" => "try",
 	  "description" => "Charge for " . $user->email,
 	  "metadata" => array("order_id" => $order->id),
@@ -200,9 +194,9 @@ Route::get('/designs/{design_id}', function ($design_id) {
     	"design" => $design,
     	"similar_designs" => $similar_designs,
     	"canvas_total_sold" => $canvasTotalSold,
-    	"canvas_limit" => $design->canvas_limit ? $design->canvas_limit : 50,
+    	"canvas_limit" => $design->canvas_limit,
     	"tshirt_total_sold" => $tshirtTotalSold,
-    	"tshirt_limit" => $design->tshirt_limit ? $design->tshirt_limit : 50
+    	"tshirt_limit" => $design->tshirt_limit
     ]);
 });
 
@@ -345,7 +339,7 @@ Route::delete('/api/v1/cartItem', function (Request $request) {
 		}
 	}
 	return array("done" => 1);
-})->middleware('auth');
+});
 
 Route::post('/api/v1/addToCart', function (Request $request) {
 	// first, check if the item is sold out. if it is, return an error.
@@ -472,6 +466,18 @@ Route::get('/api/v1/orderSummary', function () {
 	$result = get_order_summary($order);
 
 	return $result;
+});
+
+Route::post('/api/v1/applyCode', function (Request $request) {
+	$order_id = Session::get("order_id");
+	$order = Order::find($order_id);
+	$discount_code = DiscountCode::orderBy('created_at', 'desc')->where("code", '=', $request->code)->first();
+	if($discount_code) {
+		$order->discount_code_id = $discount_code->id;
+		$order->save();
+	}
+
+	return array("discountCode" => $discount_code);
 });
 
 Route::post('/api/v1/shippingInfo', function (Request $request) {

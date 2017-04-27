@@ -177,6 +177,13 @@ function updateOrderSummary() {
             $(".total dd > span").eq(0).html((data.items_price / 100.0).toFixed(2));
             $(".total dd > span").eq(1).html((data.shipping_cost / 100.0).toFixed(2));
             $(".total dd > span").eq(2).html((data.total_amount / 100.0).toFixed(2));
+
+            $(".discount-code input[name='discountcode']").val('');
+            if (data.discount) {
+                $(".discount-code .applied .code").html(data.discount.code);
+                $(".discount-code .applied .percentage").html(data.discount.percentage);
+                $(".discount-code .applied").removeClass("hidden");
+            }
         }
     });
 }

@@ -147,9 +147,12 @@ OK checkout/cart sayfasindaki sag column soldan item silindiginde update olsun
 
 OK shipping'i duzelt(fiyat acisindan. her cartitem icin 10 lira olmasin. her order 8 lira olsun simdilik)
 
-production'da bunu artist description olarak ekle: "For Andrea Minini, design is all about love at first sight. It either has it or it doesn’t, and he can tell from just a glance. The Milanese, born in 1979, studied at the Politecnico di Milano and has been working as an Art Director for an agency, alongside creating his own work. His series “Animals in Moiré” emerged as an effort to create depth and complexity from just a few lines, using the power of moiré patterns."
-
-indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
+OK indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
+	discount_codes
+		id
+		percentage
+		code - unique
+		timestamps
 
 login ve register sayfalarini yap
 
@@ -160,6 +163,7 @@ brush logosu high-def olcak
 design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
 	- design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
 	- canvas size'a gore sayfadaki fiyat degiscek
+	- canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
 
 tshirt fotosu kadin erkek secildiginde degiscek
 
@@ -167,12 +171,12 @@ ornek designlar koycak ozan ~10 tane
 
 my account zero case ekle (ozan tasarimi yaptiktan sonra)
 
-canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
-
 mobilde test et siteyi. bastan sona satin alma uye olma flowunu ve diger sayfalari gozden gecir
 	- tum sayfalarin responsive oldugundan emin ol
 
 ptt ve mng'ye gidip canvas, tshirt gondermenin yurtici yurtdisi fiyatlarini ogren
+
+production'da bunu artist description olarak ekle: "For Andrea Minini, design is all about love at first sight. It either has it or it doesn’t, and he can tell from just a glance. The Milanese, born in 1979, studied at the Politecnico di Milano and has been working as an Art Director for an agency, alongside creating his own work. His series “Animals in Moiré” emerged as an effort to create depth and complexity from just a few lines, using the power of moiré patterns."
 
 alert strip'inin tasarimi duzeltilcek
 

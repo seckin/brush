@@ -34,7 +34,7 @@
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
         });
-        $("button[type='submit']").click(function() {
+        $(".summary a.action").click(function() {
             if($("input[name='firstname']").val().trim() == "") {
               alert("Please enter your first name");
               return;
@@ -76,9 +76,14 @@
                 error: function() {
                 },
                 success: function(data) {
-//                    window.location.href='/checkout/payment';
+                   window.location.href='/checkout/payment';
                 }
             });
+        });
+
+        // display order summary on pageload:
+        $( document ).ready(function (){
+            updateOrderSummary();
         });
        </script>
     </section>

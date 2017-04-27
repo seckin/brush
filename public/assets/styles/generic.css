@@ -706,3 +706,10 @@ body#error section img { width: auto; margin-top: 5%; }
 .body ul.extra-info li:before {
   content: '✓';
 }
+
+.total small {
+	display:inline-block;
+	margin-left: 5px;
+	font-size: 16px;
+	font-weight: lighter;
+}

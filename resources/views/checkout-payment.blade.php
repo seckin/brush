@@ -45,6 +45,11 @@
         $(".items-in-cart").click(function() {
             $(".items-in-cart").toggleClass("active");
         });
+
+        // display order summary on pageload:
+        $( document ).ready(function (){
+            updateOrderSummary();
+        });
     </script>
 
     <script>

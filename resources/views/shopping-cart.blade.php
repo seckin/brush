@@ -77,6 +77,11 @@
                 }
             });
         });
+
+        // display order summary on pageload:
+        $( document ).ready(function (){
+            updateOrderSummary();
+        });
     </script>
 
     <!--

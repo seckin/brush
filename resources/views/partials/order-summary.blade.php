@@ -3,38 +3,35 @@
     @if ($checkoutStep == 1)
     <a class="action button" href="/checkout/shipping" role="button">Continue to Shipping</a>
     @elseif ($checkoutStep == 2)
-    <a class="action button" href="/checkout/payment" role="button">Continue to Payment</a>
+    <a class="action button" href="#" role="button">Continue to Payment</a>
     @elseif ($checkoutStep == 3)
     <a class="action button" href="#" role="button">Place Order</a>
     @endif
     
 
     <!-- Total -->
-    <?php
-        $total_price = 0;
-        $shipping_cost = 800;
-        foreach($cartItems as $cartItem) {
-            $total_price += $cartItem->quantity * $cartItem->price_per_item;
-            // $shipping_cost += $cartItem->shipping_cost;
-        }
-        $total_amount = $total_price + $shipping_cost;
-    ?>
     <div class="total">
         <h3>Order Summary</h3>
         <dl>
             <dt>Subtotal</dt>
-            <dd><span>{{number_format($total_price/100.0, 2, '.', '')}}</span><i class="fa fa-try" aria-hidden="true"></i></dd>
+            <dd><span></span><i class="fa fa-try" aria-hidden="true"></i></dd>
+            <small>incl. tax</small>
         </dl>
         <dl>
             <dt>Shipping (MNG)</dt>
-            <dd><span>{{number_format($shipping_cost/100.0, 2, '.', '')}}</span><i class="fa fa-try" aria-hidden="true"></i></dd>
+            <dd><span></span><i class="fa fa-try" aria-hidden="true"></i></dd>
         </dl>
         <dl>
             <dt>Order Total</dt>
-            <dd><span>{{number_format($total_amount/100.0, 2, '.', '')}}</span><i class="fa fa-try" aria-hidden="true"></i></dd>
+            <dd><span></span><i class="fa fa-try" aria-hidden="true"></i></dd>
         </dl>
     </div>
-    
+
+    <div class="discount-code">
+        <input type="text" name="discountcode" placeholder="Discount Code">
+        <span class="applied hidden" style="font-size:14px;">Code: <span class="code"></span>. <span class="percentage"></span>% discount applied.</span>
+        <a class="button submit-discount" href="#" role="button">Apply Code</a>
+    </div>
     
     <!-- Shipping -->
     
@@ -117,6 +114,21 @@
 $(document).ready(function() {
     $('h3.toggle').click(function() {
         $(this).toggleClass('open');
+    });
+});
+
+$(".discount-code .submit-discount").click(function() {
+    $.ajax({
+        url: '/api/v1/applyCode',
+        type: 'POST',
+        data: {
+            code: $(".discount-code input[name='discountcode']").val()
+        },
+        error: function() {
+        },
+        success: function(data) {
+            updateOrderSummary();
+        }
     });
 });
 </script>
