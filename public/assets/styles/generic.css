@@ -743,3 +743,10 @@ table, th, td {
    border: 1px solid black;
    font-size: 21px;
 }
+
+#artists .featured {
+	background-image: url(/assets/images/interface/bg-grid.png);
+    background-position: top center;
+    background-repeat: repeat;
+    background-color: transparent;
+}
