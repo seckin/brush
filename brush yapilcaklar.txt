@@ -156,17 +156,16 @@ OK indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
 
 login ve register sayfalarini yap
     OK - Ozan
-
-loginde hatalar yazilmali
+    - Seckin -- sayfalarda hatalar yazilmali
 
 charge success sayfasini guzellestir
 
 OK brush logosu high-def olcak
 
 design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
-	- design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
+	OK - design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
 	- canvas size'a gore sayfadaki fiyat degiscek
-	- canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
+	OK - canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
 
 tshirt fotosu kadin erkek secildiginde degiscek
 
@@ -195,6 +194,9 @@ OK Logo tiklanmiyor
 
 sonradan yapilcaklar:
 ---------------------------
+
+Jenni Sparks'i bul bu tasarimini iste:
+	https://thebolditalic.com/incredibly-detailed-hand-drawn-map-of-sf-the-bold-italic-san-francisco-99048c4094f5
 
 Sitenin bi yerine bunu koyalim(bunu emaille de yapabiliriz):
 	"Amazing tshirt designs sent via Slack.

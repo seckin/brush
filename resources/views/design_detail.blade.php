@@ -40,6 +40,11 @@
                             <h4 style="float:left;">{{$canvas_total_sold}} {{$canvas_total_sold == 1 ? "supporter" : "supporters" }}</h4>
                             <h4 style="top: 10px;float: right;">{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</h4>
                         </div>
+                        <div class="price">
+                            <span class="price-text">{{number_format($design->canvas_price / 100.0, 2, '.', '')}}</span>
+                            <i class="fa fa-try" aria-hidden="true"></i>
+                            <div class="incl-tax">incl. tax excluding shipping fees</div>
+                        </div>
                         <div class="options clearfix">
                             <div class="dropdown-wrapper">
                                 <button id="canvasSize" class="dropdown">
@@ -48,15 +53,15 @@
                                         40cm x 30cm
                                         <i class="fa fa-try" aria-hidden="true"></i>
                                     </a>
-                                    <a data-value="60X40" data-price="30" href="#">
+                                    <a data-value="60X40" data-price="40" href="#">
                                         60cm x 40cm
                                         <i class="fa fa-try" aria-hidden="true"></i>
                                     </a>
-                                    <a data-value="76X50" data-price="30" href="#">
+                                    <a data-value="76X50" data-price="50" href="#">
                                         76cm x 50cm
                                         <i class="fa fa-try" aria-hidden="true"></i>
                                     </a>
-                                    <a data-value="100X76" data-price="30" href="#">
+                                    <a data-value="100X76" data-price="60" href="#">
                                         100cm x 76cm
                                         <i class="fa fa-try" aria-hidden="true"></i>
                                     </a>
@@ -82,8 +87,9 @@
                         <h3>Tshirt</h3>
                         <p>Design printed on a tshirt</p>
                         <div class="price">
-                            0.40
+                            <span class="price-text">{{number_format($design->tshirt_price / 100.0, 2, '.', '')}}</span>
                             <i class="fa fa-try" aria-hidden="true"></i>
+                            <div class="incl-tax">incl. tax excluding shipping fees</div>
                         </div>
                         <div class="progress" style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;">
                             <h4 style="float:left;">{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</h4>
@@ -209,7 +215,7 @@
                 return;
             }
             if($("#canvasSizeInput").attr("value") == "") {
-                //alert("Please select a size for your canvas");
+                alert("Please select a size for your canvas");
                 setTimeout(function(){
                     $("#canvasSize").addClass('open');
                 }, 100);
@@ -232,14 +238,14 @@
                 return;
             }
             if($("#tshirtGenderInput").attr("value") == "") {
-                //alert("Please select a gender for your tshirt");
+                alert("Please select a gender for your tshirt");
                 setTimeout(function(){
                     $("#tshirtGender").addClass('open');
                 }, 100);
                 return;
             }
             if($("#tshirtSizeInput").attr("value") == "") {
-                //alert("Please select a size for your tshirt");
+                alert("Please select a size for your tshirt");
                 setTimeout(function(){
                     $("#tshirtSize").addClass('open');
                 }, 100);
@@ -256,6 +262,10 @@
             var gender = $("#tshirtGenderInput").attr("value");
             var $button = $("#tshirt-addtocart-button");
             addToCart(size, iscanvas, $button, gender);
+        });
+        $("#canvasSizeInput").change(function() {
+            var price = $("#canvasSize > a[data-value='" + $("#canvasSizeInput").attr("value") +"']").data("price");
+            $(".canvas .price-text").html(price.toFixed(2));
         });
     </script>
 </body>
