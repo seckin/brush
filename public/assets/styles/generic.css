@@ -205,7 +205,7 @@ section.showcase { background-image: url(/assets/images/interface/bg-grid.png); 
 section.showcase > .container { margin: 4% auto; }
 section.showcase button.bottom, section.showcase .button.bottom { margin-bottom: -5px; }
 
-/* Section: Design Detail */
+/* Section: Presentation */
 
 section.presentation > .container { position: relative; margin: 4% auto; margin-top: -150px; }
 section.presentation > .container > div { position: relative; }
@@ -228,14 +228,14 @@ section.presentation > .container > div.information .head > .tabbing a[data-id="
 section.presentation > .container > div.information .head > .tabbing a[data-id="tshirt"]::after { content: 'T-Shirt'; }
 section.presentation > .container > div.information .head > .tabbing a[data-id="mug"] { background-image: url(/assets/images/interface/icon-tab_mug.png); }
 section.presentation > .container > div.information .head > .tabbing a[data-id="mug"]::after { content: 'Mug'; }
-section.presentation > .container > div.information .head > .tabbing a[data-id="info"] { background-image: url(/assets/images/interface/icon-tab_info.png); }
-section.presentation > .container > div.information .head > .tabbing a[data-id="info"]::after { content: 'Information'; }
+section.presentation > .container > div.information .head > .tabbing a[data-id="about"] { background-image: url(/assets/images/interface/icon-tab_about.png); }
+section.presentation > .container > div.information .head > .tabbing a[data-id="about"]::after { content: 'About'; }
 section.presentation > .container > div.information .body > div { display: none; position: relative; }
 section.presentation > .container > div.information .body { margin-top: 5%; }
 section.presentation > .container > div.information .body .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
 section.presentation > .container > div.information .body .tags > a:hover { top: -2px; }
 section.presentation > .container > div.information .body h3 { line-height: 67%; }
-section.presentation > .container > div.information .body p { width: 75%; margin-bottom: 1%; }
+section.presentation > .container > div.information .body p { width: 100%; margin-bottom: 1%; }
 section.presentation > .container > div.information .body .price { position: absolute; text-align: right; top: 0; right: 0; font-size: 2em; }
 section.presentation > .container > div.information .body .price .price-text { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; text-transform: uppercase; letter-spacing: -.05em; }
 section.presentation > .container > div.information .body .price .incl-tax { font-size: 14px; font-weight: lighter; color: gray; }
@@ -256,11 +256,15 @@ section.presentation button.submit { float: left; }
 section.presentation .progress { display: block; width: 100%; height: 10px; margin-top: calc(5% + 25px); margin-bottom: 5%; background-color: rgba(33, 33, 33, .15); background-image: url(/assets/images/interface/bg-progress2.png); background-position: bottom left; background-repeat: no-repeat; }
 section.presentation .progress > h4 { position: relative; top: -25px; float: right; }
 
-section.presentation[data-tab="info"] .info { display: block !important; }
+
+section.presentation[data-tab="about"] .about { display: block !important; }
 section.presentation[data-tab="design"] .design { display: block !important; }
 section.presentation[data-tab="canvas"] .canvas { display: block !important; }
+section.presentation[data-tab="canvas"] .canvas p { width: 75% !important; margin-bottom: 1%; }
 section.presentation[data-tab="tshirt"] .tshirt { display: block !important; }
+section.presentation[data-tab="tshirt"] .tshirt p { width: 75% !important; margin-bottom: 1%; }
 section.presentation[data-tab="mug"] .mug { display: block !important; }
+section.presentation[data-tab="mug"] .mug p { width: 75% !important; margin-bottom: 1%; }
 
 /* Section: Checkout > Cart */
 

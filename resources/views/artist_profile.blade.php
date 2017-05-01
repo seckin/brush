@@ -16,24 +16,24 @@
 
     <header class="blank" style="background-image: url({{$artist->highlighted_image}});"></header>
     <div class="artist_id" data-artist-id="{{$artist->id}}"></div>
-	<section id="artist-profile" class="presentation" data-tab="info">
+	<section id="artist-profile" class="presentation" data-tab="about">
 	    <div class="container">
             <div class="information">
                 <div class="head">
                     <h3>{{$artist->name}}</h3>
                     <p><b>Montreal, Canada</b></p>
                     <div class="tabbing">
-                        <a class="tab active" data-id="info"></a>
+                        <a class="tab active" data-id="about"></a>
                     </div>
                 </div>
                 <div class="body">
-                    <div class="info">
+                    <div class="about">
                         <p>{{$artist->description}}</p>
                     </div>
                 </div>
             </div>
             <div class="display">
-                <img class="info" src="{{$artist->profile_image}}" />
+                <img class="about" src="{{$artist->profile_image}}" />
             </div>
 	    </div>
 	</section>
