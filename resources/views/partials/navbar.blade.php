@@ -1,6 +1,6 @@
 <nav>
     <div class="navigation container">
-        <a class="identity" href="#">
+        <a class="identity" href="/">
             <img src="/assets/images/identity/brush-logo.svg">
         </a>
         <div class="menu">

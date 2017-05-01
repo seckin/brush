@@ -37,10 +37,9 @@
             </div>
 	    </div>
 	</section>
-
     <section class="showcase">
         <div class="container">
-            <h3>Designs of the Artist</h3>
+            <h3>From the Artist</h3>
             <div class="cards">
                 @foreach($designs as $design)
                 <div class="card item">

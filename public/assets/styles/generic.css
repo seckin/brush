@@ -298,19 +298,10 @@ section.announcement p::before { content: url(/assets/images/interface/icon-anno
 
 /* Section: Details */
 
-section.details { padding: 2% 0; color: rgba(255, 255, 255, 1); background-color: rgba(33, 33, 33, 1); }
-section.details .container { margin-top: 0; margin-bottom: 0; }
-section.details .container.edit { height: 50px; }
-section.details .container p { text-align: center; margin-bottom: 0 !important; }
-section.details .container p:first-of-type { text-align: left; }
-section.details .container p:last-of-type { text-align: right; }
-section.details .container p.single { width: 100%; text-align: center; }
-section.details .container p b { font-family: 'averiaseriflibreregular', serif; }
-section.details .container input { height: 50px; padding: 0 5%; text-align: left; border: 1px dashed rgba(255, 255, 255, 1); box-shadow: none; }
-section.details .container input::placeholder { color: rgba(255, 255, 255, .5); }
-section.details .container .dropdown { padding: 0; background-color: rgba(33, 33, 33, 1); border: 1px dashed rgba(255, 255, 255, 1); border-radius: 5px; box-shadow: none; }
-section.details .container .dropdown a { height: 50px; padding: 0 5%; color: rgba(255, 255, 255, 1); text-align: left; font-family: 'robotolight', sans-serif; line-height: 50px; }
-
+section.details { box-shadow: 0 1px 3px rgba(33, 33, 33, .12), 0 1px 2px rgba(33, 33, 33, .24); }
+section.details .item { text-align: center; }
+section.details img { width: 30%; margin-bottom: 2.5%; }
+section.details p { font-size: .9em; }
 
 /* Section: Press */
 
@@ -342,15 +333,15 @@ section.action .container > .bulb { height: 80px; margin: -10px 0; padding: 10px
 
 /* Section: Service */
 
+section.service { background-image: url(/assets/images/interface/bg-strip.png); background-position: center top; background-repeat: repeat-x; background-size: auto 8px; }
 section.service .container .item { text-align: center; }
-section.service .help.container { display: table; /*border: 3px solid #daf8fe;*/ background-color: #e9fbff; background-image: url(/assets/images/interface/bg-pattern_color.png); }
+section.service .help.container { display: table; background-color: #e9fbff; background-image: url(/assets/images/interface/bg-pattern_color.png); }
 section.service .help.container .item { margin-top: 4%; margin-bottom: 4%; }
 section.service .help.container .item > * { display: inline-block; line-height: 1em; margin: 0; }
-section.service .help.container .stack .item:first-child { letter-spacing: .07rem; }
 section.service .information.container .item { font-size: .85em; }
 section.service .information.container .item h3 { margin-bottom: 5%; font-size: 1em; }
-section.service .item img.icon { width: auto; height: auto; max-width: 64px; max-height: 40px; }
-section.service .item img.ccard { border: 1px solid black; border-radius: 5px; }
+section.service .item img.icon { width: auto; height: auto; padding: 5px; max-width: 64px; max-height: 40px; }
+section.service .item img.icon.payment { border: 1px solid rgba(33, 33, 33, .15); border-radius: 5px; }
 
 /* Footer */
 
@@ -709,6 +700,12 @@ body#checkout.payment section > .container > .process .segment .panel-body .form
 body#error section:first-of-type .container { text-align: center; }
 body#error section:first-of-type img { width: auto; max-width: 320px; margin-bottom: 2.5%; }
 body#error section:first-of-type a { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+
+/* Page: Charge */
+
+body#checkout.charge section:first-of-type .container { text-align: center; }
+body#checkout.charge section:first-of-type img { width: auto; max-width: 500px; margin-bottom: 2.5%; }
+body#checkout.charge section:first-of-type a { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
 
 #canvas-addtocart-button.disabled, #tshirt-addtocart-button.disabled {
 	opacity: 0.4;

@@ -128,7 +128,7 @@ Route::get('/payment', function () {
     return view('payment');
 });
 
-Route::post('/charge', function (Request $request) {
+Route::post('/checkout/charge', function (Request $request) {
 	$user = Auth::user();
 	// $order = Order::orderBy('created_at', 'asc')->where("payment_id", '=', null)->where("user_id", "=", $user->id)->first();
 	$order_id = $request->order_id;
@@ -171,7 +171,7 @@ Route::post('/charge', function (Request $request) {
     return view('charge');
 })->middleware('auth');
 
-Route::get('/charge', function () {
+Route::get('/checkout/charge', function () {
 	return view('charge');
 });
 

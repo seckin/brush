@@ -2,15 +2,6 @@
 
 @section('content')
 <body id="home">
-<!--     <section class="status">
-        <div class="container">
-            <a href="#">Visit our newest collection: Cityscapes</a>
-        </div>
-        <a href="#">
-            <img src="/assets/images/interface/icon-close.png" />
-        </a>
-    </section>
- -->
 
      @if (session('status'))
         <div class="alert alert-success">
@@ -29,26 +20,45 @@
 
     <header>
     <div class="container">
-        <h1>Prints and T-shirts for Early Birds</h1>
+        <h1>Exclusive Prints for Early Birds</h1>
         <p>Are you looking for a special design to hang on your wall?<br/>Brush helps you find great designs by letting designers run limited edition campaigns.</p>
         <a href="/designs" class="button" role="button">SEE ALL DESIGNS</a>
     </div>
 	</header>
-	<section class="featured">
-	    <div class="container">
+    <section class="details">
+        <div class="container">
+            <div class="triple stack cards">
+                <div class="item">
+                    <img src="/assets/images/icons/icon-supportive.png" />
+                    <h3>Support</h3>
+                    <p>We help artists to turn their work into a product. You will help them to make their campaign succeed by purchasing it.</p>
+                </div>
+                <div class="item">
+                    <img src="/assets/images/icons/icon-distinguished.png" />
+                    <h3>Be distinguished</h3>
+                    <p>Each campaign is limited to a number of products. You will be the only one among your friends who has it!</p>
+                </div>
+                <div class="item">
+                    <img src="/assets/images/icons/icon-affordable.png" />
+                    <h3>Pay less</h3>
+                    <p>We curate affordable art for you. In the end, you will own rare products for affordable prices.</p>
+                </div>
+	        </div>
+        </div>
+    </section>
+    <section class="showcase featured">
+	    <div class="artists container">
 	        <h3>Featured Artists</h3>
 	        <div class="quadruple stack">
 	        	@foreach($artists as $artist)
-	            <a class="item" href="/artists/{{$artist->id}}">
+	            <a class="card item" href="/artists/{{$artist->id}}">
 	                <img src="{{$artist->profile_image}}" />
 	                <p>{{$artist->name}}</p>
 	            </a>
 	            @endforeach
 	        </div>
 	    </div>
-	</section>
-	<section class="showcase">
-	    <div class="container">
+	    <div class="designs container">
 	        <h3>Popular Designs</h3>
 	        <div class="cards">
 	        	@foreach($designs as $design)
@@ -62,17 +72,6 @@
 	        </div>
 	    </div>
 	</section>
-
-    <section class="intro-information">
-        <div class="intro-information container">
-            <p style="width:900px; margin: 0 auto;font-weight: bold;">Before you ask...</p>
-            <ul style="list-style: circle;width:900px; margin: 0 auto;">
-                <li>We curate and sell affordable wall art and fashion.</li>
-                <li>Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends who has the item!</li>
-                <li>A sale happens only if all of the predetermined number of items is sold.</li>
-            </ul>
-        </div>
-    </section>
     
     @include('partials.service-details')
     
@@ -86,21 +85,5 @@
         });
     </script>
     
-    <!--
-    <section class="modal">
-        <div class="container">
-            <div class="box">
-                <div class="head">
-                    <b>ONAY GEREKİYOR</b>
-                </div>
-                <div class="body">
-                    <p>Taslağı silmek istediğinizden emin misiniz?</p>
-                    <a class="button">TAMAM</a>
-                    <a class="button reject">İPTAL</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
 </body>
 @endsection
