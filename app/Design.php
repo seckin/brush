@@ -15,4 +15,9 @@ class Design extends Model
     {
         return $this->hasMany('App\CartItem');
     }
+
+    public function designSizes()
+    {
+        return $this->hasMany('App\DesignSize');
+    }
 }

@@ -136,8 +136,6 @@ OK canvas altina bunu ekle, tshirt altina da benzer bi yazi ekle:
 	  Finish	Matt
 	  Print Type	12-colour digital printing
 
-
-
 OK Bi yere bunlari ekle (mesela Concept adi altinda, anasayfaya.)
 	Curated and affordable wall art and fashion.
 	Only a limited number of each item is sold, so, you can always be sure you will be the only one among your friends that have the item!
@@ -154,24 +152,50 @@ OK indirim kuponu vercez insanlara, bunun alt yapisini ve arayuzunu hazirla.
 		code - unique
 		timestamps
 
-login ve register sayfalarini yap
+OK login ve register sayfalarini yap
     OK - Ozan
-    - Seckin -- sayfalarda hatalar yazilmali
+    NOPE - Seckin -- sayfalarda hatalar yazilmali
 
-charge success sayfasini guzellestir
+OK bunu iki satirda yaz (2. cumle yeni satirdan baslayacak)
+	- Are you looking for a special design to hang on your wall? Brush helps you find great designs by letting designers run limited edition campaigns.
+
+OK oku: How to Start a Clothing Company - Lean Startup Guide
+
+OK my account zero case ekle
+
+OK stripe logosunu guncelle ozanin yolladigiyla
+
+OK bu sayfanin tasarimi da duzelecek (@seckin)
+	http://localhost:8000/password/reset
+
+OK charge success sayfasini guzellestir
+
+
+
+forgot password email yollama kismi calissin
 
 OK brush logosu high-def olcak
 
-design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
+OK design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
 	OK - design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
 	- canvas size'a gore sayfadaki fiyat degiscek
+		OK - canvas size'larini db'de tutup dropdown'da gosterme kisimlarini yap. fiyatlar da size'a gore hesaplansin (cart'ta vs)
+		OK - designSize table'i olcak, design_id, type(canvas, tshirt), size, price, timestamps tutulcak. simdilik sadece canvas icin bu kullanilcak.
+		create-design sayfasinda da 5tane canvas size girme box'u pre-filled olarak gelecek. "70X35" gibi text'lerle icleri dolu olacak. her birinin altinda da price box'u gelecek ve gene prefilled olacak. backend'de de herbir dolu gelen icin design_size row'u olusturulcak; yoksa size objesi de olusturulcak.
 	OK - canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
 
 tshirt fotosu kadin erkek secildiginde degiscek
 
 ornek designlar koycak ozan ~10 tane
 
-my account zero case ekle (ozan tasarimi yaptiktan sonra)
+canvas bastirmak icin fiyat al, ona gore guncelle sistemdeki fiyatlari
+
+bunu ekle:
+	FAQ and policies: A page or two noting your most frequently asked questions and the policies in relation to returns and exchanges, etc.
+
+bizim yolladigimiz tasarimla ornek tshirt basmalarini iste konustugumuz 1-2 shop'tan. parasini odeyecegiz obvi
+
+tshirtlerden neck tag'lerini kesmeden kaldirmalarini istememiz gerekiyormus
 
 mobilde test et siteyi. bastan sona satin alma uye olma flowunu ve diger sayfalari gozden gecir
 	- tum sayfalarin responsive oldugundan emin ol
@@ -184,8 +208,16 @@ alert strip'inin tasarimi duzeltilcek
 
 OK 404 ve 503 sayfasini duzelt
 
-OK Logo tiklanmiyor
+tasarimcilarla kontaga gec. ~15 kisiye email/mesaj at
+	Where do I find designers?
+		Emptees.com
+		This site use to have a bigger community and a lot more designers posting on the site, but now
+		not so much. It still is a great places to look at the work of other designers and find one that fits
+		what you are looking for.
+		You also might want to try checking out designers on sites like threadless.com and
+		designbyhumans.com
 
+OK Logo tiklanmiyor
 
 Artist lokasyon bilgisi eklenmeli
 
@@ -210,3 +242,13 @@ bi kullanici signout olup digeri ayni browserdan girince cart'lar karisiyor. bun
 
 canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
 
+shopping cart sayfasinda soldaki fiyatlar da indirimli gosterilsin
+	- cart popover'indaki fiyatlar da indirimli gosterilsin
+
+indirimli fiyati gosterirken indirimsiz fiyati da uzeri cizilmis sekilde goster
+
+Start a Mailing List
+	Sign­up with Mail Chimp and start building your mailing list now. It won’t get you sales
+	immediately but by building your mailing list you will have the contact info for potential
+	customers and fans. You should keep a separate buyers list (users that purchased something)
+	and also a regular sign­up list.

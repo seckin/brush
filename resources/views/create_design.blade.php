@@ -41,6 +41,30 @@
                     Canvas Sale Limit: <input type="text" name="canvas_limit" value="">
                     <span class="error">* Invalid Limit</span>
                     <br><br>
+                    Canvas Size1: <input type="text" name="canvas_sizes[]" value="40cm x 30cm">
+                    <span class="error">* Invalid Size</span>
+                    <br><br>
+                    Canvas Price1: <input type="text" name="canvas_prices[]" value="3000">
+                    <span class="error">* Invalid Price</span>
+                    <br><br>
+                    Canvas Size2: <input type="text" name="canvas_sizes[]" value="60cm x 40cm">
+                    <span class="error">* Invalid Size</span>
+                    <br><br>
+                    Canvas Price2: <input type="text" name="canvas_prices[]" value="4000">
+                    <span class="error">* Invalid Price</span>
+                    <br><br>
+                    Canvas Size3: <input type="text" name="canvas_sizes[]" value="76cm x 50cm">
+                    <span class="error">* Invalid Size</span>
+                    <br><br>
+                    Canvas Price3: <input type="text" name="canvas_prices[]" value="5000">
+                    <span class="error">* Invalid Price</span>
+                    <br><br>
+                    Canvas Size4: <input type="text" name="canvas_sizes[]" value="100cm x 76cm">
+                    <span class="error">* Invalid Size</span>
+                    <br><br>
+                    Canvas Price4: <input type="text" name="canvas_prices[]" value="6000">
+                    <span class="error">* Invalid Price</span>
+                    <br><br>
                     Image: <input type="file" name="image" value="">
                     <span class="error">* Invalid Image</span>
                     <br><br>

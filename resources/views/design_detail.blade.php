@@ -41,7 +41,7 @@
                             <h4 style="top: 10px;float: right;">{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</h4>
                         </div>
                         <div class="price">
-                            <span class="price-text">{{number_format($design->canvas_price / 100.0, 2, '.', '')}}</span>
+                            <span class="price-text">{{number_format($design->designSizes[0]->price / 100.0, 2, '.', '')}}</span>
                             <i class="fa fa-try" aria-hidden="true"></i>
                             <div class="incl-tax">incl. tax excluding shipping fees</div>
                         </div>
@@ -49,22 +49,12 @@
                             <div class="dropdown-wrapper">
                                 <button id="canvasSize" class="dropdown">
                                     <a data-value="" href="#">Please select...</a>
-                                    <a data-value="40X30" data-price="30" href="#">
-                                        40cm x 30cm
+                                    @foreach ($design->designSizes as $designSize)
+                                    <a data-value="{{$designSize->size}}" data-price="{{number_format($designSize->price / 100.0, 2, '.', '')}}" href="#">
+                                        {{$designSize->size}}
                                         <i class="fa fa-try" aria-hidden="true"></i>
                                     </a>
-                                    <a data-value="60X40" data-price="40" href="#">
-                                        60cm x 40cm
-                                        <i class="fa fa-try" aria-hidden="true"></i>
-                                    </a>
-                                    <a data-value="76X50" data-price="50" href="#">
-                                        76cm x 50cm
-                                        <i class="fa fa-try" aria-hidden="true"></i>
-                                    </a>
-                                    <a data-value="100X76" data-price="60" href="#">
-                                        100cm x 76cm
-                                        <i class="fa fa-try" aria-hidden="true"></i>
-                                    </a>
+                                    @endforeach
                                     <input id="canvasSizeInput" type="text" value="" />
                                 </button>
                             </div>
@@ -265,7 +255,7 @@
         });
         $("#canvasSizeInput").change(function() {
             var price = $("#canvasSize > a[data-value='" + $("#canvasSizeInput").attr("value") +"']").data("price");
-            $(".canvas .price-text").html(price.toFixed(2));
+            $(".canvas .price-text").html(price);
         });
     </script>
 </body>
