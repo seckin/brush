@@ -54,8 +54,8 @@ $(document).ready(function() {
                 $(this).prependTo(dropdown);
                 var value = $(this).data('value');
                 dropdown.children('input').attr('value', value);
-                $(dropdown.children('input')).change();
                 dropdown.removeClass('open');
+                $(dropdown.children('input')).change();
             } else {
                 dropdown.removeClass('open');
             }
@@ -163,10 +163,20 @@ function updateCart() {
             }
             if($(".cartdetails") && data.cartItems.length) {
                 $(".cartdetails").children("div").remove();
-                console.log("cart details: updating");
                 for(var i=data.cartItems.length-1; i>=0; i--) {
-                    console.log("cart details inside");
-                    $(".cartdetails").prepend('<div><img class="product-image-photo" src="' + data.cartItems[i].design.image + '" alt="design name"><span><b>' + data.cartItems[i].design.name + '</b><span>' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</span><span class="cartitem-price">' + (data.cartItems[i].price_per_item / 100.0).toFixed(2) + '<i class="fa fa-try" aria-hidden="true"></i></span><span class="cartitem-quantity">Qty: ' + data.cartItems[i].quantity + '</span> </span></div>');
+                    var price_text;
+                    if(data.cartItems[i].product_spec.type == "tshirt") {
+                        price_text = (data.cartItems[i].price_per_item / 100.0).toFixed(2);
+                    } else if(data.cartItems[i].product_spec.type == "canvas") {
+                        var size = data.cartItems[i].product_spec.size;
+                        for(var j= 0; j < data.cartItems[i].design.design_sizes.length; j++) {
+                            if(data.cartItems[i].design.design_sizes[j].size == size) {
+                                price_text = (data.cartItems[i].design.design_sizes[j].price / 100.0).toFixed(2);
+                                break;
+                            }
+                        }
+                    }
+                    $(".cartdetails").prepend('<div><img class="product-image-photo" src="' + data.cartItems[i].design.image + '" alt="design name"><span><b>' + data.cartItems[i].design.name + '</b><span>' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</span><span class="cartitem-price">' + price_text + '<i class="fa fa-try" aria-hidden="true"></i></span><span class="cartitem-quantity">Qty: ' + data.cartItems[i].quantity + '</span> </span></div>');
                 }
             }
         }

@@ -20,6 +20,7 @@ use App\Order;
 use App\ShippingInfo;
 use App\Payment;
 use App\DiscountCode;
+use App\DesignSize;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
@@ -27,6 +28,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 require_once(app_path().'/../vendor/autoload.php');
 
 // Route::group(['middleware' => ['web']], function () {
+// Route::group(['middlewareGroups' => 'web'], function () {
 
 Route::get('/', function () {
 	$artists = Artist::orderBy('created_at', 'asc')->limit(4)->get();
@@ -106,6 +108,15 @@ Route::post('/create-design', function (Request $request) {
 	$design->view_count = 0;
 	$design->save();
 
+	for($i = 0; $i < count($request->canvas_sizes); $i++) {
+		$designSize = new DesignSize;
+		$designSize->design_id = $design->id;
+		$designSize->type = "canvas";
+		$designSize->size = $request->canvas_sizes[$i];
+		$designSize->price = $request->canvas_prices[$i];
+		$designSize->save();
+	}
+
 	return $design;
 });
 
@@ -159,6 +170,10 @@ Route::post('/charge', function (Request $request) {
 
     return view('charge');
 })->middleware('auth');
+
+Route::get('/charge', function () {
+	return view('charge');
+});
 
 Route::get('/designs/{design_id}', function ($design_id) {
 	DB::table('designs')->whereId($design_id)->increment('view_count');
@@ -428,9 +443,10 @@ Route::post('/api/v1/addToCart', function (Request $request) {
 	if($request->type == "tshirt") {
 		$cartItem->price_per_item = $design->tshirt_price;
 	} else if ($request->type == "canvas") {
-		$cartItem->price_per_item = $design->canvas_price;
+		$designSize = DesignSize::orderBy('created_at', 'asc')->where("design_id", '=', $design->id)->where("type", '=', "canvas")->where("size", "=", $productSpec->size)->first();
+		$cartItem->price_per_item = $designSize->price;
 	}
-	$cartItem->shipping_cost = 1000;
+	$cartItem->shipping_cost = 1000; // this is not used.
 	$cartItem->save();
 
 	$productSpec->cart_item_id = $cartItem->id;
@@ -454,6 +470,7 @@ Route::get('/api/v1/cartInfo', function () {
 	for($i=0; $i < count($cartItems); $i++) {
 		$cartItems[$i]->product_spec = $cartItems[$i]->productSpec;
 		$cartItems[$i]->design = $cartItems[$i]->design;
+		$cartItems[$i]->design->design_sizes = $cartItems[$i]->design->designSizes;
 	}
 	return array("cartItems" => $cartItems);
 });

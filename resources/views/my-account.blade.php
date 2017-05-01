@@ -2,21 +2,13 @@
 
 @section('content')
 <body id="my-account">
-<!--     <section class="status">
-        <div class="container">
-            <a href="#">Visit our newest collection: Cityscapes</a>
-        </div>
-        <a href="#">
-            <img src="/assets/images/interface/icon-close.png" />
-        </a>
-    </section>
- -->
     @include('partials.navbar')
 
 	<section class="featured">
 	    <div class="container">
 	        <h3>Your Orders</h3>
 	        <div class="row">
+            @if (count($orders) > 0)
             <table border="0" cellpadding="0" cellspacing="0" class="AnaTablo" align="center">
                 <tbody>
                     <tr><td valign="top" class="IcerikOrtaTabloIcerikTd"> 
@@ -61,6 +53,11 @@
                     @endforeach
                     </tbody></table></td></tr></tbody>
             </table>
+            @else
+            <div>
+                <p>You haven't ordered anything yet. Checkout cool designs <a href="/designs" style="color: blue;">here.</a></p>
+            </div>
+            @endif
             </div>
 	    </div>
 	</section>
