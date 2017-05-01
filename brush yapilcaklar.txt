@@ -161,7 +161,7 @@ loginde hatalar yazilmali
 
 charge success sayfasini guzellestir
 
-brush logosu high-def olcak
+OK brush logosu high-def olcak
 
 design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
 	- design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
@@ -183,8 +183,9 @@ production'da bunu artist description olarak ekle: "For Andrea Minini, design is
 
 alert strip'inin tasarimi duzeltilcek
 
-404 ve 503 sayfasini duzelt
+OK 404 ve 503 sayfasini duzelt
 
+OK Logo tiklanmiyor
 
 
 

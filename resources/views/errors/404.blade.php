@@ -7,9 +7,10 @@
 
     <section class="darker">
         <div class="container">
-            <h1>Page not found.</h1>
-            <p>Sorry for the inconvenience. Click to go <a href="/">Home</a>.</p>
             <img src="/assets/images/illustrations/error.png"/>
+            <h1>Page not found.</h1>
+            <p>It may have been removed or have never been here.</p>
+            <a class="button" href="/">Go to Homepage</a>
         </div>
     </section>
 
