@@ -187,6 +187,9 @@ OK 404 ve 503 sayfasini duzelt
 OK Logo tiklanmiyor
 
 
+Artist lokasyon bilgisi eklenmeli
+
+Tab label eklenecek
 
 
 

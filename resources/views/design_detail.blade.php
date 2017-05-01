@@ -16,7 +16,7 @@
 
     <header class="blank" style="background-image: url({{$design->image}});"></header>
     <div class="design_id" data-design-id="{{$design->id}}"></div>
-	<section id="design-detail" data-tab="design">
+	<section id="design-detail" class="presentation" data-tab="design">
 	    <div class="container">
             <div class="information">
                 <div class="head">
@@ -140,7 +140,7 @@
                 <img class="design" src="{{$design->image}}" />
                 <img class="canvas" src="{{$design->canvas_image}}" />
                 <img class="tshirt" src="{{$design->tshirt_image}}" />
-                <!-- <img class="mug" src="/assets/content/sample/artwork/04.png" /> -->
+                <!-- <img class="mug" style="display: none;" src="/assets/content/sample/artwork/04.png" /> -->
             </div>
 	    </div>
 	</section>

@@ -1,6 +1,6 @@
 /* Initial */
 
-body { position: relative; padding-bottom: 50px; color: rgba(33, 33, 33, 1); font-family: 'robotolight', sans-serif; font-size: 16px; background-color: rgba(33, 33, 33, .1); }
+body { position: relative; padding-bottom: 150px; color: rgba(33, 33, 33, 1); font-family: 'robotolight', sans-serif; font-size: 16px; background-color: rgba(33, 33, 33, .1); }
 
 /* Defaults */
 
@@ -207,52 +207,60 @@ section.showcase button.bottom, section.showcase .button.bottom { margin-bottom:
 
 /* Section: Design Detail */
 
-section#design-detail > .container { position: relative; margin: 4% auto; margin-top: -150px; }
-section#design-detail > .container > div { position: relative; }
-section#design-detail > .container > div.display { float: left; width: 42.5%; border-style: solid; border-width: 0px 2px; -moz-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -webkit-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -o-border-image: url(/assets/images/interface/border-image.png) 27 stretch; border-image: url(/assets/images/interface/border-image.png) 27 fill; }
-section#design-detail > .container > div.display > img { display:none; box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
-section#design-detail > .container > div.information { display: table; float: right; width: 55%; margin-left: 2.5%; }
-section#design-detail > .container > div.information .head { display: inline-block; position: relative; width: 100%; height: 150px; }
-section#design-detail > .container > div.information .head > h3 { margin-top: 1%; font-size: 2.4em; line-height: 75%; text-transform: uppercase; }
-section#design-detail > .container > div.information .head > h3 + p { margin: 0; margin-top: 2%; line-height: 75%; }
-section#design-detail > .container > div.information .head > .tabbing { float: right; position: absolute; left: 0; bottom: 0; width: 100%; height: 50px; }
-section#design-detail > .container > div.information .head > .tabbing a { display: block; float: left; margin-left: 5px; width: 50px; height: 50px; background-color: rgba(0, 0, 0, .1); transition: background-color .35s ease; }
-section#design-detail > .container > div.information .head > .tabbing a:first-of-type { margin-left: 0; }
-section#design-detail > .container > div.information .head > .tabbing a.active { background-color: rgba(255, 255, 255, 1); }
-section#design-detail > .container > div.information .head > .tabbing a[data-id="design"] { background-image: url(/assets/images/interface/icon-product_design.png); }
-section#design-detail > .container > div.information .head > .tabbing a[data-id="canvas"] { background-image: url(/assets/images/interface/icon-product_canvas.png); }
-section#design-detail > .container > div.information .head > .tabbing a[data-id="tshirt"] { background-image: url(/assets/images/interface/icon-product_tshirt.png); }
-section#design-detail > .container > div.information .head > .tabbing a[data-id="mug"] { background-image: url(/assets/images/interface/icon-product_mug.png); }
-section#design-detail > .container > div.information .body > div { display: none; position: relative; }
-section#design-detail > .container > div.information .body { margin-top: 5%; }
-section#design-detail > .container > div.information .body .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
-section#design-detail > .container > div.information .body .tags > a:hover { top: -2px; }
-section#design-detail > .container > div.information .body h3 { line-height: 67%; }
-section#design-detail > .container > div.information .body p { width: 75%; margin-bottom: 1%; }
-section#design-detail > .container > div.information .body .price { position: absolute; text-align: right; top: 0; right: 0; font-size: 2em; }
-section#design-detail > .container > div.information .body .price .price-text { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; text-transform: uppercase; letter-spacing: -.05em; }
-section#design-detail > .container > div.information .body .price .incl-tax { font-size: 14px; font-weight: lighter; color: gray; }
-section#design-detail > .container > div.information .body button.dropdown { margin-top: 2%; }
-section#design-detail > .container > div.information .body .extra { opacity: .65; margin-top: 5%; font-size: .75em; }
-section#design-detail > .container > div.information .body .extra li::before { content: '✓'; margin-right: .15em; }
-section#design-detail button.dropdown > a i { float: right; height: 50px; font-size: .95em; line-height: 50px; display: inline; }
-section#design-detail button.dropdown > a::after { content: attr(data-price); float: right; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
-section#design-detail button.dropdown > a:first-child i { display: none; }
-section#design-detail button.dropdown > a:first-child::after { display: none; }
+section.presentation > .container { position: relative; margin: 4% auto; margin-top: -150px; }
+section.presentation > .container > div { position: relative; }
+section.presentation > .container > div.display { float: left; width: 42.5%; border-style: solid; border-width: 0px 2px; -moz-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -webkit-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -o-border-image: url(/assets/images/interface/border-image.png) 27 stretch; border-image: url(/assets/images/interface/border-image.png) 27 fill; }
+section.presentation > .container > div.display > img { display: none; box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
+section.presentation > .container > div.information { display: table; float: right; width: 55%; margin-left: 2.5%; }
+section.presentation > .container > div.information .head { display: inline-block; position: relative; width: 100%; height: 150px; }
+section.presentation > .container > div.information .head > h3 { margin-top: 1%; font-size: 2.4em; line-height: 75%; text-transform: uppercase; }
+section.presentation > .container > div.information .head > h3 + p { margin: 0; margin-top: 2%; line-height: 75%; }
+section.presentation > .container > div.information .head > .tabbing { float: right; position: absolute; left: 0; bottom: 0; width: 100%; height: 50px; }
+section.presentation > .container > div.information .head > .tabbing a { display: block; float: left; margin-left: 5px; height: 50px; padding-left: 50px; background-color: rgba(0, 0, 0, .1); background-repeat: no-repeat; transition: background-color .35s ease; }
+section.presentation > .container > div.information .head > .tabbing a::after { display: block; padding-right: 15px; font-size: .85em; line-height: 50px; }
+section.presentation > .container > div.information .head > .tabbing a:first-of-type { margin-left: 0; }
+section.presentation > .container > div.information .head > .tabbing a.active { background-color: rgba(255, 255, 255, 1); }
+section.presentation > .container > div.information .head > .tabbing a[data-id="design"] { background-image: url(/assets/images/interface/icon-tab_design.png); }
+section.presentation > .container > div.information .head > .tabbing a[data-id="design"]::after { content: 'Design'; }
+section.presentation > .container > div.information .head > .tabbing a[data-id="canvas"] { background-image: url(/assets/images/interface/icon-tab_canvas.png); }
+section.presentation > .container > div.information .head > .tabbing a[data-id="canvas"]::after { content: 'Wall Art'; }
+section.presentation > .container > div.information .head > .tabbing a[data-id="tshirt"] { background-image: url(/assets/images/interface/icon-tab_tshirt.png); }
+section.presentation > .container > div.information .head > .tabbing a[data-id="tshirt"]::after { content: 'T-Shirt'; }
+section.presentation > .container > div.information .head > .tabbing a[data-id="mug"] { background-image: url(/assets/images/interface/icon-tab_mug.png); }
+section.presentation > .container > div.information .head > .tabbing a[data-id="mug"]::after { content: 'Mug'; }
+section.presentation > .container > div.information .head > .tabbing a[data-id="info"] { background-image: url(/assets/images/interface/icon-tab_info.png); }
+section.presentation > .container > div.information .head > .tabbing a[data-id="info"]::after { content: 'Information'; }
+section.presentation > .container > div.information .body > div { display: none; position: relative; }
+section.presentation > .container > div.information .body { margin-top: 5%; }
+section.presentation > .container > div.information .body .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
+section.presentation > .container > div.information .body .tags > a:hover { top: -2px; }
+section.presentation > .container > div.information .body h3 { line-height: 67%; }
+section.presentation > .container > div.information .body p { width: 75%; margin-bottom: 1%; }
+section.presentation > .container > div.information .body .price { position: absolute; text-align: right; top: 0; right: 0; font-size: 2em; }
+section.presentation > .container > div.information .body .price .price-text { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; text-transform: uppercase; letter-spacing: -.05em; }
+section.presentation > .container > div.information .body .price .incl-tax { font-size: 14px; font-weight: lighter; color: gray; }
+section.presentation > .container > div.information .body button.dropdown { margin-top: 2%; }
+section.presentation > .container > div.information .body .extra { opacity: .65; margin-top: 5%; font-size: .75em; }
+section.presentation > .container > div.information .body .extra li::before { content: '✓'; margin-right: .15em; }
+section.presentation button.dropdown > a i { float: right; height: 50px; font-size: .95em; line-height: 50px; display: inline; }
+section.presentation button.dropdown > a::after { content: attr(data-price); float: right; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+section.presentation button.dropdown > a:first-child i { display: none; }
+section.presentation button.dropdown > a:first-child::after { display: none; }
 
-section#design-detail button.dropdown#canvasSize > a:first-child::before { content: 'Canvas Size: '; }
-section#design-detail button.dropdown#tshirtSize > a:first-child::before { content: 'Tshirt Size: '; }
-section#design-detail button.dropdown#tshirtGender > a:first-child::before { content: 'Gender: '; }
+section.presentation button.dropdown#canvasSize > a:first-child::before { content: 'Canvas Size: '; }
+section.presentation button.dropdown#tshirtSize > a:first-child::before { content: 'Tshirt Size: '; }
+section.presentation button.dropdown#tshirtGender > a:first-child::before { content: 'Gender: '; }
 
-section#design-detail button.submit { float: left; }
+section.presentation button.submit { float: left; }
 
-section#design-detail .progress { display: block; width: 100%; height: 10px; margin-top: calc(5% + 25px); margin-bottom: 5%; background-color: rgba(33, 33, 33, .15); background-image: url(/assets/images/interface/bg-progress2.png); background-position: bottom left; background-repeat: no-repeat; }
-section#design-detail .progress > h4 { position: relative; top: -25px; float: right; }
+section.presentation .progress { display: block; width: 100%; height: 10px; margin-top: calc(5% + 25px); margin-bottom: 5%; background-color: rgba(33, 33, 33, .15); background-image: url(/assets/images/interface/bg-progress2.png); background-position: bottom left; background-repeat: no-repeat; }
+section.presentation .progress > h4 { position: relative; top: -25px; float: right; }
 
-section#design-detail[data-tab="design"] .design { display: block !important; }
-section#design-detail[data-tab="canvas"] .canvas { display: block !important; }
-section#design-detail[data-tab="tshirt"] .tshirt { display: block !important; }
-section#design-detail[data-tab="mug"] .mug { display: block !important; }
+section.presentation[data-tab="info"] .info { display: block !important; }
+section.presentation[data-tab="design"] .design { display: block !important; }
+section.presentation[data-tab="canvas"] .canvas { display: block !important; }
+section.presentation[data-tab="tshirt"] .tshirt { display: block !important; }
+section.presentation[data-tab="mug"] .mug { display: block !important; }
 
 /* Section: Checkout > Cart */
 
@@ -311,8 +319,9 @@ section.press .message i { float: right; margin-top: 1%; color: rgba(33, 33, 33,
 
 /* Section: Action */
 
-section.action { margin-bottom: 0; padding: 2% 0; background-color: rgba(33, 33, 33, 1); }
-section.action .container { margin-top: 0; margin-bottom: 0; }
+section.action { display: table; position: absolute; overflow: hidden; bottom: 50px; left: 0; right: 0; width: 100%; margin-bottom: 0; background-color: rgba(33, 33, 33, 1); }
+section.action, section.action .container { height: 100px; }
+section.action .container { display: table-cell; margin-top: 0; margin-bottom: 0; padding: 0 5%; vertical-align: middle; }
 section.action .container > div { float: left; width: 50%; margin: 0; background-position: left center; background-size: contain; background-repeat: no-repeat; background-color: transparent; }
 section.action .container > *:last-child { float: right; height: 60px; padding: 5px 0; text-align: right; }
 section.action input { width: auto; height: 100%; padding: 0 2.5%; border-radius: 0; }
