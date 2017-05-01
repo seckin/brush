@@ -7,6 +7,7 @@
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
             -->
+            <a href="mailto:team@trybrush.com">Contact Us</a>
         </div>
     </div>
 </footer>

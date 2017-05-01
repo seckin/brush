@@ -174,7 +174,7 @@ OK charge success sayfasini guzellestir
 
 forgot password email yollama kismi calissin
 
-brush logosu high-def olcak
+OK brush logosu high-def olcak
 
 OK design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
 	OK - design detail sayfasinda "incl. tax excluding shipping fees" yazalim fiyatin yanina
@@ -206,7 +206,7 @@ production'da bunu artist description olarak ekle: "For Andrea Minini, design is
 
 alert strip'inin tasarimi duzeltilcek
 
-404 ve 503 sayfasini duzelt
+OK 404 ve 503 sayfasini duzelt
 
 tasarimcilarla kontaga gec. ~15 kisiye email/mesaj at
 	Where do I find designers?
@@ -216,6 +216,8 @@ tasarimcilarla kontaga gec. ~15 kisiye email/mesaj at
 		what you are looking for.
 		You also might want to try checking out designers on sites like threadless.com and
 		designbyhumans.com
+
+OK Logo tiklanmiyor
 
 
 
