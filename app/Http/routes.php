@@ -122,7 +122,10 @@ Route::post('/create-design', function (Request $request) {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// Route::get('/home', 'HomeController@index');
+Route::get('/home', function () {
+	return redirect('/');
+});
 
 Route::get('/payment', function () {
     return view('payment');
