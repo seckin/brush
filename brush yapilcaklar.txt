@@ -188,6 +188,14 @@ OK Logo tiklanmiyor
 
 
 
+indirimli fiyati gosterirken indirimsiz fiyati da uzeri cizilmis sekilde goster order summary'de
+
+artist'lere location ekle, profilde de goster
+
+tshirt gender resim degistirme
+
+cart icin zero case yap
+
 be distinguished'i degistir
 
 tshirt fotosu kadin erkek secildiginde degiscek
@@ -246,8 +254,6 @@ canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
 
 shopping cart sayfasinda soldaki fiyatlar da indirimli gosterilsin
 	- cart popover'indaki fiyatlar da indirimli gosterilsin
-
-indirimli fiyati gosterirken indirimsiz fiyati da uzeri cizilmis sekilde goster
 
 Start a Mailing List
 	Sign­up with Mail Chimp and start building your mailing list now. It won’t get you sales

@@ -15,7 +15,7 @@ return [
     */
 
     'mailgun' => [
-        'domain' => 'sandbox4249.mailgun.org',//env('MAILGUN_DOMAIN'),
+        'domain' => 'mail.trybrush.com',//env('MAILGUN_DOMAIN'),
         'secret' => 'key-9ul0a2y1gkepa73596xlpv7-136y6-v6',//env('MAILGUN_SECRET'),
     ],
 

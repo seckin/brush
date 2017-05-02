@@ -35,7 +35,7 @@
                 </div>
                 <div class="item">
                     <img src="/assets/images/icons/icon-distinguished.png" />
-                    <h3>Be distinguished</h3>
+                    <h3>Be an Early Adopter!</h3>
                     <p>Each campaign is limited to a number of products. You will be the only one among your friends who has it!</p>
                 </div>
                 <div class="item">
@@ -65,7 +65,7 @@
 	            <div class="card item">
 	                <a href="/designs/{{$design->id}}">
 	                    <img src="{{$design->image}}" />
-	                    <!--<p>{{$design->name}}</p>-->
+	                    <p>{{$design->name}}</p>
 	                </a>
 	            </div>
 	            @endforeach
