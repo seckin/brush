@@ -3,8 +3,8 @@
         <div class="triple stack">
             <div class="item">
                 <h3>Secure Payment</h3>
-                <img class="ccard icon" src="/assets/images/service/payment/mastercard.svg" />
-                <img class="ccard icon" src="/assets/images/service/payment/visa.svg" />
+                <img class="payment icon" src="/assets/images/service/payment/mastercard.svg" />
+                <img class="payment icon" src="/assets/images/service/payment/visa.svg" />
             </div>
             <div class="item">
                 <h3>Fast Delivery</h3>

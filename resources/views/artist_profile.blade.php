@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body id="designs" class="design subpage">
+<body id="artists" class="artist subpage">
     <!-- <section class="status">
         <div class="container">
             <a href="#">Visit our newest collection: Cityscapes</a>
@@ -14,18 +14,32 @@
 
     @include('partials.navbar')
 
-    <header class="blank"></header>
+    <header class="blank" style="background-image: url({{$artist->highlighted_image}});"></header>
     <div class="artist_id" data-artist-id="{{$artist->id}}"></div>
-    <section id="artist-profile" data-tab="artists">
-    	<img width="250" height="250" style="width:250px !important;" class="highlighted_image" src="{{$artist->highlighted_image}}"/>
-    	<img width="250" height="250" style="width:250px !important;" class="profile_image" src="{{$artist->profile_image}}"/>
-    	<p>{{$artist->name}}</p>
-    	<p>{{$artist->description}}</p>
-    </section>
-
+	<section id="artist-profile" class="presentation" data-tab="about">
+	    <div class="container">
+            <div class="information">
+                <div class="head">
+                    <h3>{{$artist->name}}</h3>
+                    <p><b>Montreal, Canada</b></p>
+                    <div class="tabbing">
+                        <a class="tab active" data-id="about"></a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="about">
+                        <p>{{$artist->description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="display">
+                <img class="about" src="{{$artist->profile_image}}" />
+            </div>
+	    </div>
+	</section>
     <section class="showcase">
         <div class="container">
-            <h3>Artist's Designs</h3>
+            <h3>From the Artist</h3>
             <div class="cards">
                 @foreach($designs as $design)
                 <div class="card item">
@@ -40,6 +54,8 @@
     </section>
 
     @include('partials.subscribe-to-list')
+    
+    @include('partials.footer')
 
 </body>
 @endsection

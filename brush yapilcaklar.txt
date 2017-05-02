@@ -222,7 +222,9 @@ tasarimcilarla kontaga gec. ~15 kisiye email/mesaj at
 		designbyhumans.com
 
 
+Artist lokasyon bilgisi eklenmeli
 
+Tab label eklenecek
 
 
 
@@ -252,3 +254,12 @@ Start a Mailing List
 	immediately but by building your mailing list you will have the contact info for potential
 	customers and fans. You should keep a separate buyers list (users that purchased something)
 	and also a regular sign­up list.
+
+
+
+
+
+
+
+insert into design_sizes (design_id, type, size, price, created_at, updated_at) values (1, 'canvas', '40cm x 30cm', 3500, '2017-05-01 13:58:48', '2017-05-01 13:58:48');
+insert into design_sizes (design_id, type, size, price, created_at, updated_at) values (2, 'canvas', '40cm x 30cm', 3500, '2017-05-01 13:58:48', '2017-05-01 13:58:48');

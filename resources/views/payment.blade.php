@@ -12,7 +12,7 @@
                 <div class="panel-heading">Payment</div>
 
                 <div class="panel-body">
-                    <form action="/charge" method="post" id="payment-form">
+                    <form action="/checkout/charge" method="post" id="payment-form">
                       <div class="form-row">
                         <label for="card-element">
                           Credit or debit card
