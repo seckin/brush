@@ -223,6 +223,12 @@ Artist lokasyon bilgisi eklenmeli
 
 Tab label eklenecek
 
+Cart bos ise menude cart olmayacak
+
+Kullanici daha once order yapmamissa order sayfasini goremeyecek
+
+
+
 
 
 

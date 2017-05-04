@@ -20,36 +20,17 @@
 
     <header>
     <div class="container">
-        <h1>Exclusive Prints for Early Birds</h1>
-        <p>Are you looking for a special design to hang on your wall?<br/>Brush helps you find great designs by letting designers run limited edition campaigns.</p>
-        <a href="/designs" class="button" role="button">SEE ALL DESIGNS</a>
+        <h1>Exclusive Prints for Early-backers</h1>
+        <p>Are you looking for a special design to hang on your wall?</p>
+        <!--<p>Brush helps you find great designs by letting designers run limited edition campaigns.</p>-->
+        <p>You can have one of the limited availability prints by backing these campaigns.</p>
+        <a href="/designs" class="button" role="button">SEE ALL CAMPAIGNS</a>
     </div>
 	</header>
-    <section class="details">
-        <div class="container">
-            <div class="triple stack cards">
-                <div class="item">
-                    <img src="/assets/images/icons/icon-supportive.png" />
-                    <h3>Support</h3>
-                    <p>We help artists to turn their work into a product. You will help them to make their campaign succeed by purchasing it.</p>
-                </div>
-                <div class="item">
-                    <img src="/assets/images/icons/icon-distinguished.png" />
-                    <h3>Be distinguished</h3>
-                    <p>Each campaign is limited to a number of products. You will be the only one among your friends who has it!</p>
-                </div>
-                <div class="item">
-                    <img src="/assets/images/icons/icon-affordable.png" />
-                    <h3>Pay less</h3>
-                    <p>We curate affordable art for you. In the end, you will own rare products for affordable prices.</p>
-                </div>
-	        </div>
-        </div>
-    </section>
-    <section class="showcase featured">
+    <section class="featured">
 	    <div class="artists container">
 	        <h3>Featured Artists</h3>
-	        <div class="quadruple stack">
+	        <div class="sixpack">
 	        	@foreach($artists as $artist)
 	            <a class="card item" href="/artists/{{$artist->id}}">
 	                <img src="{{$artist->profile_image}}" />
@@ -58,6 +39,8 @@
 	            @endforeach
 	        </div>
 	    </div>
+    </section>
+    <section class="showcase">
 	    <div class="designs container">
 	        <h3>Popular Designs</h3>
 	        <div class="cards">

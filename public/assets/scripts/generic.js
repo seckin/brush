@@ -2,8 +2,8 @@ $(document).ready(function() {
     /* GENERIC FUNCTIONS */
     //Display Active Menu Item
     var main = $('body').attr('id');
-    $('.menu > a').removeClass('active');
-    $('.menu > a.' + main).addClass('active');
+    $('.menu li > a').removeClass('active');
+    $('.menu li > a.' + main).addClass('active');
     //Manage Viewport Height
     var viewportHeight;
     viewportHeight = $(window).height();
@@ -13,7 +13,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
     //Open Cart Preview
-    $('.menu > a.checkout').on('click', function(e) {
+    $('.menu li > a.checkout').on('click', function(e) {
         e.stopPropagation();
         $('.cartdetails').toggleClass('open');
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
         $('.accountdetails').removeClass('open');
     });
     //Open Account
-    $('.menu > a.account').on('click', function(e) {
+    $('.menu li > a.account').on('click', function(e) {
         e.stopPropagation();
         $('.accountdetails').toggleClass('open');
 
@@ -85,6 +85,15 @@ $(document).ready(function() {
             }
         }
     });
+    //Mobile Slider
+    
+    if($(window).width() < 768) {
+        $('.promo').addClass('mobile');
+        promoFeaturesHeight();
+    }
+    
+    setInterval(promoSlider, 4500);
+    
     /* OTHER FUNCTIONS */
     //Navigate Design Detail Module with Tabs
     $('#design-detail .tabbing a').click(function(){
@@ -101,6 +110,14 @@ $(window).resize(function() {
     viewportHeight = $(window).height();
     $('body').css('min-height', viewportHeight + 'px');
     $('section.modal').css('height', viewportHeight + 'px');
+    //Mobile Slider
+    if($(window).width() < 768) {
+        $('.promo').addClass('mobile');
+        promoFeaturesHeight();
+    } else {
+        $('.promo').removeClass('mobile');
+        $('.promo.mobile .features').css('height', 'auto');
+    }
 });
 
 $(window).scroll(function() {
@@ -176,7 +193,7 @@ function updateCart() {
                             }
                         }
                     }
-                    $(".cartdetails").prepend('<div><img class="product-image-photo" src="' + data.cartItems[i].design.image + '" alt="design name"><span><b>' + data.cartItems[i].design.name + '</b><span>' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</span><span class="cartitem-price">' + price_text + '<i class="fa fa-try" aria-hidden="true"></i></span><span class="cartitem-quantity">Qty: ' + data.cartItems[i].quantity + '</span> </span></div>');
+                    $(".cartdetails").prepend('<div class="product"><img class="product-image" src="' + data.cartItems[i].design.image + '" alt=""><span><b class="product-name">' + data.cartItems[i].design.name + '</b><p class="product-type">' + (data.cartItems[i].product_spec.type == 'tshirt' ? 'Tshirt' : 'Canvas') + '</p><p class="product-quantity">x' + data.cartItems[i].quantity + '</p><p class="product-price">' + price_text + '<i class="fa fa-try" aria-hidden="true"></i></p></span></div>');
                 }
             }
         }
@@ -204,4 +221,16 @@ function updateOrderSummary() {
             }
         }
     });
+}
+
+function promoSlider() {
+    $('.promo.mobile .features .item:first-child').appendTo('.promo .features');
+}
+
+function promoFeaturesHeight() {
+    var heights = $('.promo.mobile .item').map(function () {
+        return $(this).height();
+    }).get(),
+    featuresHeight = Math.max.apply(null, heights);
+    $('.promo.mobile .features').css('height', featuresHeight + 'px');
 }
