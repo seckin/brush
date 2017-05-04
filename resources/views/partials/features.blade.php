@@ -2,7 +2,7 @@
     <div class="item">
         <img src="/assets/images/icons/icon-support.png" />
         <h3>Support Art</h3>
-        <p>We help artists to turn their work into a product. Your job is to help them by backing their campaign.</p>
+        <p>We help artists to turn their work into a product. You can help them by backing their campaign.</p>
     </div>
     <div class="item">
         <img src="/assets/images/icons/icon-unique.png" />

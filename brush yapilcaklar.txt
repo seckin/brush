@@ -170,9 +170,7 @@ OK bu sayfanin tasarimi da duzelecek (@seckin)
 
 OK charge success sayfasini guzellestir
 
-
-
-forgot password email yollama kismi calissin
+OK forgot password email yollama kismi calissin
 
 OK brush logosu high-def olcak
 
@@ -183,6 +181,22 @@ OK design detail sayfasinda canvas ve tshirt tabinda fiyat yazmasi lazim
 		OK - designSize table'i olcak, design_id, type(canvas, tshirt), size, price, timestamps tutulcak. simdilik sadece canvas icin bu kullanilcak.
 		create-design sayfasinda da 5tane canvas size girme box'u pre-filled olarak gelecek. "70X35" gibi text'lerle icleri dolu olacak. her birinin altinda da price box'u gelecek ve gene prefilled olacak. backend'de de herbir dolu gelen icin design_size row'u olusturulcak; yoksa size objesi de olusturulcak.
 	OK - canvas dropdown'inda juniqe'teki gibi seceneklerin yanina fiyat yazalim
+
+OK 404 ve 503 sayfasini duzelt
+
+OK Logo tiklanmiyor
+
+
+
+indirimli fiyati gosterirken indirimsiz fiyati da uzeri cizilmis sekilde goster order summary'de
+
+artist'lere location ekle, profilde de goster
+
+tshirt gender resim degistirme
+
+cart icin zero case yap
+
+be distinguished'i degistir
 
 tshirt fotosu kadin erkek secildiginde degiscek
 
@@ -206,8 +220,6 @@ production'da bunu artist description olarak ekle: "For Andrea Minini, design is
 
 alert strip'inin tasarimi duzeltilcek
 
-OK 404 ve 503 sayfasini duzelt
-
 tasarimcilarla kontaga gec. ~15 kisiye email/mesaj at
 	Where do I find designers?
 		Emptees.com
@@ -217,7 +229,6 @@ tasarimcilarla kontaga gec. ~15 kisiye email/mesaj at
 		You also might want to try checking out designers on sites like threadless.com and
 		designbyhumans.com
 
-OK Logo tiklanmiyor
 
 Artist lokasyon bilgisi eklenmeli
 
@@ -249,8 +260,6 @@ canvas wall art'a donusecek, 3 secenek gelecek - canvas, foamboard, paper
 
 shopping cart sayfasinda soldaki fiyatlar da indirimli gosterilsin
 	- cart popover'indaki fiyatlar da indirimli gosterilsin
-
-indirimli fiyati gosterirken indirimsiz fiyati da uzeri cizilmis sekilde goster
 
 Start a Mailing List
 	Sign­up with Mail Chimp and start building your mailing list now. It won’t get you sales
