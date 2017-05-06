@@ -9,6 +9,7 @@
     <section class="darker">
         <div class="container">
             <div class="sign">
+                <h1>Join Brush!</h1>
                 <form role="form" method="POST" action="{{ url('/register') }}">
                     {{ csrf_field() }}
 
@@ -38,9 +39,6 @@
 
                 </form>
             </div>
-        </div>
-        <div class="row" style="position: fixed;bottom: 50px;width: 100%;">
-            <p style="font-style: italic;text-align: center;">All Your Base Are Belong To Us</p>
         </div>
     </section>
     

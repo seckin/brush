@@ -9,6 +9,7 @@
     <section class="darker">
         <div class="container">
             <div class="sign">
+                <h1>Welcome back!</h1>
                 <form role="form" method="POST" action="{{ url('/login') }}">
                     {{ csrf_field() }}
 

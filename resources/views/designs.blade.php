@@ -13,6 +13,13 @@
  -->
     @include('partials.navbar')
 
+    <header class="promo">
+        <div class="container">
+            <h1>Before You Start...</h1>
+            <p>It's good to know how things work on Brush.</p>
+            @include('partials.features')
+        </div>
+    </header>
 	<section class="showcase">
 	    <div class="container">
 	        <h3>All Designs</h3>
