@@ -129,8 +129,10 @@
             <div class="display">
                 <img class="design" src="{{$design->image}}" />
                 <img class="canvas" src="{{$design->canvas_image}}" />
-                <img class="tshirt" src="{{$design->tshirt_image}}" />
+                <img class="tshirt" src="{{$design->tshirt_male_image}}" />
                 <!-- <img class="mug" style="display: none;" src="/assets/content/sample/artwork/04.png" /> -->
+                <div style="display:none;" data-tshirt-male-image="{{$design->tshirt_male_image}}"></div>
+                <div style="display:none;" data-tshirt-female-image="{{$design->tshirt_female_image}}"></div>
             </div>
 	    </div>
 	</section>
@@ -156,22 +158,6 @@
     
     @include('partials.footer')
     
-    <!--
-    <section class="modal">
-        <div class="container">
-            <div class="box">
-                <div class="head">
-                    <b>ONAY GEREKİYOR</b>
-                </div>
-                <div class="body">
-                    <p>Taslağı silmek istediğinizden emin misiniz?</p>
-                    <a class="button">TAMAM</a>
-                    <a class="button reject">İPTAL</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
     <script>
         function addToCart(size, iscanvas, $button, gender) {
             var designId = $(".design_id").data("designId");
@@ -256,6 +242,15 @@
         $("#canvasSizeInput").change(function() {
             var price = $("#canvasSize > a[data-value='" + $("#canvasSizeInput").attr("value") +"']").data("price");
             $(".canvas .price-text").html(price);
+        });
+        $("#tshirtGender").change(function() {
+            var val = $("#tshirtGenderInput").attr("value");
+            console.log("val:", val);
+            if(val == "Female") {
+                $(".display > .tshirt").attr("src", $("div[data-tshirt-female-image]").data("tshirtFemaleImage"));
+            } else {
+                $(".display > .tshirt").attr("src", $("div[data-tshirt-male-image]").data("tshirtMaleImage"));
+            }
         });
     </script>
 </body>

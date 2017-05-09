@@ -91,7 +91,8 @@ Route::get('/create-design', function () {
 
 Route::post('/create-design', function (Request $request) {
 	$imageUrl = upload_to_s3($request->file('image'));
-	$tshirtImageUrl = upload_to_s3($request->file('tshirt_image'));
+	$tshirtMaleImageUrl = upload_to_s3($request->file('tshirt_male_image'));
+	$tshirtFemaleImageUrl = upload_to_s3($request->file('tshirt_female_image'));
 	$canvasImageUrl = upload_to_s3($request->file('canvas_image'));
 
 	$design = new Design;
@@ -103,7 +104,8 @@ Route::post('/create-design', function (Request $request) {
 	$design->canvas_price = $request->canvas_price;
 	$design->canvas_limit = $request->canvas_limit;
 	$design->image = $imageUrl;
-	$design->tshirt_image = $tshirtImageUrl;
+	$design->tshirt_male_image = $tshirtMaleImageUrl;
+	$design->tshirt_female_image = $tshirtFemaleImageUrl;
 	$design->canvas_image = $canvasImageUrl;
 	$design->view_count = 0;
 	$design->save();

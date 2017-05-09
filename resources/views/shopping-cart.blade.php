@@ -12,8 +12,10 @@
             <div class="process">
                 @foreach($cartItems as $cartItem)
                 <div class="segment" data-cart-item-id="{{$cartItem->id}}">
-                    @if ($cartItem->productSpec->type == "tshirt")
-                    <img class="picture" src="{{$cartItem->design->tshirt_image}}" alt="{{$cartItem->design->name}}">
+                    @if ($cartItem->productSpec->type == "tshirt" && $cartItem->productSpec->gender == "Male")
+                    <img class="picture" src="{{$cartItem->design->tshirt_male_image}}" alt="{{$cartItem->design->name}}">
+                    @elseif ($cartItem->productSpec->type == "tshirt" && $cartItem->productSpec->gender == "Female")
+                    <img class="picture" src="{{$cartItem->design->tshirt_female_image}}" alt="{{$cartItem->design->name}}">
                     @endif
                     @if ($cartItem->productSpec->type == "canvas")
                     <img class="picture" src="{{$cartItem->design->canvas_image}}" alt="{{$cartItem->design->name}}">

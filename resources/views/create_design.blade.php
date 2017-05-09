@@ -68,7 +68,10 @@
                     Image: <input type="file" name="image" value="">
                     <span class="error">* Invalid Image</span>
                     <br><br>
-                    Tshirt Image: <input type="file" name="tshirt_image" value="">
+                    Tshirt Male Image: <input type="file" name="tshirt_male_image" value="">
+                    <span class="error">* Invalid Image</span>
+                    <br><br>
+                    Tshirt Female Image: <input type="file" name="tshirt_female_image" value="">
                     <span class="error">* Invalid Image</span>
                     <br><br>
                     Canvas Image: <input type="file" name="canvas_image" value="">

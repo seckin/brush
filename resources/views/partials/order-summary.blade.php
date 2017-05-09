@@ -67,8 +67,10 @@
         <div class="content">
             @foreach ($cartItems as $cartItem)
             <div class="product clearfix">
-                @if ($cartItem->productSpec->type == "tshirt")
-                <img class="product-image" src="{{$cartItem->design->tshirt_image}}" alt="{{$cartItem->design->name}}">
+                @if ($cartItem->productSpec->type == "tshirt" && $cartItem->productSpec->gender == "Male")
+                <img class="product-image" src="{{$cartItem->design->tshirt_male_image}}" alt="{{$cartItem->design->name}}">
+                @elseif ($cartItem->productSpec->type == "tshirt" && $cartItem->productSpec->gender == "Female")
+                <img class="product-image" src="{{$cartItem->design->tshirt_female_image}}" alt="{{$cartItem->design->name}}">
                 @endif
                 @if ($cartItem->productSpec->type == "canvas")
                 <img class="product-image" src="{{$cartItem->design->canvas_image}}" alt="{{$cartItem->design->name}}">
