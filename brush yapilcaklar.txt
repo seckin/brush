@@ -186,9 +186,22 @@ OK 404 ve 503 sayfasini duzelt
 
 OK Logo tiklanmiyor
 
+OK Tab label eklenecek
+
+OK Artist lokasyon bilgisi eklenmeli
+
+OK Cart bos ise menude cart olmayacak
+
+NOPE Kullanici daha once order yapmamissa order sayfasini goremeyecek
 
 
-all your base yerine bunu yaz: vive intensamente
+cart'taki fotolar eklenen item'in fotosu olsun (tshirt'se tshirt)
+
+female tshirt'u goruntulediginde url ve meta tagleri degissin
+
+facebook share twitter share butonlari koy. kadindayken kadinin share edildiginden emin ol
+
+OK all your base yerine bunu yaz: vive intensamente
 
 indirimli fiyati gosterirken indirimsiz fiyati da uzeri cizilmis sekilde goster order summary'de
 
@@ -230,15 +243,6 @@ tasarimcilarla kontaga gec. ~15 kisiye email/mesaj at
 		what you are looking for.
 		You also might want to try checking out designers on sites like threadless.com and
 		designbyhumans.com
-
-
-Artist lokasyon bilgisi eklenmeli
-
-Tab label eklenecek
-
-Cart bos ise menude cart olmayacak
-
-Kullanici daha once order yapmamissa order sayfasini goremeyecek
 
 katy perry bunu paylasip duruyor sosyal medyada. belki biz de unlulerin sayfalarini yapmaliyiz, + tr'deki instagram/twitter fenomenlerinin vs.
 	http://katyperry.shop.musictoday.com/store/

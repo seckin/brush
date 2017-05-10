@@ -849,3 +849,7 @@ table, th, td {
     background-repeat: repeat;
     background-color: transparent;
 }
+
+.dnone {
+	display: none !important;
+}

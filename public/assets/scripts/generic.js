@@ -171,6 +171,7 @@ function updateCart() {
         },
         success: function(data) {
             if(data.cartItems.length) {
+                $(".checkout.link").removeClass("dnone");
                 $(".header__amount").removeClass("is-hidden");
                 $(".header__amount").text("(" + data.cartItems.length + ")");
             } else {
