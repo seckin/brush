@@ -20,7 +20,7 @@
 	    <div class="container">
             <div class="title">
                 <h3>{{$design->name}}</h3>
-                <p>by <b><a href="#">{{$design->artist->name}}</a></b></p>
+                <p>by <b><a href="/artists/{{$design->artist->id}}">{{$design->artist->name}}</a></b></p>
             </div>
             <div class="visual">
                 <img class="design" src="{{$design->image}}" />
@@ -41,11 +41,11 @@
                     <p>{{$design->description}}</p>
                 </div>
                 <div class="canvas">
-                    <h3>Canvas</h3>
                     <p>Design printed on a canvas</p>
-                    <div class="progress" style="background-size: {{max (2, 100.0 * $canvas_total_sold / (1.0 * $canvas_limit))}}% 100%;">
-                        <h4 style="float:left;">{{$canvas_total_sold}} {{$canvas_total_sold == 1 ? "supporter" : "supporters" }}</h4>
-                        <h4 style="top: 10px;float: right;">{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</h4>
+                    <div class="progress">
+                        <b>{{$canvas_total_sold}} {{$canvas_total_sold == 1 ? "supporter" : "supporters" }}</b>
+                        <div style="background-size: {{max (2, 100.0 * $canvas_total_sold / (1.0 * $canvas_limit))}}% 100%;"></div>
+                        <b>{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</b>
                     </div>
                     <div class="price">
                         <span class="price-text">{{number_format($design->designSizes[0]->price / 100.0, 2, '.', '')}}</span>
@@ -81,16 +81,16 @@
                     </ul>
                 </div>
                 <div class="tshirt">
-                    <h3>Tshirt</h3>
                     <p>Design printed on a tshirt</p>
+                    <div class="progress">
+                        <b>{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</b>
+                        <div style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;"></div>
+                        <b>{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</b>
+                    </div>
                     <div class="price">
                         <span class="price-text">{{number_format($design->tshirt_price / 100.0, 2, '.', '')}}</span>
                         <i class="fa fa-try" aria-hidden="true"></i>
                         <div class="incl-tax">incl. tax excluding shipping fees</div>
-                    </div>
-                    <div class="progress" style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;">
-                        <h4 style="float:left;">{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</h4>
-                        <h4 style="top: 10px;float: right;">{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</h4>
                     </div>
                     <div class="options clearfix">
                         <div class="dropdown-wrapper">
