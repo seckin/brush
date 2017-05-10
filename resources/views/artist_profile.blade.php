@@ -21,7 +21,7 @@
             <div class="information">
                 <div class="head">
                     <h3>{{$artist->name}}</h3>
-                    <p><b>Montreal, Canada</b></p>
+                    <p><b>{{$artist->location}}</b></p>
                     <div class="tabbing">
                         <a class="tab active" data-id="about"></a>
                     </div>
@@ -37,6 +37,7 @@
             </div>
 	    </div>
 	</section>
+    @if (count($designs)) {
     <section class="showcase">
         <div class="container">
             <h3>From the Artist</h3>
@@ -52,6 +53,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     @include('partials.subscribe-to-list')
     

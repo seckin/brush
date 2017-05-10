@@ -40,6 +40,9 @@
                 </form>
             </div>
         </div>
+        <div class="row" style="bottom: 50px;width: 100%;">
+            <p style="font-style: italic;text-align: center;">Vive Intensamente!</p>
+        </div>
     </section>
     
     @include('partials.footer')

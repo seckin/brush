@@ -15,7 +15,7 @@
             <li>
                 <a class="account link my-account" href="javascript: void(0)">ACCOUNT</a>
                 <div class="submenu accountdetails">
-                    <a href="/my-account">My Account</a>
+                    <a href="/my-account">My Orders</a>
                     <a href="/logout">Logout</a>
                 </div>
             </li>
@@ -24,7 +24,7 @@
             <li><a class="register link" href="/register">REGISTER</a></li>
             <?php }?>
             <li>
-                <a class="checkout link" href="#" class="js-ajax-cart-link header-button header-button--cart">
+                <a class="checkout link dnone" href="#" class="js-ajax-cart-link header-button header-button--cart">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span class="">
                       <span class="hide-tablet">CART</span>
