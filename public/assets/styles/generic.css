@@ -155,7 +155,8 @@ header p:last-of-type { margin-bottom: 1em; }
 header button, header .button { background-color: transparent; }
 header button:hover, header .button:hover { text-shadow: -3px 3px rgba(33, 33, 33, .25); }
 header button:active, header .button:active { text-shadow: 0px 0px rgba(33, 33, 33, 0); }
-header.blank { display: block; overflow: hidden; height: 200px; background-size: cover; background-position: center top; filter: blur(40px) brightness(115%) grayscale(35%); }
+header.blank { display: block; overflow: hidden; height: 200px; }
+header.display { display: block; overflow: hidden; height: 200px; background-size: cover; background-position: center top; filter: blur(40px) brightness(115%) grayscale(35%); }
 
 /* Sections */
 
@@ -210,64 +211,64 @@ section.showcase button.bottom, section.showcase .button.bottom { margin-bottom:
 
 /* Section: Presentation */
 
-section.presentation > .container { position: relative; margin: 4% auto; margin-top: -150px; }
-section.presentation > .container > div { position: relative; }
-section.presentation > .container > div.display { float: left; width: 42.5%; border-style: solid; border-width: 0px 2px; -moz-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -webkit-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -o-border-image: url(/assets/images/interface/border-image.png) 27 stretch; border-image: url(/assets/images/interface/border-image.png) 27 fill; }
-section.presentation > .container > div.display > img { display: none; box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
-section.presentation > .container > div.information { display: table; float: right; width: 55%; margin-left: 2.5%; }
-section.presentation > .container > div.information .head { display: inline-block; position: relative; width: 100%; height: 150px; }
-section.presentation > .container > div.information .head > h3 { margin-top: 1%; font-size: 2.4em; line-height: 75%; text-transform: uppercase; }
-section.presentation > .container > div.information .head > h3 + p { margin: 0; margin-top: 2%; line-height: 75%; }
-section.presentation > .container > div.information .head > .tabbing { float: right; position: absolute; left: 0; bottom: 0; width: 100%; height: 50px; }
-section.presentation > .container > div.information .head > .tabbing a { display: block; float: left; margin-left: 5px; height: 50px; padding-left: 50px; background-color: rgba(0, 0, 0, .1); background-repeat: no-repeat; transition: background-color .35s ease; }
-section.presentation > .container > div.information .head > .tabbing a::after { display: block; padding-right: 15px; font-size: .85em; line-height: 50px; }
-section.presentation > .container > div.information .head > .tabbing a:first-of-type { margin-left: 0; }
-section.presentation > .container > div.information .head > .tabbing a.active { background-color: rgba(255, 255, 255, 1); }
-section.presentation > .container > div.information .head > .tabbing a[data-id="design"] { background-image: url(/assets/images/interface/icon-tab_design.png); }
-section.presentation > .container > div.information .head > .tabbing a[data-id="design"]::after { content: 'Design'; }
-section.presentation > .container > div.information .head > .tabbing a[data-id="canvas"] { background-image: url(/assets/images/interface/icon-tab_canvas.png); }
-section.presentation > .container > div.information .head > .tabbing a[data-id="canvas"]::after { content: 'Wall Art'; }
-section.presentation > .container > div.information .head > .tabbing a[data-id="tshirt"] { background-image: url(/assets/images/interface/icon-tab_tshirt.png); }
-section.presentation > .container > div.information .head > .tabbing a[data-id="tshirt"]::after { content: 'T-Shirt'; }
-section.presentation > .container > div.information .head > .tabbing a[data-id="mug"] { background-image: url(/assets/images/interface/icon-tab_mug.png); }
-section.presentation > .container > div.information .head > .tabbing a[data-id="mug"]::after { content: 'Mug'; }
-section.presentation > .container > div.information .head > .tabbing a[data-id="about"] { background-image: url(/assets/images/interface/icon-tab_about.png); }
-section.presentation > .container > div.information .head > .tabbing a[data-id="about"]::after { content: 'About'; }
-section.presentation > .container > div.information .body > div { display: none; position: relative; }
-section.presentation > .container > div.information .body { margin-top: 5%; }
-section.presentation > .container > div.information .body .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
-section.presentation > .container > div.information .body .tags > a:hover { top: -2px; }
-section.presentation > .container > div.information .body h3 { line-height: 67%; }
-section.presentation > .container > div.information .body p { width: 100%; margin-bottom: 1%; }
-section.presentation > .container > div.information .body .price { position: absolute; text-align: right; top: 0; right: 0; font-size: 2em; }
-section.presentation > .container > div.information .body .price .price-text { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; text-transform: uppercase; letter-spacing: -.05em; }
-section.presentation > .container > div.information .body .price .incl-tax { font-size: 14px; font-weight: lighter; color: gray; }
-section.presentation > .container > div.information .body button.dropdown { margin-top: 2%; }
-section.presentation > .container > div.information .body .extra { opacity: .65; margin-top: 5%; font-size: .75em; }
-section.presentation > .container > div.information .body .extra li::before { content: '✓'; margin-right: .15em; }
-section.presentation button.dropdown > a i { float: right; height: 50px; font-size: .95em; line-height: 50px; display: inline; }
-section.presentation button.dropdown > a::after { content: attr(data-price); float: right; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
-section.presentation button.dropdown > a:first-child i { display: none; }
-section.presentation button.dropdown > a:first-child::after { display: none; }
+section.display > .container { position: relative; margin: 4% auto; margin-top: -150px; }
+section.display > .container > div { display: table; position: relative; float: right; width: 55%; }
+section.display > .container > .title { display: inline-block; position: relative; height: 75px; }
+section.display > .container > .title > h3 { margin-top: 1%; font-size: 2.4em; line-height: 75%; text-transform: uppercase; }
+section.display > .container > .title > h3 + p { margin: 0; margin-top: 2%; line-height: 75%; }
+section.display > .container > .visual { float: left; width: 42.5%; border-style: solid; border-width: 0px 2px; -moz-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -webkit-border-image: url(/assets/images/interface/border-image.png) 27 stretch; -o-border-image: url(/assets/images/interface/border-image.png) 27 stretch; border-image: url(/assets/images/interface/border-image.png) 27 fill; }
+section.display > .container > .visual > img { display: none; box-sizing: border-box; width: 100%; padding: 2.5%; background-color: rgba(255, 255, 255, 1); border-top: 1px solid rgba(0, 0, 0, .15); }
+section.display > .container > .tabbing { left: 0; bottom: 0; height: 50px; margin-top: 25px; }
+section.display > .container > .tabbing a { display: block; float: left; margin-left: 5px; height: 50px; padding-left: 50px; background-color: rgba(0, 0, 0, .1); background-repeat: no-repeat; transition: background-color .35s ease; }
+section.display > .container > .tabbing a::after { display: block; padding-right: 15px; font-size: .85em; line-height: 50px; }
+section.display > .container > .tabbing a:first-of-type { margin-left: 0; }
+section.display > .container > .tabbing a.active { background-color: rgba(255, 255, 255, 1); }
+section.display > .container > .tabbing a[data-id="design"] { background-image: url(/assets/images/interface/icon-tab_design.png); }
+section.display > .container > .tabbing a[data-id="design"]::after { content: 'Design'; }
+section.display > .container > .tabbing a[data-id="canvas"] { background-image: url(/assets/images/interface/icon-tab_canvas.png); }
+section.display > .container > .tabbing a[data-id="canvas"]::after { content: 'Wall Art'; }
+section.display > .container > .tabbing a[data-id="tshirt"] { background-image: url(/assets/images/interface/icon-tab_tshirt.png); }
+section.display > .container > .tabbing a[data-id="tshirt"]::after { content: 'T-Shirt'; }
+section.display > .container > .tabbing a[data-id="mug"] { background-image: url(/assets/images/interface/icon-tab_mug.png); }
+section.display > .container > .tabbing a[data-id="mug"]::after { content: 'Mug'; }
+section.display > .container > .tabbing a[data-id="about"] { background-image: url(/assets/images/interface/icon-tab_about.png); }
+section.display > .container > .tabbing a[data-id="about"]::after { content: 'About'; }
+section.display > .container > .information > div { display: none; position: relative; }
+section.display > .container > .information { margin-top: 5%; }
+section.display > .container > .information .tags > a { position: relative; padding: .75% 1%; color: rgba(255, 255, 255, 1); font-size: .75em; background-color: rgba(33, 33, 33, .5); }
+section.display > .container > .information .tags > a:hover { top: -2px; }
+section.display > .container > .information h3 { line-height: 67%; }
+section.display > .container > .information p { width: 100%; margin-bottom: 1%; }
+section.display > .container > .information .price { display: inline-block; position: absolute; text-align: right; top: 0; right: 0; font-size: 2em; }
+section.display > .container > .information .price .price-text { font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; text-transform: uppercase; letter-spacing: -.05em; }
+section.display > .container > .information .price .incl-tax { font-size: 14px; font-weight: lighter; color: gray; }
+section.display > .container > .information button.dropdown { margin-top: 2%; }
+section.display > .container > .information .extra { opacity: .65; margin-top: 5%; font-size: .75em; }
+section.display > .container > .information .extra li::before { content: '✓'; margin-right: .15em; }
+section.display button.dropdown > a i { float: right; height: 50px; font-size: .95em; line-height: 50px; display: inline; }
+section.display button.dropdown > a::after { content: attr(data-price); float: right; font-family: "robotoblack", "Roboto Black", "Roboto", sans-serif; }
+section.display button.dropdown > a:first-child i { display: none; }
+section.display button.dropdown > a:first-child::after { display: none; }
 
-section.presentation button.dropdown#canvasSize > a:first-child::before { content: 'Canvas Size: '; }
-section.presentation button.dropdown#tshirtSize > a:first-child::before { content: 'Tshirt Size: '; }
-section.presentation button.dropdown#tshirtGender > a:first-child::before { content: 'Gender: '; }
+section.display button.dropdown#canvasSize > a:first-child::before { content: 'Canvas Size: '; }
+section.display button.dropdown#tshirtSize > a:first-child::before { content: 'Tshirt Size: '; }
+section.display button.dropdown#tshirtGender > a:first-child::before { content: 'Gender: '; }
 
-section.presentation button.submit { float: left; }
+section.display button.submit { float: left; }
 
-section.presentation .progress { display: block; width: 100%; height: 10px; margin-top: calc(5% + 25px); margin-bottom: 5%; background-color: rgba(33, 33, 33, .15); background-image: url(/assets/images/interface/bg-progress2.png); background-position: bottom left; background-repeat: no-repeat; }
-section.presentation .progress > h4 { position: relative; top: -25px; float: right; }
+section.display .progress { width: 100%; margin: 5% 0; }
+section.display .progress > div { display: block; width: 100%; height: 10px; margin: 1% 0; background-color: rgba(33, 33, 33, .15); background-image: url(/assets/images/interface/bg-progress2.png); background-position: bottom left; background-repeat: no-repeat; }
+section.display .progress > b { display: block; width: 100%; }
+section.display .progress > b:last-of-type { text-align: right; }
 
-
-section.presentation[data-tab="about"] .about { display: block !important; }
-section.presentation[data-tab="design"] .design { display: block !important; }
-section.presentation[data-tab="canvas"] .canvas { display: block !important; }
-section.presentation[data-tab="canvas"] .canvas p { width: 75% !important; margin-bottom: 1%; }
-section.presentation[data-tab="tshirt"] .tshirt { display: block !important; }
-section.presentation[data-tab="tshirt"] .tshirt p { width: 75% !important; margin-bottom: 1%; }
-section.presentation[data-tab="mug"] .mug { display: block !important; }
-section.presentation[data-tab="mug"] .mug p { width: 75% !important; margin-bottom: 1%; }
+section.display[data-tab="about"] .about { display: block !important; }
+section.display[data-tab="design"] .design { display: block !important; }
+section.display[data-tab="canvas"] .canvas { display: block !important; }
+section.display[data-tab="canvas"] .canvas p { width: 75%; margin-bottom: 1%; }
+section.display[data-tab="tshirt"] .tshirt { display: block !important; }
+section.display[data-tab="tshirt"] .tshirt p { width: 75%; margin-bottom: 1%; }
+section.display[data-tab="mug"] .mug { display: block !important; }
+section.display[data-tab="mug"] .mug p { width: 75%; margin-bottom: 1%; }
 
 /* Section: Checkout > Cart */
 
@@ -533,6 +534,7 @@ h1, h2, a, a:visited, a.link, a.link:visited, a.link::after { color: rgba(33, 33
     
     body > nav + header:first-of-type, body > nav + section:first-of-type { margin-top: 60px; }
     
+    header.display { height: 500px; }
     header h1 { margin-bottom: 5%; }
     header p { display: inline; font-size: 1em; line-height: 125%; }
     header button, header .button { padding: 0 4%; }
@@ -554,6 +556,14 @@ h1, h2, a, a:visited, a.link, a.link:visited, a.link::after { color: rgba(33, 33
     section.service .information.container div:first-child { margin-left: 2%; }
     section.service .information.container div:last-child { width: 100%; margin-top: 5%; }
     section.service .help.container div { width: 100%; margin-bottom: 2.5%; }
+    
+    section.display > .container { margin-top: -450px; }
+    section.display > .container > div { float: none !important; width: 100%; }
+    section.display > .container > .title { text-align: center; }
+    section.display > .container > .visual { width: 300px; height: 300px; margin: 0 auto; }
+    section.display > .container > .tabbing { width: auto; margin: 25px auto 0 auto; }
+    section.display > .container .information > div > * { width: 100%; }
+    section.display > .container .information > div > .price { position: relative; margin-top: 5%; }
     
     .promo .container { display: grid; }
     
@@ -603,6 +613,7 @@ h1, h2, a, a:visited, a.link, a.link:visited, a.link::after { color: rgba(33, 33
     
     body > nav + header:first-of-type, body > nav + section:first-of-type { margin-top: 60px; }
     
+    header.display { height: 500px; }
     header h1 { margin-bottom: 4%; }
     header p { display: inline; }
     header button, header .button { padding: 0 4%; }
@@ -625,6 +636,12 @@ h1, h2, a, a:visited, a.link, a.link:visited, a.link::after { color: rgba(33, 33
     section.service .information.container div:last-child { width: 100%; margin-top: 5%; }
     section.service .help.container div:first-child { width: 100%; margin-bottom: 5%; }
     section.service .help.container div:last-child { margin-left: 2%; }
+    
+    section.display > .container { margin-top: -450px; }
+    section.display > .container > div { float: none !important; width: 100%; }
+    section.display > .container > .title { text-align: center; }
+    section.display > .container > .visual { width: 300px; height: 300px; margin: 0 auto; }
+    section.display > .container > .tabbing { width: auto; margin: 25px auto 0 auto; }
     
     .promo .container { display: grid; }
     

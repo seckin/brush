@@ -205,15 +205,15 @@ OK all your base yerine bunu yaz: vive intensamente
 
 indirimli fiyati gosterirken indirimsiz fiyati da uzeri cizilmis sekilde goster order summary'de
 
-artist'lere location ekle, profilde de goster
+OK artist'lere location ekle, profilde de goster
 
-tshirt gender resim degistirme
+OK tshirt gender resim degistirme
 
 cart icin zero case yap
 
-be distinguished'i degistir
+OK be distinguished'i degistir
 
-tshirt fotosu kadin erkek secildiginde degiscek
+OK tshirt fotosu kadin erkek secildiginde degiscek
 
 ornek designlar koycak ozan ~10 tane
 
