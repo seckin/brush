@@ -14,125 +14,123 @@
 
     @include('partials.navbar')
 
-    <header class="blank" style="background-image: url({{$design->image}});"></header>
+    <header class="display" style="background-image: url({{$design->image}});"></header>
     <div class="design_id" data-design-id="{{$design->id}}"></div>
-	<section id="design-detail" class="presentation" data-tab="design">
+	<section id="design-detail" class="display" data-tab="design">
 	    <div class="container">
-            <div class="information">
-                <div class="head">
-                    <h3>{{$design->name}}</h3>
-                    <p>by <b><a href="#">{{$design->artist->name}}</a></b></p>
-                    <div class="tabbing">
-                        <a class="tab active" data-id="design"></a>
-                        <a class="tab" data-id="canvas"></a>
-                        <a class="tab" data-id="tshirt"></a>
-                        <!-- <a class="tab" data-id="mug"></a> -->
-                    </div>
-                </div>
-                <div class="body">
-                    <div class="design">
-                        <p>{{$design->description}}</p>
-                    </div>
-                    <div class="canvas">
-                        <h3>Canvas</h3>
-                        <p>Design printed on a canvas</p>
-                        <div class="progress" style="background-size: {{max (2, 100.0 * $canvas_total_sold / (1.0 * $canvas_limit))}}% 100%;">
-                            <h4 style="float:left;">{{$canvas_total_sold}} {{$canvas_total_sold == 1 ? "supporter" : "supporters" }}</h4>
-                            <h4 style="top: 10px;float: right;">{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</h4>
-                        </div>
-                        <div class="price">
-                            <span class="price-text">{{number_format($design->designSizes[0]->price / 100.0, 2, '.', '')}}</span>
-                            <i class="fa fa-try" aria-hidden="true"></i>
-                            <div class="incl-tax">incl. tax excluding shipping fees</div>
-                        </div>
-                        <div class="options clearfix">
-                            <div class="dropdown-wrapper">
-                                <button id="canvasSize" class="dropdown">
-                                    <a data-value="" href="#">Please select...</a>
-                                    @foreach ($design->designSizes as $designSize)
-                                    <a data-value="{{$designSize->size}}" data-price="{{number_format($designSize->price / 100.0, 2, '.', '')}}" href="#">
-                                        {{$designSize->size}}
-                                        <i class="fa fa-try" aria-hidden="true"></i>
-                                    </a>
-                                    @endforeach
-                                    <input id="canvasSizeInput" type="text" value="" />
-                                </button>
-                            </div>
-                            <button id="canvas-addtocart-button" class="submit action tocart <?php if ($canvas_total_sold == $canvas_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">Add to Cart</button>
-                            @if ($canvas_total_sold == $canvas_limit)
-                                <div style="clear: both;">Canvas sold out :(</div>
-                            @endif
-                        </div>
-                        <p id="canvasinfo"></p>
-                        <ul class="extra">
-                            <li>Delivery in 3 to 6 working days after the campaign is over.</li>
-                            <li>Gallery-quality fine art canvas print.</li>
-                            <li>The canvas material is printed and then stretched on a wooden frame. The design covers the edges of the canvas.</li>
-                            <li>Material: 340 g/m² cotton (65%) and polyester (35%)</li>
-                            <li>Finish: Matt</li>
-                            <li>Print Type: 12-colour digital printing</li>
-                        </ul>
-                    </div>
-                    <div class="tshirt">
-                        <h3>Tshirt</h3>
-                        <p>Design printed on a tshirt</p>
-                        <div class="price">
-                            <span class="price-text">{{number_format($design->tshirt_price / 100.0, 2, '.', '')}}</span>
-                            <i class="fa fa-try" aria-hidden="true"></i>
-                            <div class="incl-tax">incl. tax excluding shipping fees</div>
-                        </div>
-                        <div class="progress" style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;">
-                            <h4 style="float:left;">{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</h4>
-                            <h4 style="top: 10px;float: right;">{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</h4>
-                        </div>
-                        <div class="options clearfix">
-                            <div class="dropdown-wrapper">
-                                <button id="tshirtGender" class="dropdown">
-                                    <a data-value="" href="#">Please select...</a>
-                                    <a data-value="Female" href="#">Female</a>
-                                    <a data-value="Male" href="#">Male</a>
-                                    <input id="tshirtGenderInput" type="text" value="" />
-                                </button>
-                            </div>
-                            <div class="dropdown-wrapper">
-                                <button id="tshirtSize" class="dropdown">
-                                    <a data-value="" href="#">Please select...</a>
-                                    <a data-value="S" href="#">Small</a>
-                                    <a data-value="M" href="#">Medium</a>
-                                    <a data-value="L" href="#">Large</a>
-                                    <a data-value="XL" href="#">X-Large</a>
-                                    <a data-value="XXL" href="#">XX-Large</a>
-                                    <input id="tshirtSizeInput" type="text" value="" />
-                                </button>
-                            </div>
-                            <button id="tshirt-addtocart-button" class="submit action tocart <?php if ($tshirt_total_sold == $tshirt_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">Add to Cart</button>
-                            @if ($tshirt_total_sold == $tshirt_limit)
-                                <p class="error">T-shirt sold out :(</p>
-                            @endif
-                        </div>
-                        <p id="tshirtinfo"></p>
-                        <ul class="extra">
-                            <li>Delivery in 3 to 6 working days after the campaign is over.</li>
-                            <li>Material: 100% cotton jersey</li>
-                            <li>Fit: Regular fit</li>
-                            <li>Print Type: Digital-direct printing</li>
-                            <li>Care: Machine washable at 30ºC</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- <div class="mug">
-                        <h3>Mug</h3>
-                        <p>Mug content</p>
-                    </div> -->
-                </div>
+            <div class="title">
+                <h3>{{$design->name}}</h3>
+                <p>by <b><a href="#">{{$design->artist->name}}</a></b></p>
             </div>
-            <div class="display">
+            <div class="visual">
                 <img class="design" src="{{$design->image}}" />
                 <img class="canvas" src="{{$design->canvas_image}}" />
                 <img class="tshirt" src="{{$design->tshirt_male_image}}" />
                 <!-- <img class="mug" style="display: none;" src="/assets/content/sample/artwork/04.png" /> -->
                 <div style="display:none;" data-tshirt-male-image="{{$design->tshirt_male_image}}"></div>
                 <div style="display:none;" data-tshirt-female-image="{{$design->tshirt_female_image}}"></div>
+            </div>
+            <div class="tabbing">
+                <a class="tab active" data-id="design"></a>
+                <a class="tab" data-id="canvas"></a>
+                <a class="tab" data-id="tshirt"></a>
+                <!-- <a class="tab" data-id="mug"></a> -->
+            </div>
+            <div class="information">
+                <div class="design">
+                    <p>{{$design->description}}</p>
+                </div>
+                <div class="canvas">
+                    <h3>Canvas</h3>
+                    <p>Design printed on a canvas</p>
+                    <div class="progress" style="background-size: {{max (2, 100.0 * $canvas_total_sold / (1.0 * $canvas_limit))}}% 100%;">
+                        <h4 style="float:left;">{{$canvas_total_sold}} {{$canvas_total_sold == 1 ? "supporter" : "supporters" }}</h4>
+                        <h4 style="top: 10px;float: right;">{{$canvas_limit - $canvas_total_sold}} needed to reach {{$canvas_limit}}</h4>
+                    </div>
+                    <div class="price">
+                        <span class="price-text">{{number_format($design->designSizes[0]->price / 100.0, 2, '.', '')}}</span>
+                        <i class="fa fa-try" aria-hidden="true"></i>
+                        <div class="incl-tax">incl. tax excluding shipping fees</div>
+                    </div>
+                    <div class="options clearfix">
+                        <div class="dropdown-wrapper">
+                            <button id="canvasSize" class="dropdown">
+                                <a data-value="" href="#">Please select...</a>
+                                @foreach ($design->designSizes as $designSize)
+                                <a data-value="{{$designSize->size}}" data-price="{{number_format($designSize->price / 100.0, 2, '.', '')}}" href="#">
+                                    {{$designSize->size}}
+                                    <i class="fa fa-try" aria-hidden="true"></i>
+                                </a>
+                                @endforeach
+                                <input id="canvasSizeInput" type="text" value="" />
+                            </button>
+                        </div>
+                        <button id="canvas-addtocart-button" class="submit action tocart <?php if ($canvas_total_sold == $canvas_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">Add to Cart</button>
+                        @if ($canvas_total_sold == $canvas_limit)
+                            <div style="clear: both;">Canvas sold out :(</div>
+                        @endif
+                    </div>
+                    <p id="canvasinfo"></p>
+                    <ul class="extra">
+                        <li>Delivery in 3 to 6 working days after the campaign is over.</li>
+                        <li>Gallery-quality fine art canvas print.</li>
+                        <li>The canvas material is printed and then stretched on a wooden frame. The design covers the edges of the canvas.</li>
+                        <li>Material: 340 g/m² cotton (65%) and polyester (35%)</li>
+                        <li>Finish: Matt</li>
+                        <li>Print Type: 12-colour digital printing</li>
+                    </ul>
+                </div>
+                <div class="tshirt">
+                    <h3>Tshirt</h3>
+                    <p>Design printed on a tshirt</p>
+                    <div class="price">
+                        <span class="price-text">{{number_format($design->tshirt_price / 100.0, 2, '.', '')}}</span>
+                        <i class="fa fa-try" aria-hidden="true"></i>
+                        <div class="incl-tax">incl. tax excluding shipping fees</div>
+                    </div>
+                    <div class="progress" style="background-size: {{max (2, 100.0 * $tshirt_total_sold / (1.0 * $tshirt_limit))}}% 100%;">
+                        <h4 style="float:left;">{{$tshirt_total_sold}} {{$tshirt_total_sold == 1 ? "supporter" : "supporters" }}</h4>
+                        <h4 style="top: 10px;float: right;">{{$tshirt_limit - $tshirt_total_sold}} needed to reach {{$tshirt_limit}}</h4>
+                    </div>
+                    <div class="options clearfix">
+                        <div class="dropdown-wrapper">
+                            <button id="tshirtGender" class="dropdown">
+                                <a data-value="" href="#">Please select...</a>
+                                <a data-value="Female" href="#">Female</a>
+                                <a data-value="Male" href="#">Male</a>
+                                <input id="tshirtGenderInput" type="text" value="" />
+                            </button>
+                        </div>
+                        <div class="dropdown-wrapper">
+                            <button id="tshirtSize" class="dropdown">
+                                <a data-value="" href="#">Please select...</a>
+                                <a data-value="S" href="#">Small</a>
+                                <a data-value="M" href="#">Medium</a>
+                                <a data-value="L" href="#">Large</a>
+                                <a data-value="XL" href="#">X-Large</a>
+                                <a data-value="XXL" href="#">XX-Large</a>
+                                <input id="tshirtSizeInput" type="text" value="" />
+                            </button>
+                        </div>
+                        <button id="tshirt-addtocart-button" class="submit action tocart <?php if ($tshirt_total_sold == $tshirt_limit) { echo 'disabled';} ?>" type="submit" title="Add to Cart">Add to Cart</button>
+                        @if ($tshirt_total_sold == $tshirt_limit)
+                            <p class="error">T-shirt sold out :(</p>
+                        @endif
+                    </div>
+                    <p id="tshirtinfo"></p>
+                    <ul class="extra">
+                        <li>Delivery in 3 to 6 working days after the campaign is over.</li>
+                        <li>Material: 100% cotton jersey</li>
+                        <li>Fit: Regular fit</li>
+                        <li>Print Type: Digital-direct printing</li>
+                        <li>Care: Machine washable at 30ºC</li>
+                    </ul>
+                </div>
+
+                <!-- <div class="mug">
+                    <h3>Mug</h3>
+                    <p>Mug content</p>
+                </div> -->
             </div>
 	    </div>
 	</section>
@@ -247,9 +245,9 @@
             var val = $("#tshirtGenderInput").attr("value");
             console.log("val:", val);
             if(val == "Female") {
-                $(".display > .tshirt").attr("src", $("div[data-tshirt-female-image]").data("tshirtFemaleImage"));
+                $(".visual > .tshirt").attr("src", $("div[data-tshirt-female-image]").data("tshirtFemaleImage"));
             } else {
-                $(".display > .tshirt").attr("src", $("div[data-tshirt-male-image]").data("tshirtMaleImage"));
+                $(".visual > .tshirt").attr("src", $("div[data-tshirt-male-image]").data("tshirtMaleImage"));
             }
         });
     </script>
